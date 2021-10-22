@@ -80,17 +80,17 @@ function serverRouter(app){
     });
 
     router.post('/form', (req, res) => {
-        console.log("Ruta productos ----> Form");
+        console.log("Ruta form ---> Post");
         let producto = req.body;
-        console.log(req.body);
-        console.log(req.body.title);
-        console.log(req.files);
-        console.log(req.query);
-        // let incrementarId = productos.length + 1;
-        // producto.id = incrementarId;
-        // productos.push(producto);
-        // res.send(producto)
+        if (producto.title && producto.price && producto.thumbnail) {
+            console.log("Todo OK");
+            let incrementarId = productos.length + 1;
+            producto.id = incrementarId;
+            productos.push(producto);
+            res.send(producto);
+    }
     });
+
 }
 
 module.exports = serverRouter;
