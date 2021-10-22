@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { path } = require('path');
+const  path  = require('path');
 
 let productos = [
     {
@@ -25,25 +25,32 @@ let productos = [
 
 function serverRouter(app){
     app.use('/api', router);
+    app.use('/api', router);
 
     router.get('/', (req, res) => {
-        console.log("Ruta raiz");
-        res.send('Hi');
+        console.log("main");
+        res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 
     router.get('/productos', (req, res) => {
-        console.log("Ruta productos  ---> Get All");
         res.send(productos);
     });
     router.get('/productos/:id', (req, res) => {
         console.log("Ruta productos ---> Get (ID)");
         let id = req.params.id;
         let producto = productos.find(producto => producto.id == id);
-        res.send(producto);
+        if (producto) {
+            res.send(producto);
+        }else{
+            res.send({
+                error: "Producto no encontrado"
+            })
+        }
     });
 
+
     router.post('/productos', (req, res) => {
-        console.log("Ruta productos");
+        console.log("Ruta productos ---> Post");
         let producto = req.body;
         let incrementarId = productos.length + 1;
         producto.id = incrementarId;
@@ -70,6 +77,19 @@ function serverRouter(app){
         let index = productos.indexOf(productoEliminado);
         productos.splice(index, 1);
         res.send(productoEliminado);
+    });
+
+    router.post('/form', (req, res) => {
+        console.log("Ruta productos ----> Form");
+        let producto = req.body;
+        console.log(req.body);
+        console.log(req.body.title);
+        console.log(req.files);
+        console.log(req.query);
+        // let incrementarId = productos.length + 1;
+        // producto.id = incrementarId;
+        // productos.push(producto);
+        // res.send(producto)
     });
 }
 
