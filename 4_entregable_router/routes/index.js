@@ -2,95 +2,81 @@ const { Router } = require('express');
 const router = Router();
 const  path  = require('path');
 
-let productos = [
+let products = [
     {
         id: 1,
-        title: "Producto 1",
+        title: 'Product 1',
         price: 100,
-        thumbnail: ""
+        thumbnail: 'LINK'
     },
     {
         id: 2,
-        title: "Producto 2",
+        title: 'Product 2',
         price: 200,
-        thumbnail: ""
+        thumbnail: 'LINK'
     },
     {
         id: 3,
-        title: "Producto 3",
+        title: 'Product 3',
         price: 300,
-        thumbnail: ""
+        thumbnail: 'LINK'
     }
-];
+]
+
 
 function serverRouter(app){
     app.use('/api', router);
-    app.use('/api', router);
-
     router.get('/', (req, res) => {
-        console.log("main");
         res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 
-    router.get('/productos', (req, res) => {
-        res.send(productos);
+    router.get('/products', (req, res) => {
+        res.send(products);
     });
-    router.get('/productos/:id', (req, res) => {
-        console.log("Ruta productos ---> Get (ID)");
+    router.get('/products/:id', (req, res) => {
         let id = req.params.id;
-        let producto = productos.find(producto => producto.id == id);
-        if (producto) {
-            res.send(producto);
+        let product = products.find(product => product.id == id);
+        if (product) {
+            res.send(product);
         }else{
-            res.send({
-                error: "Producto no encontrado"
-            })
+            res.status(404).send({message: 'Product not found'});
         }
     });
 
-
-    router.post('/productos', (req, res) => {
-        console.log("Ruta productos ---> Post");
-        let producto = req.body;
-        let incrementarId = productos.length + 1;
-        producto.id = incrementarId;
-        productos.push(producto);
-        res.send(producto);
+    router.post('/products', (req, res) => {
+        let product = req.body;
+        let incrementarId = products[products.length - 1].id + 1;
+        product.id = incrementarId;
+        products.push(product);
+        res.send(product);
     });
 
-    router.put('/productos/:id', (req, res) => {
-        console.log("Ruta productos ---> Update");
-        console.log(productos);
+    router.put('/products/:id', (req, res) => {
         let id = req.params.id;
-        let productoEntrada = req.body;
-        let productoActualizado = productos.find(producto => producto.id == id);
-        productoActualizado.title = productoEntrada.title;
-        productoActualizado.price = productoEntrada.price;
-        productoActualizado.thumbnail = productoEntrada.thumbnail;
-        res.send(productoActualizado);
+        let inputProduct = req.body;
+        let updatedProduct = products.find(product => product.id == id);
+        updatedProduct.title = inputProduct.title;
+        updatedProduct.price = inputProduct.price;
+        updatedProduct.thumbnail = inputProduct.thumbnail;
+        res.send(updatedProduct);
     })
 
-    router.delete('/productos/:id', (req, res) => {
-        console.log("Ruta productos ----> Delete");
+    router.delete('/products/:id', (req, res) => {
         let id = req.params.id;
-        let productoEliminado = productos.find(producto => producto.id == id);
-        let index = productos.indexOf(productoEliminado);
-        productos.splice(index, 1);
-        res.send(productoEliminado);
+        let deletedProduct = products.find(product => product.id == id);
+        products = products.filter(product => product.id != id);
+        res.send(deletedProduct);
     });
 
     router.post('/form', (req, res) => {
-        console.log("Ruta form ---> Post");
-        let producto = req.body;
-        if (producto.title && producto.price && producto.thumbnail) {
-            console.log("Todo OK");
-            let incrementarId = productos.length + 1;
-            producto.id = incrementarId;
-            productos.push(producto);
-            res.send(producto);
+        let product = req.body;
+        if (product.title && product.price && product.thumbnail) {
+            let incrementarId = products[products.length - 1].id + 1;
+            product.id = incrementarId;
+            products.push(product);
+            res.send(product);
     }
     });
-
 }
 
 module.exports = serverRouter;

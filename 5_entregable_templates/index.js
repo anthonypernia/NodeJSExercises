@@ -20,10 +20,11 @@ app.listen(PORT, ( err) => {
     } else {
         console.log(`Server is listening on port ${PORT}`);
     }
+    
 });
 
 app.get('/', (req, res) => {
-    res.send('Ok');
+    res.send('Hello World');
 });
 
 serverRouter(app);
