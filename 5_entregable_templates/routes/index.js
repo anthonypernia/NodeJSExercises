@@ -2,35 +2,33 @@ const { Router } = require('express');
 const router = Router();
 const  path  = require('path');
 const handlebars = require('express-handlebars');
-const express = require('express');
 
 let products = [
     {
         id: 1,
-        title: "product 1",
+        title: 'House',
         price: 100,
-        thumbnail: ""
+        thumbnail: 'https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/Home-icon.png'
     },
     {
         id: 2,
-        title: "product 2",
+        title: 'Car',
         price: 200,
-        thumbnail: ""
+        thumbnail: 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/car-front-01-512.png'
     },
     {
         id: 3,
-        title: "product 3",
+        title: 'Laptop',
         price: 300,
-        thumbnail: ""
+        thumbnail: 'https://cdn2.iconfinder.com/data/icons/whcompare-isometric-web-hosting-servers/50/laptop-with-code-512.png'
     }
-];
+]
+
+
 
 function serverRouter(app){
     app.use('/api', router);
-    app.use('/api', router);
-
     router.get('/', (req, res) => {
-        console.log("main");
         res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 
@@ -38,31 +36,24 @@ function serverRouter(app){
         res.send(products);
     });
     router.get('/products/:id', (req, res) => {
-        console.log("Route products ---> Get (ID)");
         let id = req.params.id;
         let product = products.find(product => product.id == id);
         if (product) {
             res.send(product);
         }else{
-            res.send({
-                error: "product no encontrado"
-            })
+            res.status(404).send({message: 'Product not found'});
         }
     });
 
-
     router.post('/products', (req, res) => {
-        console.log("Route products ---> Post");
         let product = req.body;
-        let incrementarId = products.length + 1;
+        let incrementarId = products[products.length - 1].id + 1;
         product.id = incrementarId;
         products.push(product);
         res.send(product);
     });
 
     router.put('/products/:id', (req, res) => {
-        console.log("Route products ---> Update");
-        console.log(products);
         let id = req.params.id;
         let inputProduct = req.body;
         let updatedProduct = products.find(product => product.id == id);
@@ -73,58 +64,99 @@ function serverRouter(app){
     })
 
     router.delete('/products/:id', (req, res) => {
-        console.log("Route products ----> Delete");
         let id = req.params.id;
         let deletedProduct = products.find(product => product.id == id);
-        let index = products.indexOf(deletedProduct);
-        products.splice(index, 1);
+        products = products.filter(product => product.id != id);
         res.send(deletedProduct);
     });
 
     router.post('/form', (req, res) => {
-        console.log("Route form ---> Post");
         let product = req.body;
         if (product.title && product.price && product.thumbnail) {
-            console.log("Todo OK");
-            let incrementarId = products.length + 1;
+            let incrementarId = products[products.length - 1].id + 1;
             product.id = incrementarId;
             products.push(product);
             res.send(product);
     }
     });
 
-////HANDLEBARS
-    app.engine('hbs',handlebars({
-        extname: 'hbs',
-        defaultLayout: 'index',
-        layoutsDir: path.join(__dirname, '../views/handlebars')
-    }));
 
-    app.set('view engine', 'hbs');
-    app.set('views', path.join(__dirname, '../views'));
-    app.use(express.static(path.join(__dirname, '../public')));
+    // ////HANDLEBARS
+    // app.engine('hbs',handlebars({
+    //     extname: 'hbs',
+    //     defaultLayout: 'index',
+    //     layoutsDir: path.join(__dirname, '../views/handlebars'),
+    //     partialsDir: path.join(__dirname, '../views/handlebars/partials')
+    // }));
+    
+    // app.set('view engine', 'hbs');
 
-    router.get('/handlebars', (req, res) => {
-        res.render('handlebars/index', {
-            title: "Handlebars",
-            products: products
+    
+    // app.get('/handlebars', (req, res) => {
+    //         res.render('handlebars/index', {
+    //             products: products, isFormActive: true
+    //         });
+    // });
+
+    // app.get('/handlebars_results', (req, res) => {
+    //     res.render('handlebars/index', {
+    //         products: products, isFormActive: false
+    //     });
+    // });
+    
+    // app.post('/handlebars', (req, res) => {
+    //     console.log("Route handlebars ---> Post");
+    //     let product = req.body;
+    //     if (product.title && product.price && product.thumbnail) {
+    //         console.log("Todo OK");
+    //         let incrementarId = products[products.length - 1].id + 1;
+    //         product.id = incrementarId;
+    //         products.push(product);
+    //         res.render('handlebars/index', {
+    //         products: products, isFormActive: false
+    //     });
+    //     }
+    // });
+
+    //PUG
+    // app.set('views', './views');
+    // app.set('view engine', 'pug');
+
+    // app.get('/pug', (req, res) => {
+    //      res.render('pug/index', {
+    //          products: products, isFormActive: true
+    //      });
+    //  });
+
+    //  app.post('/pug', (req, res) => {
+    //     console.log("Route pug ---> Post");
+    //     let product = req.body;
+    //     if (product.title && product.price && product.thumbnail) {
+    //         console.log("Todo OK");
+    //         let incrementarId = products[products.length - 1].id + 1;
+    //         product.id = incrementarId;
+    //         products.push(product);
+    //         res.render('pug/index', {
+    //         products: products, isFormActive: false
+    //     });
+    //     }
+    //     });
+
+    //  app.get('/pug_results', (req, res) => {
+    //     res.render('pug/index', {
+    //         products: products, isFormActive: false
+    //     });
+    // });
+
+    ///EJS
+    app.set('views', './views');
+    app.set('view engine', 'ejs');
+    app.get('/ejs', (req, res) => {
+        res.render('ejs/index', {
+            products: products, isFormActive: true
         });
-    });
-    router.post('/handlebars', (req, res) => {
-        console.log("Route handlebars ---> Post");
-        let product = req.body;
-        if (product.title && product.price && product.thumbnail) {
-            console.log("Todo OK");
-            let incrementarId = products.length + 1;
-            product.id = incrementarId;
-            products.push(product);
-            res.render('handlebars/index', {
-                title: "Handlebars",
-                products: products
-            });
-        
-        }
-    });
+    }
+    );
 
 }
 
