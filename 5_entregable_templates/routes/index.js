@@ -32,9 +32,9 @@ function serverRouter(app){
         res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 
-    router.get('/products', (req, res) => {
-        res.send(products);
-    });
+    // router.get('/products', (req, res) => {
+    //     res.send(products);
+    // });
     router.get('/products/:id', (req, res) => {
         let id = req.params.id;
         let product = products.find(product => product.id == id);
@@ -45,13 +45,13 @@ function serverRouter(app){
         }
     });
 
-    router.post('/products', (req, res) => {
-        let product = req.body;
-        let incrementarId = products[products.length - 1].id + 1;
-        product.id = incrementarId;
-        products.push(product);
-        res.send(product);
-    });
+    // router.post('/products', (req, res) => {
+    //     let product = req.body;
+    //     let incrementarId = products[products.length - 1].id + 1;
+    //     product.id = incrementarId;
+    //     products.push(product);
+    //     res.send(product);
+    // });
 
     router.put('/products/:id', (req, res) => {
         let id = req.params.id;
@@ -82,54 +82,54 @@ function serverRouter(app){
 
 
     // ////HANDLEBARS
-    // app.engine('hbs',handlebars({
-    //     extname: 'hbs',
-    //     defaultLayout: 'index',
-    //     layoutsDir: path.join(__dirname, '../views/handlebars'),
-    //     partialsDir: path.join(__dirname, '../views/handlebars/partials')
-    // }));
+    app.engine('hbs',handlebars({
+        extname: 'hbs',
+        defaultLayout: 'index',
+        layoutsDir: path.join(__dirname, '../views/handlebars'),
+        partialsDir: path.join(__dirname, '../views/handlebars/partials')
+    }));
     
-    // app.set('view engine', 'hbs');
+    app.set('view engine', 'hbs');
 
     
-    // app.get('/handlebars', (req, res) => {
-    //         res.render('handlebars/index', {
-    //             products: products, isFormActive: true
-    //         });
-    // });
+    app.get('/products', (req, res) => {
+            res.render('handlebars/index', {
+                products: products, isFormActive: true
+            });
+    });
 
-    // app.get('/handlebars_results', (req, res) => {
-    //     res.render('handlebars/index', {
-    //         products: products, isFormActive: false
-    //     });
-    // });
+    app.get('/products_list', (req, res) => {
+        res.render('handlebars/index', {
+            products: products, isFormActive: false
+        });
+    });
     
-    // app.post('/handlebars', (req, res) => {
-    //     console.log("Route handlebars ---> Post");
-    //     let product = req.body;
-    //     if (product.title && product.price && product.thumbnail) {
-    //         console.log("Todo OK");
-    //         let incrementarId = products[products.length - 1].id + 1;
-    //         product.id = incrementarId;
-    //         products.push(product);
-    //         res.render('handlebars/index', {
-    //         products: products, isFormActive: true
-    //     });
-    //     }
-    // });
+    app.post('/products', (req, res) => {
+        console.log("Route handlebars ---> Post");
+        let product = req.body;
+        if (product.title && product.price && product.thumbnail) {
+            console.log("Todo OK");
+            let incrementarId = products[products.length - 1].id + 1;
+            product.id = incrementarId;
+            products.push(product);
+            res.render('handlebars/index', {
+            products: products, isFormActive: true
+        });
+        }
+    });
 
     // //PUG
 
     // app.set('views', './views');
     // app.set('view engine', 'pug');
 
-    // app.get('/pug', (req, res) => {
+    // app.get('/products', (req, res) => {
     //      res.render('pug/index', {
     //          products: products, isFormActive: true
     //      });
     //  });
 
-    //  app.post('/pug', (req, res) => {
+    //  app.post('/products', (req, res) => {
     //     console.log("Route pug ---> Post");
     //     let product = req.body;
     //     if (product.title && product.price && product.thumbnail) {
@@ -143,41 +143,41 @@ function serverRouter(app){
     //     }
     //     });
 
-    //  app.get('/pug_results', (req, res) => {
+    //  app.get('/products_list', (req, res) => {
     //     res.render('pug/index', {
     //         products: products, isFormActive: false
     //     });
     // });
 
     ///EJS
-    app.set('views', './views');
-    app.set('view engine', 'ejs');
+    // app.set('views', './views');
+    // app.set('view engine', 'ejs');
 
-    app.get('/ejs', (req, res) => {
-        res.render('ejs/index', {
-            products: products, isFormActive: true
-        });
-    }
-    );
-    app.post('/ejs', (req, res) => {
-        let product = req.body;
-        if (product.title && product.price && product.thumbnail) {
-            console.log("Todo OK");
-            let incrementarId = products[products.length - 1].id + 1;
-            product.id = incrementarId;
-            products.push(product);
-            res.render('ejs/index', {
-                products: products, isFormActive: true
-            });
-        }
-    });
+    // app.get('/products', (req, res) => {
+    //     res.render('ejs/index', {
+    //         products: products, isFormActive: true
+    //     });
+    // }
+    // );
+    // app.post('/products', (req, res) => {
+    //     let product = req.body;
+    //     if (product.title && product.price && product.thumbnail) {
+    //         console.log("Todo OK");
+    //         let incrementarId = products[products.length - 1].id + 1;
+    //         product.id = incrementarId;
+    //         products.push(product);
+    //         res.render('ejs/index', {
+    //             products: products, isFormActive: true
+    //         });
+    //     }
+    // });
 
-    app.get('/ejs_results', (req, res) => {
-        res.render('ejs/index', {
-            products: products, isFormActive: false
-        });
-    }
-    );
+    // app.get('/products_list', (req, res) => {
+    //     res.render('ejs/index', {
+    //         products: products, isFormActive: false
+    //     });
+    // }
+    // );
 
 }
 

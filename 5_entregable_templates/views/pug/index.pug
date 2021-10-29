@@ -7,10 +7,10 @@ html
         div 
             script.
                 var toResults = function() {
-                  window.location.href="/pug_results";  
+                  window.location.href="/products_list";  
                 }
                 var toForm = function() {
-                  window.location.href="/pug";  
+                  window.location.href="/products";  
                 }
 
         button(onclick='toForm()') Form
@@ -18,7 +18,7 @@ html
 
         if isFormActive
             div 
-                form(class="form-control" name="form" action="/pug" method="post" enctype="application/x-www-form-urlencoded")
+                form(class="form-control" name="form" action="/products" method="post" enctype="application/x-www-form-urlencoded")
                     label(for="title") Title
                     input(type="text" name="title")
                     br
