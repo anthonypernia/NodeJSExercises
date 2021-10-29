@@ -113,12 +113,13 @@ function serverRouter(app){
     //         product.id = incrementarId;
     //         products.push(product);
     //         res.render('handlebars/index', {
-    //         products: products, isFormActive: false
+    //         products: products, isFormActive: true
     //     });
     //     }
     // });
 
-    //PUG
+    // //PUG
+
     // app.set('views', './views');
     // app.set('view engine', 'pug');
 
@@ -137,7 +138,7 @@ function serverRouter(app){
     //         product.id = incrementarId;
     //         products.push(product);
     //         res.render('pug/index', {
-    //         products: products, isFormActive: false
+    //         products: products, isFormActive: true
     //     });
     //     }
     //     });
@@ -151,9 +152,29 @@ function serverRouter(app){
     ///EJS
     app.set('views', './views');
     app.set('view engine', 'ejs');
+
     app.get('/ejs', (req, res) => {
         res.render('ejs/index', {
             products: products, isFormActive: true
+        });
+    }
+    );
+    app.post('/ejs', (req, res) => {
+        let product = req.body;
+        if (product.title && product.price && product.thumbnail) {
+            console.log("Todo OK");
+            let incrementarId = products[products.length - 1].id + 1;
+            product.id = incrementarId;
+            products.push(product);
+            res.render('ejs/index', {
+                products: products, isFormActive: true
+            });
+        }
+    });
+
+    app.get('/ejs_results', (req, res) => {
+        res.render('ejs/index', {
+            products: products, isFormActive: false
         });
     }
     );
