@@ -10,6 +10,7 @@ const { Server: HttpServer } = require('http');
 let {Server: IOServer} = require('socket.io');
 let httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
+const fs = require('fs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,14 +33,25 @@ let products = [
 
 ]
 
+let messages = [];
+
 io.on('connection', (socket)=>{
     console.log(`a user connected ${socket.id}`);
-    socket.emit('init',products)
+    socket.emit('init',{messages, products});
 
     socket.on('create_products', (data)=>{
         products.push(data);
         io.sockets.emit('products_all',products);
     });
+
+    socket.on('send_msg', (data)=>{
+        data.id = messages.length + 1;
+        data.user_id = socket.id;
+        messages.push(data);
+        io.sockets.emit('msg_all',messages);
+
+    });
+
 })
 
 
