@@ -11,6 +11,7 @@ let {Server: IOServer} = require('socket.io');
 let httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 const fs = require('fs');
+const file = "messages.txt"
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -49,7 +50,7 @@ io.on('connection', (socket)=>{
         data.user_id = socket.id;
         messages.push(data);
         io.sockets.emit('msg_all',messages);
-
+        saveFileAsync(file, JSON.stringify(messages));
     });
 
 })
@@ -75,5 +76,15 @@ app.engine('hbs',handlebars({
     defaultLayout: 'index',
     layoutsDir: path.join(__dirname, 'public')
 }));
+
+async function saveFileAsync(file, dataToWrite) {
+    try{
+        await fs.promises.writeFile('./messages.txt', dataToWrite);
+        console.log('file saved');
+    }
+    catch(err){
+        console.log(err);
+    }
+}
 
 serverRouter(app);

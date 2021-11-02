@@ -33,7 +33,6 @@ form_msg.addEventListener('submit', (e) => {
 });
 
 socket.on('init', (data) => {
-        console.log(data)
         render_products(data.products)
         render_msg(data.messages)
 });
@@ -69,7 +68,6 @@ function render_products(data){
 
 function render_msg(data){
     if (data.length >0){
-        console.log(data)
         let msg_html = ``
         data.forEach(e => {
             msg_html += `<div class="row">
