@@ -15,7 +15,7 @@ class Cart{
         return this.id;
     }
 
-    public addProduct(product: Product): void{
+    public insertProduct(product: Product): void{
         this.products.push(product);
     }
 
@@ -23,12 +23,17 @@ class Cart{
         return this.products;
     }
 
-    public deleteProductById(idCart:number , idProduct: number){
-        this.products = this.products.filter(product => product.getId() !== idProduct);
+    public getProductById(id: number): Product{
+        return this.products.filter(product => product.getId() === id)[0];
     }
 
-    public getAllProducts(): Product[]{
-        return this.products;
+
+
+
+    public deleteProductById( id: number){
+        this.products = this.products.filter(product => product.getId() !== id);
     }
 
 }
+
+export { Cart };
