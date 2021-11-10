@@ -2,44 +2,53 @@ import { ProductsService } from '../service/productsService';
 
 class ProductsController {
 
-    static async getProducts(req, res, next) {
+    static  getProducts(req, res, next) {
         try {
             if (req.params.id) {
-                let products = await ProductsService.getProductsById(req.params.id);
-                res.status(200).json(products);
+                let products =  ProductsService.getProductsById(req.params.id);
+                if (products) {
+                    res.status(200).json(products);
+                }else{
+                    res.status(404).json({message: 'Product not found'});
+                }
             } else {
-                let products = await ProductsService.getAllProducts();
-                res.status(200).json(products);
+                let products =  ProductsService.getAllProducts();
+                if (products.length === 0) {
+                    res.status(404).json({ message: 'No products found' });
+                }else{
+                    res.status(200).json(products);
+                }
+                
             }
         } catch (err) {
-            next(err);
+            req.status(500).json(err);
         }
     }
 
-    static async insertProducts(req, res, next) {
+    static  insertProducts(req, res, next) {
         try {
-            let product = await ProductsService.insertProducts(req.body);
+            let product =  ProductsService.insertProducts(req.body);
             res.status(200).json(product);
         } catch (err) {
-            next(err);
+            res.status(500).json(err);
         }
     }
 
-    static async updateProduct(req, res, next) {
+    static  updateProduct(req, res, next) {
         try {
-            let product = await ProductsService.updateProduct(req.params.id, req.body);
+            let product =  ProductsService.updateProduct(req.params.id, req.body);
             res.status(200).json(product);
         } catch (err) {
-            next(err);
+            res.status(500).json(err);
         }
     }
 
-    static async deleteProduct(req, res, next) {
+    static  deleteProduct(req, res, next) {
         try {
-            let product = await ProductsService.deleteProduct(req.params.id);
+            let product =  ProductsService.deleteProduct(req.params.id);
             res.status(200).json(product);
         } catch (err) {
-            next(err);
+            res.status(500).json(err);
         }
     }
 

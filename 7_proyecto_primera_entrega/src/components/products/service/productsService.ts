@@ -11,15 +11,19 @@ class ProductsService{
         new Product(4, Date.now(), "bicicleta", "bicicleta color verde", "DDDD5555ZZZ", "LINK", 400, 15 )
     ]
 
-    static async getAllProducts() {
+    static  getAllProducts() {
         return this.products;
     }
 
-    static async getProductsById(id: number){
+    static  getProductsById(id: number){
         return this.products.find(product => product.getId() == id);
     }
+    
+    static  getProductsByIdList(idList: number[]){
+        return this.products.filter(product => idList.includes(product.getId()));
+    }
 
-    static async insertProducts(product){
+    static  insertProducts(product){
         let incrementarId = this.products[this.products.length - 1].getId() + 1;
         product.id = incrementarId;
         this.products.push(new Product(product.id, Date.now(), product.name, product.description, product.code, product.photo, product.price ,product.stock));
@@ -27,14 +31,14 @@ class ProductsService{
 
     }
 
-    static async updateProduct(id, product){
+    static  updateProduct(id, product){
         const index = this.products.findIndex(product => product.getId() == id);
         product.id = this.products[index].getId();
         this.products[index] = new Product(product.id, Date.now(), product.name, product.description, product.code, product.photo, product.price , product.stock);
         return this.products[index];
     }
 
-    static async deleteProduct(id){
+    static  deleteProduct(id){
         let deletedProduct = this.products.find(product => product.getId() == id);
         this.products = this.products.filter(product => product.getId() != id);
         return deletedProduct;

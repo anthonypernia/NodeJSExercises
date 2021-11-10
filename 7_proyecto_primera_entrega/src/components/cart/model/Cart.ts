@@ -3,35 +3,39 @@ import { Product } from "../../products/model/Product";
 class Cart{
     private id: number;
     private timestamp: number;
-    private products: Product[];
+    private productsRefList: number[];
 
-    constructor(id: number, timestamp: number, product: Product[]){
+    constructor(id: number, timestamp: number, productsRefList: number[]){
         this.id = id;
         this.timestamp = timestamp;
-        this.products = product;
+        this.productsRefList = productsRefList;
     }
 
     public getId(): number{
         return this.id;
     }
 
-    public insertProduct(product: Product): void{
-        this.products.push(product);
+    public insertProduct(productId: number): void{
+        this.productsRefList.push(productId);
     }
 
-    public getProduct(): Product[]{
-        return this.products;
+    public getProducts(): number[]{
+        return this.productsRefList;
     }
 
-    public getProductById(id: number): Product{
-        return this.products.filter(product => product.getId() === id)[0];
+    public getProductById(id: number): number{
+        return this.productsRefList.filter(idProdRef => idProdRef === id)[0];
     }
-
-
-
 
     public deleteProductById( id: number){
-        this.products = this.products.filter(product => product.getId() !== id);
+        this.productsRefList.forEach( (productObj, index) => {
+            if(productObj === id){
+                this.productsRefList.splice(index, 1);
+                return 1;
+            }else{
+                return -1;
+            }
+        });
     }
 
 }

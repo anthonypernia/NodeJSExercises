@@ -3,28 +3,26 @@ import { Router } from "express";
 let router = Router();
 
 
-
-
 export default ( app ) => {
     app.use( '/cart', router );
 
     router.post( '/', ( req, res, next) => {
-        res.send( 'cart create' );
+        CartController.createCart( req, res, next );
     });
 
-    router.delete( '/', ( req, res, next) => {
-        res.send( 'cart delete all' );
+    router.delete( '/:id', ( req, res, next) => {
+        CartController.deleteCart( req, res, next );
     });
 
     router.get( '/:id/products', ( req, res, next) => {
-        res.send( 'cart get by id_car' );
+        CartController.getCartProducts( req, res, next );
     });
 
     router.post( '/:id/products', ( req, res, next) => {
-        res.send( 'cart post by id' );
+        CartController.addProductToCart( req, res, next );
     })
 
     router.delete( '/:id/products/:id_prod', ( req, res, next) => {
-        res.send( 'cart delete by id_prod' );
+        CartController.removeProductFromCart( req, res, next );
     });
 }
