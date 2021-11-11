@@ -9,6 +9,7 @@ export default ( app ) => {
     app.use( '/products', router );
 
     router.get( '/:id?', ( req, res, next ) => {
+
         ProductsController.getProducts( req, res, next );
     });
     router.post( '/', ( req, res, next ) => {

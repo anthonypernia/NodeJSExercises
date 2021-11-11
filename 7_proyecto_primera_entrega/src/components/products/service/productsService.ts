@@ -5,10 +5,10 @@ import { Product } from '../model/Product'
 class ProductsService{
 
     private static products = [
-        new Product(1, Date.now(), "casa", "casa color blanco", "AAAA222333", "LINK",230, 20 ),
-        new Product(2, Date.now(), "carro", "carro color rojo", "BBBB3333XXX", "LINK", 300 ,10 ),
-        new Product(3, Date.now(), "moto", "moto color azul", "CCCC4444YYY", "LINK",400 , 5 ),
-        new Product(4, Date.now(), "bicicleta", "bicicleta color verde", "DDDD5555ZZZ", "LINK", 400, 15 )
+        new Product(1, Date.now(), "casa", "casa color blanco", "AAAA222333", "https://decoraideas.com/wp-content/uploads/2016/01/022.jpg",230, 20 ),
+        new Product(2, Date.now(), "carro", "carro color rojo", "BBBB3333XXX", "https://upload.wikimedia.org/wikipedia/commons/c/cf/Carro_Rojo_jun_Bog_2019.jpg", 300 ,10 ),
+        new Product(3, Date.now(), "moto", "moto color negro", "CCCC4444YYY", "https://s3.eu-west-1.amazonaws.com/cdn.motorbikemag.es/wp-content/uploads/2018/10/MV-Agusta-F4-Claudio-2019-42-530x397.jpg",400 , 5 ),
+        new Product(4, Date.now(), "bicicleta", "bicicleta color verde", "DDDD5555ZZZ", "https://thumbs.dreamstime.com/b/bicicleta-verde-aislada-en-un-blanco-89959574.jpg", 400, 15 )
     ]
 
     static  getAllProducts() {

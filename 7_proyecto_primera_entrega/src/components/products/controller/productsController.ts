@@ -1,7 +1,7 @@
 import { ProductsService } from '../service/productsService';
-
+import { validateSecurity } from '../../../utils/utils'
 class ProductsController {
-
+    
     static  getProducts(req, res, next) {
         try {
             if (req.params.id) {
@@ -27,8 +27,12 @@ class ProductsController {
 
     static  insertProducts(req, res, next) {
         try {
-            let product =  ProductsService.insertProducts(req.body);
-            res.status(200).json(product);
+            if (validateSecurity(req)) {
+                let product =  ProductsService.insertProducts(req.body);
+                res.status(200).json(product);
+            }else{
+                res.status(401).json({message: 'Unauthorized method error'});
+            }
         } catch (err) {
             res.status(500).json(err);
         }
@@ -36,8 +40,12 @@ class ProductsController {
 
     static  updateProduct(req, res, next) {
         try {
-            let product =  ProductsService.updateProduct(req.params.id, req.body);
-            res.status(200).json(product);
+            if(validateSecurity(req)){
+                let product =  ProductsService.updateProduct(req.params.id, req.body);
+                res.status(200).json(product);
+            }else{
+                res.status(401).json({message: 'Unauthorized method error'});
+            }
         } catch (err) {
             res.status(500).json(err);
         }
@@ -45,8 +53,12 @@ class ProductsController {
 
     static  deleteProduct(req, res, next) {
         try {
-            let product =  ProductsService.deleteProduct(req.params.id);
-            res.status(200).json(product);
+            if (validateSecurity(req)) {
+                let product =  ProductsService.deleteProduct(req.params.id);
+                res.status(200).json(product);
+            }else{
+                res.status(401).json({message: 'Unauthorized method error'});
+            }
         } catch (err) {
             res.status(500).json(err);
         }

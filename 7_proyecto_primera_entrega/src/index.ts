@@ -2,13 +2,15 @@ import path from 'path';
 import { serverRouter } from './routes';
 import  express from "express";
 import { config } from  '../config'
-
-
+import cors from 'cors';
 const app = express();
 const PORT = config.port;
 
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use( express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -25,4 +27,3 @@ app.post('/anthony', (req, res, next) => {
     });
 
 serverRouter(app);
-
