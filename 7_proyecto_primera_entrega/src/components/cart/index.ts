@@ -25,4 +25,8 @@ export default ( app ) => {
     router.delete( '/:id/products/:id_prod', ( req, res, next) => {
         CartController.removeProductFromCart( req, res, next );
     });
+
+    router.get( '/:id/save', ( req, res, next) => {
+        CartController.saveCartFile( req, res, next );
+    });
 }

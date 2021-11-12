@@ -2,6 +2,7 @@
 import { Cart } from "../model/Cart"
 import { ProductsService } from "../../products/service/productsService"
 import { Product } from "../../products/model/Product"
+import fs from "fs"
 class CartService {
 
     private static cartList:Cart[] = [
@@ -55,11 +56,20 @@ class CartService {
         let cart = this.cartList.find(cart => cart.getId() == id);
         if (cart) {
             let result = cart.deleteProductById(productId);
-            console.log(cart);
-            console.log(result);
             return result
         }else{
             return -2;
+        }
+    }
+
+    static saveCartFile(id: number) {
+        let cart = this.cartList.find(cart => cart.getId() == id);
+        if (cart) {
+            let json = JSON.stringify(cart);
+            fs.writeFileSync(`cart${id}.txt`, json);
+            return true;
+        }else{
+            return false;
         }
     }
 

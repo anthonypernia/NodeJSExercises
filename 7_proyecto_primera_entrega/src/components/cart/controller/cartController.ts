@@ -55,6 +55,17 @@ class CartController {
         }
     }
 
+    static saveCartFile(req, res, next ) {
+        let cartId = parseInt(req.params.id);
+        let response = CartService.saveCartFile(cartId);
+        if (response) {
+            res.status(200).json({result:"Complete"});
+        }else{
+            res.status(404).json({error: "Cart not found"});
+        }
+
+    }
+
 }
 
 export { CartController };
