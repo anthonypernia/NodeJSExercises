@@ -28,14 +28,16 @@ class Cart{
     }
 
     public deleteProductById( id: number){
+        console.log(this.productsRefList);
+        console.log(id);
+        let deleted = -1;
         this.productsRefList.forEach( (productObj, index) => {
-            if(productObj === id){
+            if(productObj == id){
                 this.productsRefList.splice(index, 1);
-                return 1;
-            }else{
-                return -1;
+                deleted = 1;
             }
         });
+        return deleted;
     }
 
 }

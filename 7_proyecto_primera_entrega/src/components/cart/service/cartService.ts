@@ -54,7 +54,10 @@ class CartService {
     static removeProductFromCart(id: number, productId: number) {
         let cart = this.cartList.find(cart => cart.getId() == id);
         if (cart) {
-            return cart.deleteProductById(productId);
+            let result = cart.deleteProductById(productId);
+            console.log(cart);
+            console.log(result);
+            return result
         }else{
             return -2;
         }
