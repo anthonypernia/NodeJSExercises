@@ -1,5 +1,6 @@
 let { db } = require('./index')
 let knex = require('knex');
+
 let mariaDB = knex({
     client: 'mysql',
     connection: {
@@ -11,6 +12,14 @@ let mariaDB = knex({
     }
 });
 
+let sqlite3 = knex({
+    client: 'sqlite3',
+    connection: {
+        filename: './config/db.sqlite'
+    }
+});
+
+
 class Database{
     static client;
     constructor(){
@@ -18,7 +27,8 @@ class Database{
             this.client = Database.client;
             return this;
         }
-        Database.client = mariaDB;
+        //Database.client = mariaDB;
+        Database.client = sqlite3;
         this.client = Database.client;
     }
 }

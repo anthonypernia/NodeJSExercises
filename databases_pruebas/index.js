@@ -64,7 +64,7 @@ app.get('/', async (req, res) => {
             age: req.body.age,
             email : req.body.email,
         }
-        let result = await db.from('persons')
+        let result = await db.from('users')
         console.log(result);
         res.send(result);
     }catch(err){
