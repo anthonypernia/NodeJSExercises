@@ -1,5 +1,5 @@
 {
-  "name": "7_proyecto_primera_entrega",
+  "name": "8_using_databases",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/main.js",
@@ -24,7 +24,10 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "knex": "^0.95.14",
+    "mysql": "^2.18.1",
     "package.json": "^2.0.1",
-    "socket.io": "^4.3.1"
+    "socket.io": "^4.3.1",
+    "sqlite3": "^5.0.2"
   }
 }

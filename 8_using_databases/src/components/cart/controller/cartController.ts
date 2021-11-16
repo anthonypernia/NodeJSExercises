@@ -3,19 +3,19 @@ import { ProductsService } from '../../products/service/productsService'
 
 class CartController {
 
-    static createCart( req, res, next ){
+    static  async createCart( req, res, next ){
         try{
-            let id:number = CartService.createCart();
+            let id = await CartService.createCart();
             res.status(200).json({id});
         }catch(err){
             res.status(500).json({error: err});
         }
     }
 
-    static  deleteCart(req, res, next){
+    static  async  deleteCart(req, res, next){
         try{
             let cartId = parseInt(req.params.id);
-            let response = CartService.deleteCart(cartId);
+            let response = await CartService.deleteCart(cartId);
             if (response) {
                 res.status(200).json({result:"Complete"});
             }else{
@@ -26,13 +26,12 @@ class CartController {
         }
     }
 
-    static  getCartProducts(req, res, next ){
+    static  async  getCartProducts(req, res, next ){
         try{
             let cartId = parseInt(req.params.id);
-            let refProductsId =  CartService.getCartProducts(cartId)
-            if (refProductsId[0] !== -1) {
-                let productsToReturn =  ProductsService.getProductsByIdList(refProductsId);
-                res.status(200).json(productsToReturn);
+            let products =  await CartService.getCartProducts(cartId)
+            if (products) {
+                res.status(200).json({products});
             }else{
                 res.status(404).json({error: "Cart not found"});
             }
@@ -41,11 +40,11 @@ class CartController {
         }
     }
 
-    static  addProductToCart(req, res, next){
+    static  async  addProductToCart(req, res, next){
         try{
             let cartId = parseInt(req.params.id);
             let productId = parseInt(req.body.id);
-            let response =  CartService.addProductToCart(cartId, productId);
+            let response =  await CartService.addProductToCart(cartId, productId);
             if (response) {
                 res.status(200).json({result:"Complete"});
             }else{
@@ -56,11 +55,11 @@ class CartController {
         }
     }
 
-    static  removeProductFromCart(req, res, next ){
+    static  async  removeProductFromCart(req, res, next ){
         try{
             let cartId = parseInt(req.params.id);
             let productId = parseInt(req.params.id_prod);
-            let response =  CartService.removeProductFromCart(cartId, productId);
+            let response =  await CartService.removeProductFromCart(cartId, productId);
             if (response==1) {
                 res.status(200).json({result:"Complete"});
             }else if(response==-1){
@@ -73,10 +72,10 @@ class CartController {
         }
     }
 
-    static saveCartFile(req, res, next ) {
+    static  async saveCartFile(req, res, next ) {
         try{
             let cartId = parseInt(req.params.id);
-            let response = CartService.saveCartFile(cartId);
+            let response = await CartService.saveCartFile(cartId);
             if (response) {
                 res.status(200).json({result:"Complete"});
             }else{

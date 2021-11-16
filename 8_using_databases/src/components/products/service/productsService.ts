@@ -1,47 +1,116 @@
 
 import { Product } from '../model/Product'
-
+import { Database } from '../../../../config/db'
+import knex from 'knex';
 
 class ProductsService{
 
-    private static products = [
-        new Product(1, Date.now(), "casa", "casa color blanco", "AAAA222333", "https://decoraideas.com/wp-content/uploads/2016/01/022.jpg",230, 20 ),
-        new Product(2, Date.now(), "carro", "carro color rojo", "BBBB3333XXX", "https://upload.wikimedia.org/wikipedia/commons/c/cf/Carro_Rojo_jun_Bog_2019.jpg", 300 ,10 ),
-        new Product(3, Date.now(), "moto", "moto color negro", "CCCC4444YYY", "https://s3.eu-west-1.amazonaws.com/cdn.motorbikemag.es/wp-content/uploads/2018/10/MV-Agusta-F4-Claudio-2019-42-530x397.jpg",400 , 5 ),
-        new Product(4, Date.now(), "bicicleta", "bicicleta color verde", "DDDD5555ZZZ", "https://thumbs.dreamstime.com/b/bicicleta-verde-aislada-en-un-blanco-89959574.jpg", 400, 15 )
-    ]
+    private static mariaDB =  Database.getMariaDB()
+    
 
-    static  getAllProducts() {
-        return this.products;
+
+    static async createSchema(){
+        try{
+            await ProductsService.mariaDB.schema.hasTable('products').then( async function(exists) {
+                if (!exists) {
+                     await ProductsService.mariaDB.schema.createTable('products', function (table) {
+                        table.increments('id').primary();
+                        table.string('timestamp');
+                        table.string('name');
+                        table.string('description');
+                        table.string('code');
+                        table.string('photo');
+                        table.integer('price');
+                        table.integer('stock');
+                    }).then(function () {
+                        console.log('Created Table');
+                    }).catch(function (err) {
+                        console.error('Unable to create table', err);
+                    });
+                }
+            });
+        }catch(err){
+            return err;
+        }
     }
 
-    static  getProductsById(id: number){
-        return this.products.find(product => product.getId() == id);
+    static async getAllProducts() {
+        try {
+            await this.createSchema();
+            let res = await ProductsService.mariaDB.from('products')
+            return res;
+        }catch(err){
+            console.log(err);
+            return err;
+        }
+    }
+
+    static  async getProductsById(id: number){
+        try{
+            await this.createSchema();
+            let res =  await ProductsService.mariaDB.from('products').where('id', id)
+            return res;
+        }catch(err){
+            return err;
+        }
     }
     
-    static  getProductsByIdList(idList: number[]){
-        return this.products.filter(product => idList.includes(product.getId()));
+    static async getProductsByIdList(idList: number[]){
+        try{
+            await this.createSchema();
+            let res = await ProductsService.mariaDB.from('products').whereIn('id', idList)
+            return res;
+        }catch(err){
+            return err;
+        }
     }
 
-    static  insertProducts(product){
-        let incrementarId = this.products[this.products.length - 1].getId() + 1;
-        product.id = incrementarId;
-        this.products.push(new Product(product.id, Date.now(), product.name, product.description, product.code, product.photo, product.price ,product.stock));
-        return product;
-
+    static async insertProducts(product){
+        try{
+            await this.createSchema();
+            let data = {
+                timestamp: new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' '),
+                name: product.name,
+                description: product.description,
+                code: product.code,
+                photo: product.photo,
+                price: product.price,
+                stock: product.stock
+            }
+            await ProductsService.mariaDB.from('products').insert(data);
+            return data;
+        }catch(err){
+            return err;
+        }
     }
 
-    static  updateProduct(id, product){
-        const index = this.products.findIndex(product => product.getId() == id);
-        product.id = this.products[index].getId();
-        this.products[index] = new Product(product.id, Date.now(), product.name, product.description, product.code, product.photo, product.price , product.stock);
-        return this.products[index];
+    static  async updateProduct(id, product){
+        try{
+            await this.createSchema();
+            let data = {
+                timestamp: new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' '),
+                name: product.name,
+                description: product.description,
+                code: product.code,
+                photo: product.photo,
+                price: product.price,
+                stock: product.stock
+            }
+            let res = await ProductsService.mariaDB.from('products').where('id', id).update(data);
+            return res;
+        }catch(err){
+            return err;
+        }
     }
 
-    static  deleteProduct(id){
-        let deletedProduct = this.products.find(product => product.getId() == id);
-        this.products = this.products.filter(product => product.getId() != id);
-        return deletedProduct;
+    static async deleteProduct(id){
+        try{
+            await this.createSchema();
+            let res = await ProductsService.mariaDB.from('products').where('id', id).del();
+            return res;
+        }catch(err){
+            return err;
+        }
     }
 
 }
