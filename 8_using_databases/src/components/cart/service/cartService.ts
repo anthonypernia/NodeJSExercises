@@ -34,7 +34,7 @@ class CartService {
                 }
             });
         }catch(err){
-            return err;
+            console.log(err);
         }
 
         try{
@@ -52,7 +52,7 @@ class CartService {
                 }
             });
         }catch(err){
-            return err;
+            console.log(err);
         }
     }
 
@@ -71,12 +71,6 @@ class CartService {
     }
 
     static async  getCartProducts(id: number) {
-        // let cart = this.cartList.find(cart => cart.getId() == id);
-        // if (cart) {
-        //     return cart.getProducts();
-        // }else{
-        //     return [-1];
-        // }
         let cart = await CartService.mariaDB('carts').where('id', id).first();
         if (cart) {
             let products = await CartService.mariaDB('carts_products').where('cart_id', id).select('product_id');
@@ -84,7 +78,7 @@ class CartService {
             let productsList = await ProductsService.getProductsByIdList(productIds);
             return productsList;
         }else{
-            return [];
+            return null;
         }
         
     }
@@ -104,23 +98,23 @@ class CartService {
         
     }
 
-    static removeProductFromCart(id: number, productId: number) {
-        let cart = this.cartList.find(cart => cart.getId() == id);
-        if (cart) {
-            let result = cart.deleteProductById(productId);
-            return result
-        }else{
-            return -2;
-        }
+    static async removeProductFromCart(id: number, productId: number) {
+        let res = await CartService.mariaDB('carts_products').where('cart_id', id).where('product_id', productId).del();
+        return res;
     }
 
-    static saveCartFile(id: number) {
-        let cart = this.cartList.find(cart => cart.getId() == id);
-        if (cart) {
-            let json = JSON.stringify(cart);
-            fs.writeFileSync(`cart${id}.txt`, json);
+    static async saveCartFile(id: number) {
+        try{
+            let products = await CartService.getCartProducts(id);
+            let cartFile = {
+                id: id,
+                products: products
+            }
+            let datefile = new Date(Date.now()).toISOString().slice(0, 10).replace('T', ' ');
+            fs.writeFileSync(`./cart_${id}_${datefile}.json`, JSON.stringify(cartFile));
             return true;
-        }else{
+        }catch(err){
+            console.log(err);
             return false;
         }
     }

@@ -60,12 +60,10 @@ class CartController {
             let cartId = parseInt(req.params.id);
             let productId = parseInt(req.params.id_prod);
             let response =  await CartService.removeProductFromCart(cartId, productId);
-            if (response==1) {
+            if (response) {
                 res.status(200).json({result:"Complete"});
-            }else if(response==-1){
-                res.status(404).json({error: "Product not found"});
             }else{
-                res.status(404).json({error: "Cart not found"});
+                res.status(404).json({error: "Cart or Product not found"});
             }
         }catch(err){
             res.status(500).json({error: err});
@@ -79,7 +77,7 @@ class CartController {
             if (response) {
                 res.status(200).json({result:"Complete"});
             }else{
-                res.status(404).json({error: "Cart not found"});
+                res.status(500).json({error: "Error while saving file"});
             }
         }catch(err){
             res.status(500).json({error: err});
