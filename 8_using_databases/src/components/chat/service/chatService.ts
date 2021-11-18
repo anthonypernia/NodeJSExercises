@@ -23,7 +23,6 @@ class ChatService{
                         table.string('timestamp');
                         table.string('message');
                         table.string('sender');
-                        table.string('receiver');
                     }).then(function () {
                         console.log('Created Table');
                     }).catch(function (err) {
@@ -37,6 +36,7 @@ class ChatService{
     }
 
     static async insertMessage(data){
+        await ChatService.createChat();
         try{
             data.timestamp = new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' ');
             try{

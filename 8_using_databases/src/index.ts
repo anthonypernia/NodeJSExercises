@@ -5,6 +5,8 @@ import { config } from  '../config'
 import cors from 'cors';
 import { Server as HttpServer } from 'http';
 import { Server as IOServer } from 'socket.io';
+import { ChatService } from './components/chat/service/chatService';
+import { ProductsService } from './components/products/service/productsService';
 
 const app = express();
 
@@ -22,11 +24,22 @@ app.use(express.static('public'));
 
 io.on('connection', (socket)=>{
     console.log(`a user connected ${socket.id}`);
-    socket.emit('init',{"messages": "products"});
 
-    socket.on('add_product', (data)=>{
+    socket.on('add_product', async (data)=>{
         console.log(data);
+        await ProductsService.insertProducts(data);
+        io.emit('products_all', {"update":"yes"});
     });
+
+    socket.on('send_msg', async (data)=>{
+        let message = {
+            message: data.msg,
+            sender: data.mail,
+        }
+        await ChatService.insertMessage(message);
+        io.emit('msg_all', {"update":"yes"});
+    });
+
 })
 
 
@@ -42,9 +55,7 @@ server.listen(PORT, () =>{
 app.set('views', './public');
 app.set('view engine', 'ejs');
 app.get('/home', (req, res) => {
-res.render('./index.ejs', {
-   hola: "hola"
-    });
+res.render('./index.ejs', {});
 
 });
 
