@@ -14,6 +14,7 @@ let mariaDB = knex({
 
 let sqlite3 = knex({
     client: 'sqlite3',
+    useNullAsDefault: true,
     connection: {
         filename: './config/db.sqlite'
     }

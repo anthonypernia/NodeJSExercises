@@ -8,18 +8,8 @@ class CartService {
 
     private static mariaDB =  Database.getMariaDB()
 
-    private static cartList:Cart[] = [
-        new Cart(1, Date.now(),[
-            1,2
-        ]),
-        new Cart(2, Date.now(),[
-            3,4
-        ]),
-    ];
-
 
     static async createSchema(){
-
         try{
             await CartService.mariaDB.schema.hasTable('carts').then( async function(exists) {
                 if (!exists) {
@@ -58,40 +48,59 @@ class CartService {
 
 
     static async createCart() {
-        await CartService.createSchema();
-        let res = await CartService.mariaDB('carts').insert({
-            timestamp: new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' '),
-        });
-        return res;
+        try{
+            await CartService.createSchema();
+            let res = await CartService.mariaDB('carts').insert({
+                timestamp: new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' '),
+            });
+            return res;
+        }catch(err){
+            console.log(err);
+            return false;
+        }
     }
 
     static async deleteCart(id: number) {
-        let res = await CartService.mariaDB('carts').where('id', id).del();
-        return res;
+        try{
+            let res = await CartService.mariaDB('carts').where('id', id).del();
+            return res;
+        }catch(err){
+            console.log(err);
+            return false;
+        }
     }
 
     static async  getCartProducts(id: number) {
-        let cart = await CartService.mariaDB('carts').where('id', id).first();
-        if (cart) {
-            let products = await CartService.mariaDB('carts_products').where('cart_id', id).select('product_id');
-            let productIds = products.map(product => product.product_id);
-            let productsList = await ProductsService.getProductsByIdList(productIds);
-            return productsList;
-        }else{
+        try{
+            let cart = await CartService.mariaDB('carts').where('id', id).first();
+            if (cart) {
+                let products = await CartService.mariaDB('carts_products').where('cart_id', id).select('product_id');
+                let productIds = products.map(product => product.product_id);
+                let productsList = await ProductsService.getProductsByIdList(productIds);
+                return productsList;
+            }else{
+                return null;
+            }
+        }catch(err){
+            console.log(err);
             return null;
         }
-        
     }
 
     static async addProductToCart(id: number, productId: number) {
-        let cart = await CartService.mariaDB('carts').where('id', id).first();
-        if (cart) {
-            let res = await CartService.mariaDB('carts_products').insert({
-                cart_id: id,
-                product_id: productId,
-            });
-            return true;
-        }else{
+        try{
+            let cart = await CartService.mariaDB('carts').where('id', id).first();
+            if (cart) {
+                let res = await CartService.mariaDB('carts_products').insert({
+                    cart_id: id,
+                    product_id: productId,
+                });
+                return true;
+            }else{
+                return false;
+            }
+        }catch(err){
+            console.log(err);
             return false;
         }
 
@@ -99,8 +108,13 @@ class CartService {
     }
 
     static async removeProductFromCart(id: number, productId: number) {
-        let res = await CartService.mariaDB('carts_products').where('cart_id', id).where('product_id', productId).del();
-        return res;
+        try{
+            let res = await CartService.mariaDB('carts_products').where('cart_id', id).where('product_id', productId).del();
+            return res;
+        }catch(err){
+            console.log(err);
+            return false;
+        }
     }
 
     static async saveCartFile(id: number) {
