@@ -1,11 +1,10 @@
 
-    function validateSecurity(req) {
-        ///Por ahora solo validamos que tenga algo en la parte de autorization
-        if (req.headers.authorization) {
-            return true;
-        }else{
-            return false;
+    function validateSecurity(req, res, next) {
+
+        if (req.method != 'GET' && !req.headers.authorization && req.url.includes('/products/')) {
+            return res.status(401).send({ error: 'You must be authorized to make this request.'});
         }
+        next();
     }
 
     export { validateSecurity };

@@ -3,9 +3,8 @@ import { db } from './index'
 
 let mariaDB = knex({
     client: 'mysql',
-    connection: {
-        ...db
-    },
+    connection: db
+    ,
     pool: {
         min: 0,
         max: 10

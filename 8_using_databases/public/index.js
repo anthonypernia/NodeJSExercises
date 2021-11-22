@@ -42,6 +42,16 @@ form_products.addEventListener('submit', (e) => {
     link_input.value = '';
 });
 
+function delete_product(id){
+    fetch(URLBASEPRODUCTS + '/' + id, {
+        method: 'DELETE'
+    }).then(res => res.json())
+    .then(data => {
+        console.log(data);
+    }
+    );
+}
+
 function setDataOnCard(data){
     console.log(data);
     let html = '';
@@ -59,22 +69,27 @@ function setDataOnCard(data){
     tbody_products.innerHTML = html;
 }
 
+
 function setDataMessage(data){
     console.log(data);
     let html = '';
-    data.forEach(message => {
-        html += `<div class="row">
-        <div class="col-md-12">
-        <div class="container">
-        <h5 class="col card-title">${message.sender}</h5>
-        <p class="col card-text">${message.timestamp}</p>
-        <p class="col card-text">${message.message}</p>
-        </div>
-        </div>
-        </div>`;
-    });
-    chat_container.innerHTML = html;
+    if (data.length > 0) {
+        data.forEach(message => {
+            html += `<div class="row">
+            <div class="col-md-12">
+            <div class="container">
+            <h5 class="col card-title">${message.sender}</h5>
+            <p class="col card-text">${message.timestamp}</p>
+            <p class="col card-text">${message.message}</p>
+            </div>
+            </div>
+            </div>`;
+        });
+        chat_container.innerHTML = html;
+    }
 }
+
+
 
 
 socket.on('products_all', (data) => {
@@ -110,7 +125,6 @@ form_msg.addEventListener('submit', (e) => {
     mail_user.value = '';
     msg_user.value = '';
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
     getData();

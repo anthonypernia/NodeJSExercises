@@ -8,113 +8,86 @@ class CartService {
 
     private static mariaDB =  Database.getMariaDB()
 
+    private static async getProductsCartFromDB(id){
+        let products = await this.mariaDB('carts_products').where('cart_id', id).select('product_id');
+        let productIds = products.map(product => product.product_id);
+        return await ProductsService.getProductsByIdList(productIds);
+    }
 
-    static async createSchema(){
-        try{
-            await CartService.mariaDB.schema.hasTable('carts').then( async function(exists) {
-                if (!exists) {
-                     await CartService.mariaDB.schema.createTable('carts', function (table) {
+    private static async createCartToDb(){
+        return await this.mariaDB('carts').insert({
+            timestamp: new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' '),
+        });
+    }
+
+    private static async deleteCartFromDB(id){
+        return await this.mariaDB('carts').where('id', id).del();
+    }
+    private static async addProductToCartDB(id, productId){
+        return await this.mariaDB('carts_products').insert({
+            cart_id: id,
+            product_id: productId,
+        });
+    }
+
+    private static async removeProductFromCartDB(id, productId){
+        return await this.mariaDB('carts_products').where('cart_id', id).where('product_id', productId).del();
+    }
+
+    private static async createTable(){
+        let existsCart = await this.mariaDB.schema.hasTable('carts')
+        if (!existsCart) {
+                    await this.mariaDB.schema.createTable('carts', function (table) {
                         table.increments('id').primary();
                         table.string('timestamp');
-                    }).then(function () {
-                        console.log('Created Table');
-                    }).catch(function (err) {
-                        console.error('Unable to create table', err);
                     });
-                }
-            });
-        }catch(err){
-            console.log(err);
         }
 
-        try{
-            await CartService.mariaDB.schema.hasTable('carts_products').then( async function(exists) {
-                if (!exists) {
-                     await CartService.mariaDB.schema.createTable('carts_products', function (table) {
+        let existsCartProducts = await this.mariaDB.schema.hasTable('carts_products')
+        if (!existsCartProducts) {
+                     await this.mariaDB.schema.createTable('carts_products', function (table) {
                         table.increments('id').primary();
                         table.integer('cart_id').unsigned().references('id').inTable('carts');
                         table.integer('product_id').unsigned().references('id').inTable('products');
-                    }).then(function () {
-                        console.log('Created Table');
-                    }).catch(function (err) {
-                        console.error('Unable to create table', err);
                     });
-                }
-            });
-        }catch(err){
-            console.log(err);
         }
+    }
+
+    static async createSchema(){
+        return await this.createTable();
     }
 
 
     static async createCart() {
-        try{
-            await CartService.createSchema();
-            let res = await CartService.mariaDB('carts').insert({
-                timestamp: new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' '),
-            });
-            return res;
-        }catch(err){
-            console.log(err);
-            return false;
-        }
+        return this.createCartToDb();
     }
 
     static async deleteCart(id: number) {
-        try{
-            let res = await CartService.mariaDB('carts').where('id', id).del();
-            return res;
-        }catch(err){
-            console.log(err);
-            return false;
-        }
+        return await this.deleteCartFromDB(id); 
     }
 
     static async  getCartProducts(id: number) {
-        try{
-            let cart = await CartService.mariaDB('carts').where('id', id).first();
-            if (cart) {
-                let products = await CartService.mariaDB('carts_products').where('cart_id', id).select('product_id');
-                let productIds = products.map(product => product.product_id);
-                let productsList = await ProductsService.getProductsByIdList(productIds);
-                return productsList;
-            }else{
-                return null;
-            }
-        }catch(err){
-            console.log(err);
-            return null;
+       
+        let cart = await CartService.mariaDB('carts').where('id', id).first();
+        if (cart) {
+            return await this.getProductsCartFromDB(id);
         }
+            return null;
+ 
+
     }
 
     static async addProductToCart(id: number, productId: number) {
-        try{
-            let cart = await CartService.mariaDB('carts').where('id', id).first();
-            if (cart) {
-                let res = await CartService.mariaDB('carts_products').insert({
-                    cart_id: id,
-                    product_id: productId,
-                });
-                return true;
-            }else{
-                return false;
-            }
-        }catch(err){
-            console.log(err);
-            return false;
-        }
 
-        
+        let cart = await CartService.mariaDB('carts').where('id', id).first();
+        if (cart) {
+            return await this.addProductToCartDB(id, productId);
+        }
+        return false; 
     }
 
     static async removeProductFromCart(id: number, productId: number) {
-        try{
-            let res = await CartService.mariaDB('carts_products').where('cart_id', id).where('product_id', productId).del();
-            return res;
-        }catch(err){
-            console.log(err);
-            return false;
-        }
+        return await this.removeProductFromCartDB(id, productId);
     }
 
     static async saveCartFile(id: number) {

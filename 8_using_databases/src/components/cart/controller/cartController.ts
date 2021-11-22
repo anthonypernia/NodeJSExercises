@@ -18,9 +18,10 @@ class CartController {
             let response = await CartService.deleteCart(cartId);
             if (response) {
                 res.status(200).json({result:"Complete"});
-            }else{
-                res.status(404).json({error: "Cart not found"});
+                return;
             }
+            res.status(404).json({error: "Cart not found"});
+            
         }catch(err){
             res.status(500).json({error: err});
         }
@@ -32,9 +33,9 @@ class CartController {
             let products =  await CartService.getCartProducts(cartId)
             if (products) {
                 res.status(200).json({products});
-            }else{
-                res.status(404).json({error: "Cart not found"});
+                return;
             }
+            res.status(404).json({error: "Cart not found"});
         }catch(err){
             res.status(500).json({error: err});
         }
@@ -47,9 +48,9 @@ class CartController {
             let response =  await CartService.addProductToCart(cartId, productId);
             if (response) {
                 res.status(200).json({result:"Complete"});
-            }else{
-                res.status(404).json({error: "Cart not found"});
+                return;
             }
+            res.status(404).json({error: "Cart not found"});
         }catch(err){
             res.status(500).json({error: err});
         }
@@ -62,9 +63,9 @@ class CartController {
             let response =  await CartService.removeProductFromCart(cartId, productId);
             if (response) {
                 res.status(200).json({result:"Complete"});
-            }else{
-                res.status(404).json({error: "Cart or Product not found"});
+                return;
             }
+            res.status(404).json({error: "Cart or Product not found"});
         }catch(err){
             res.status(500).json({error: err});
         }
@@ -76,9 +77,10 @@ class CartController {
             let response = await CartService.saveCartFile(cartId);
             if (response) {
                 res.status(200).json({result:"Complete"});
-            }else{
-                res.status(500).json({error: "Error while saving file"});
+                return;
             }
+            res.status(500).json({error: "Error while saving file"});
+            
         }catch(err){
             res.status(500).json({error: err});
         }

@@ -2,6 +2,7 @@ import productComponent from '../components/products'
 import cartComponent from '../components/cart'
 import chatComponent from '../components/chat'
 import { Router } from 'express';
+import { validateSecurity } from '../utils/utils';
 let router = Router();
 
 
@@ -9,6 +10,7 @@ let router = Router();
 
 function serverRouter(app) {
     app.use('/api', router);
+    router.use( validateSecurity );
     productComponent(router);
     cartComponent(router);
     chatComponent(router);
