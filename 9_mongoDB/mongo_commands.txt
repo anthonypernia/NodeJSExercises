@@ -1,0 +1,104 @@
+
+- Crear base
+use ecommerce
+
+- Ver bases creadas
+show dbs
+
+- Crear collecciones
+db.createCollection("mensajes")
+db.createCollection("productos")
+
+- Ver colecciones creadas
+show collections
+
+- Insertar datos
+db.productos.insertMany([
+    {"timestamp":"22-11-2021", "name": "bicicleta", "description" : "bicicleta color verde", "code":"123","photo":"link", "price": 1000, "stock":21},
+     {"timestamp":"22-11-2021", "name": "automovil", "description" : "auto marca bmw", "code":"321","photo":"link", "price": 4500, "stock":1},
+    {"timestamp":"22-11-2021", "name": "moto", "description" : "moto marca honda", "code":"456","photo":"link", "price": 500, "stock":10},
+    {"timestamp":"22-11-2021", "name": "camioneta", "description" : "camioneta marca mercedes", "code":"789","photo":"link", "price": 5000, "stock":9},
+    {"timestamp":"22-11-2021", "name": "balon", "description" : "balon de futbol", "code":"783","photo":"link", "price": 1000, "stock":6},
+    {"timestamp":"22-11-2021", "name": "regalos", "description" : "regalos de bienvenida", "code":"936","photo":"link", "price": 2050, "stock":2},
+    {"timestamp":"22-11-2021", "name": "notebook", "description" : "notebook acer", "code":"543","photo":"link", "price": 2345, "stock":87},
+    {"timestamp":"22-11-2021", "name": "celular", "description" : "iphone 6", "code":"223","photo":"link", "price": 3500, "stock":45},
+    {"timestamp":"22-11-2021", "name": "bolso", "description" : "bolso azul", "code":"554","photo":"link", "price": 1234, "stock":5},
+    {"timestamp":"22-11-2021", "name": "camisa", "description" : "camisa roja", "code":"876","photo":"link", "price": 3242, "stock":7}
+])
+db.mensajes.insertMany([
+    { "timestamp":"22-11-2021", "mail":"anthony1@gmail.com", "msj":"hola1"},
+    { "timestamp":"22-11-2021", "mail":"anthony2@gmail.com", "msj":"hola2"},
+    { "timestamp":"22-11-2021", "mail":"anthony3@gmail.com", "msj":"como va?"},
+    { "timestamp":"22-11-2021", "mail":"anthony4@gmail.com", "msj":"toodo bien vos?"},
+    { "timestamp":"22-11-2021", "mail":"anthony1@gmail.com", "msj":"que precio ?"},
+    { "timestamp":"22-11-2021", "mail":"anthony2@gmail.com", "msj":"2500 pesos"},
+    { "timestamp":"22-11-2021", "mail":"anthony1@gmail.com", "msj":"debito?"},
+    { "timestamp":"22-11-2021", "mail":"anthony2@gmail.com", "msj":"ok aca esta el pago"},
+])
+
+- Ver datos
+db.productos.find().pretty()
+db.mensajes.find().pretty()
+
+- Contar datos
+db.productos.countDocuments()
+db.mensajes.countDocuments()
+
+- Insertar uno en coll productos
+db.productos.insertOne({"timestamp":"22-11-2021", "name": "pantalon", "description" : "pantalon negro" , "code":"540","photo":"link", "price": 2311, "stock":5})
+
+- Buscar uno por nombre especifico 
+db.productos.findOne({"name":"bicicleta"})
+db.productos.find({"name":"bicicleta"}) ## Si quiero varios
+
+- Listando lso menores a 1000
+db.productos.find({"price" : {$lt : 1000} })
+db.productos.find({"price" : {$lte : 1000} }) ##Si quiero incluir el q vale 1000
+
+- Precios entre 1000 y 3000 incluyendolos
+db.productos.find({"price" : {$gt : 1000, $lt : 3000} })
+db.productos.find({ $and: [{"price": {$gte:1000} }, {"price": {$lte:3000 }}] })
+
+- Precion mayor a 3000
+db.productos.find({"price" : {$gt : 3000} })
+db.productos.find({"price" : {$gte : 3000} }) ##Si quiero incluir el q vale 3000
+
+- Nombre de tercer producto mas barato
+db.productos.find({}, {"name":1}).sort({"price":-1}).skip(0).limit(1)
+db.productos.find().sort({"price":-1}).skip(2).limit(1) ##Todo el registro
+
+- Actualizar stock de todos los productos a 100
+db.productos.updateMany({}, {$set : {"stock":100} })
+
+- Cambiar stock a productos con price mayo a 4000
+db.productos.updateMany({ "price" : {$gt : 4000} }, {$set : {"stock":0} })
+
+- Borrar productos precio menor a 1000
+db.productos.deleteMany({"price" : {$lt : 1000} })
+
+- Crear usuario que solo pueda leer base ecommerce
+db.createUser({user:"pepe", pwd:"aspd456", roles:[{role:"read", db:"ecommerce"}]})
+
+- Probamos con el authenticationDatabase porque no es la base por defecto
+mongo -u pepe1 -p aspd456 --authenticationDatabase ecommerce
+
+- Verificamos que no pueda editar
+use ecommerce
+db.productos.deleteMany({"price" : {$lt : 2000} })
+
+- Y Figura este error:
+
+2021-11-23T00:04:21.444+0000 E  QUERY    [js] uncaught exception: WriteCommandError({
+	"ok" : 0,
+	"errmsg" : "not authorized on ecommerce to execute command { delete: \"productos\", ordered: true, lsid: { id: UUID(\"2b9e417e-3a0e-4b66-ada1-f3c5992c4df9\") }, $db: \"ecommerce\" }",
+	"code" : 13,
+	"codeName" : "Unauthorized"
+}) :
+WriteCommandError({
+	"ok" : 0,
+	"errmsg" : "not authorized on ecommerce to execute command { delete: \"productos\", ordered: true, lsid: { id: UUID(\"2b9e417e-3a0e-4b66-ada1-f3c5992c4df9\") }, $db: \"ecommerce\" }",
+	"code" : 13,
+	"codeName" : "Unauthorized"
+})
+
+

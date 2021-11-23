@@ -44,7 +44,7 @@ form_products.addEventListener('submit', (e) => {
 
 function delete_product(id){
     fetch(URLBASEPRODUCTS + '/' + id, {
-        method: 'DELETE'
+        method: 'DELETE',
     }).then(res => res.json())
     .then(data => {
         console.log(data);
@@ -63,7 +63,7 @@ function setDataOnCard(data){
         <td class='white_font' >${product.description}</td>
         <td class='white_font' >${product.code}</td>
         <td class='white_font' >${product.stock}</td>
-        <td class='white_font' ><button class="btn btn-danger" onclick="delete_product(${product.id})">Delete</button></td>
+        <td class='white_font' ></td>
         </tr>`;
     });
     tbody_products.innerHTML = html;
