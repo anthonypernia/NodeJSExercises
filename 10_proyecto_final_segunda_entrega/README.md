@@ -123,12 +123,16 @@ GET {{ip}}:8080/api/cart/{ID}/products/
 Para traer la lista de productos de un CART colocando su ID
 
 <br>
+
 ```
 DEL {{ip}}:8080/api/cart/{ID}
 ```
+
 Para borrar in CART por su ID
 
 Si desea hacer pruebas con bases de datos con docker.
 Seguir este link a un repotorio con los archivos Docker-compose.yml
+
 <br>
+
 <a href='https://github.com/anthonyperniah/DatabaseContainers' target="_blank" > Link a repositorios en Github </a>
