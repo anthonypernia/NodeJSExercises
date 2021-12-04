@@ -3,13 +3,10 @@ import { db } from './index'
 
 class Database {
 
-    static connect() {
-        FirebaseDB.connect()
-    }
 
     static getDB() {
-        FirebaseDB.connect()
-        return FirebaseDB
+        MongoDB.connect()
+        return MongoDB
     }
 
 }

@@ -103,12 +103,27 @@ class MongoDB {
         return MongoDB.connection.db(this.database).collection(tableName).updateOne({_id: new ObjectId(id)}, {$set: data});
     }
 
-    static deleteData(tableName: string, condition: any) {
-        return MongoDB.connection.db(this.database).collection(tableName).deleteOne(condition);
+    static deleteData(tableName: string, id: any) {
+        return MongoDB.connection.db(this.database).collection(tableName).deleteOne({_id: new ObjectId(id)});
     }
 
     static createTable(tableName: string, schema) {
         return MongoDB.connection.db(this.database).createCollection(tableName);
+    }
+
+    static async getAllDataInsideDocument(tableName: string, id: string, subCollectionName: string) {
+        return await MongoDB.connection.db(this.database).collection(tableName).findOne({_id: new ObjectId(id)}).then(result => {
+            return result[subCollectionName];
+        });
+    }
+
+    static async insertDataInsideDocument(tableName: string, id: string, data: any, subCollectionName: string) {
+        data._id = new ObjectId();
+        return await MongoDB.connection.db(this.database).collection(tableName).updateOne({_id: new ObjectId(id)}, {$push: {[subCollectionName]: data}}); 
+    }
+    
+    static async deleteDataInsideDocument(tableName: string, id: string, subCollectionName: string, productId: any) {
+        return await MongoDB.connection.db(this.database).collection(tableName).updateOne({_id: new ObjectId(id)}, {$pull: {[subCollectionName]: {_id: new ObjectId(productId)}}});
     }
 }
 
@@ -123,25 +138,17 @@ class FirebaseDB {
     }
 
     static async getAllData(tableName: string) {
-        try{
-            return await FirebaseDB.connection.collection(tableName).get().then(snapshot => {
-                return snapshot.docs.map(doc => doc.data());
-            });
-        }catch(err){
-            console.log(err);
-        }
+        return await FirebaseDB.connection.collection(tableName).get().then(snapshot => {
+            return snapshot.docs.map(doc => doc.data());
+        });
     }
 
     static async getDataById(tableName: string, id: string) {
-        try{
-            return await FirebaseDB.connection.collection(tableName).doc(id).get().then(doc => {
-                if(doc.exists){
-                    return doc.data();
-                }
-            });
-        }catch(err){
-            console.log(err);
-        }
+        return await FirebaseDB.connection.collection(tableName).doc(id).get().then(doc => {
+            if(doc.exists){
+                return doc.data();
+            }
+        });
     }
 
     static getDataByIdList(tableName: string, idList: any[]) {
@@ -156,24 +163,31 @@ class FirebaseDB {
     }
 
     static updateData(tableName: string, id: string, data: any) {
-        return FirebaseDB.connection.collection(tableName).doc(id).set(data);
+        return FirebaseDB.connection.collection(tableName).doc(id).update(data);
     }
 
-    static deleteData(tableName: string, condition: any) {
-        let id = condition.id;
-        
+    static deleteData(tableName: string, id: any) {
         return FirebaseDB.connection.collection(tableName).doc(id).delete();
     }
 
     static async createTable(tableName: string, schema) {
-        try{
-            let idRef = await FirebaseDB.connection.collection(tableName).add({id: 'id'});
-            
-            await FirebaseDB.deleteData(tableName, {id: idRef.id});
-        }catch(err){
-            console.log(err);
-        }
+        //En firebase una colleccion se crea apenas le agregamos un documento
+        return true;
     }
+
+    static async insertDataInsideDocument(tableName: string, id: string, data: any, subCollectionName: string) {
+        return await FirebaseDB.connection.collection(tableName).doc(id).collection(subCollectionName).add(data);
+    }
+
+    static async getAllDataInsideDocument(tableName: string, id: string, subCollectionName: string) {
+        let document = await FirebaseDB.connection.collection(tableName).doc(id).collection(subCollectionName).get();
+        return document.docs.map(doc => doc.data());
+    }
+
+    static async deleteDataInsideDocument(tableName: string, id: string, subCollectionName: string, productId: any) {
+        return await FirebaseDB.connection.collection(tableName).doc(id).collection(subCollectionName).doc(productId).delete();
+    }
+
 
 
 

@@ -4,13 +4,10 @@ import { Database } from '../../../../config/database'
 import knex from 'knex';
 
 class ProductsService{
-
     private static database =  Database.getDB()
-    
+
     private static async getProductsFromDB(){
-        
         const products = await this.database.getAllData('products')
-        
         return products
     }
 
@@ -19,7 +16,7 @@ class ProductsService{
         return product
     }
 
-    private static async getProductsByIdListFromDB(idList: number[]){
+    private static async getProductsByIdListFromDB(idList: []){
         let product = await this.database.getDataByIdList('products', idList)
         return product;
     }
@@ -57,11 +54,11 @@ class ProductsService{
         return  await this.getProductsFromDB();
     }
 
-    static  async getProductsById(id: number){
+    static  async getProductsById(id){
         return await this.getProductsByIdFromDB(id);
     }
     
-    static async getProductsByIdList(idList: number[]){
+    static async getProductsByIdList(idList: []){
         return await this.getProductsByIdListFromDB(idList);
 
     }
@@ -95,9 +92,8 @@ class ProductsService{
     }
 
     static async deleteProduct(id){
-        return await this.deleteProductFromDB({id: id});
+        return await this.deleteProductFromDB(id);
     }
-
 }
 
 export  { ProductsService }

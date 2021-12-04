@@ -14,7 +14,7 @@ class CartController {
 
     static  async  deleteCart(req, res, next){
         try{
-            let cartId = parseInt(req.params.id);
+            let cartId = req.params.id;
             let response = await CartService.deleteCart(cartId);
             if (response) {
                 res.status(200).json({result:"Complete"});
@@ -29,7 +29,7 @@ class CartController {
 
     static  async  getCartProducts(req, res, next ){
         try{
-            let cartId = parseInt(req.params.id);
+            let cartId = req.params.id;
             let products =  await CartService.getCartProducts(cartId)
             if (products) {
                 res.status(200).json({products});
@@ -43,9 +43,9 @@ class CartController {
 
     static  async  addProductToCart(req, res, next){
         try{
-            let cartId = parseInt(req.params.id);
-            let productId = parseInt(req.body.id);
-            let response =  await CartService.addProductToCart(cartId, productId);
+            let cartId = req.params.id;
+            let product = req.body;
+            let response =  await CartService.addProductToCart(cartId, product);
             if (response) {
                 res.status(200).json({result:"Complete"});
                 return;
@@ -58,8 +58,8 @@ class CartController {
 
     static  async  removeProductFromCart(req, res, next ){
         try{
-            let cartId = parseInt(req.params.id);
-            let productId = parseInt(req.params.id_prod);
+            let cartId = req.params.id;
+            let productId = req.params.id_prod;
             let response =  await CartService.removeProductFromCart(cartId, productId);
             if (response) {
                 res.status(200).json({result:"Complete"});
@@ -73,7 +73,7 @@ class CartController {
 
     static  async saveCartFile(req, res, next ) {
         try{
-            let cartId = parseInt(req.params.id);
+            let cartId = req.params.id;
             let response = await CartService.saveCartFile(cartId);
             if (response) {
                 res.status(200).json({result:"Complete"});

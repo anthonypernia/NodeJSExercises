@@ -1,7 +1,5 @@
 
-import { Cart } from "../model/Cart"
-import { ProductsService } from "../../products/service/productsService"
-import { Product } from "../../products/model/Product"
+
 import { Database } from '../../../../config/database'
 import fs from "fs"
 class CartService {
@@ -9,9 +7,8 @@ class CartService {
     private static database =  Database.getDB()
 
     private static async getProductsCartFromDB(id){
-        let products = await this.database.getDataById('carts_products', id)
-        let productIds = products.map(product => product.product_id);
-        return await ProductsService.getProductsByIdList(productIds);
+        let products = await this.database.getAllDataInsideDocument('carts', id, 'products');
+        return products;
     }
 
     private static async createCartToDb(){
@@ -23,30 +20,18 @@ class CartService {
     private static async deleteCartFromDB(id){
         return await this.database.deleteData('carts', id);
     }
-    private static async addProductToCartDB(id, productId){
-
-        return await this.database.insertData('carts_products', {
-            cart_id: id,
-            product_id: productId,
-        });
+    private static async addProductToCartDB(id, product){
+        return await this.database.insertDataInsideDocument('carts', id, product, 'products');
     }
 
     private static async removeProductFromCartDB(id, productId){
-        return await this.database.deleteData('carts_products', {
-            cart_id: id,
-            product_id: productId,
-        });
+        return await this.database.deleteDataInsideDocument('carts', id, 'products' , productId);
     }
 
     private static async createTable(){
         await this.database.createTable('carts', table => {
             table.increments('id').primary();
             table.string('timestamp');
-        })
-        await this.database.createTable('carts_products', table => {
-            table.increments('id').primary();
-            table.integer('cart_id').unsigned().references('carts.id');
-            table.integer('product_id').unsigned().references('products.id');
         })
     }
 
@@ -59,24 +44,25 @@ class CartService {
         return this.createCartToDb();
     }
 
-    static async deleteCart(id: number) {
+    static async deleteCart(id) {
         return await this.deleteCartFromDB(id); 
     }
 
-    static async  getCartProducts(id: number) {
+    static async  getCartProducts(id) {
         let products = await CartService.getProductsCartFromDB(id);
         return products;
     }
 
-    static async addProductToCart(id: number, productId: number) {
-        return await this.addProductToCartDB(id, productId);
+    static async addProductToCart(id, product) {
+        
+        return await this.addProductToCartDB(id, product);
     }
 
-    static async removeProductFromCart(id: number, productId: number) {
+    static async removeProductFromCart(id, productId) {
         return await this.removeProductFromCartDB(id, productId);
     }
 
-    static async saveCartFile(id: number) {
+    static async saveCartFile(id) {
         try{
             let products = await CartService.getCartProducts(id);
             let cartFile = {

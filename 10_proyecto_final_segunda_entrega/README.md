@@ -85,6 +85,7 @@ Ejemplo de data:
         "description":"DESDE PUT",
         "code":"DESDE PUT",
         "photo":"https://",
+        "price":34,
         "stock":32
     }
 ```
@@ -101,11 +102,17 @@ Para borrar un producto por ID
 POST {{ip}}:8080/api/cart/{ID}/products/
 ```
 Para insertar un Producto a un CART
-En el body debe ir el ID del producto:
+En el body debe ir el  producto:
 ```
-{
-    "id":2
-}
+    {
+        "code": "111222333",
+        "description": "product",
+        "photo": "https",
+        "price": 130,
+        "stock": 21,
+        "timestamp": "2021-12-03 01:24:11",
+        "name": "product"
+    }
 ```
 <br>
 
