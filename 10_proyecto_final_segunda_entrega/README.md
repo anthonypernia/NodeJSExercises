@@ -1,6 +1,6 @@
 ### Shop Anthony
 
-Antes de iniciar, es necesario ejecutar la creacion de tablas que seria usando las rutas:
+Antes de iniciar, si van a trabaajr con bases de datos relacionales, como MariaDB o Sqlite, es necesario ejecutar la creacion de tablas que seria usando las rutas:
 ```
 {{ip}}:8080/api/products/create
 {{ip}}:8080/api/chat/create
@@ -17,7 +17,19 @@ Esta aplicacion trabaja almacenando en:
 <li>Sqlite</li>
 </ul>
 
-Con todas usa el mismo modelado de datos.
+Con todas usa el mismo modelado de datos. y el switch de bases depende de un valor en variables de entorno que se llama DATABASE_TYPE.
+Dejo un ejemplo del archivo .env
+
+```
+DB_HOST=192.168.0.16
+DB_USER=root
+DB_PASS=passs
+DB_NAME=shop
+DB_PORT=3306
+PORT=8080
+MONGO_DB_URI=mongodb+srv://root:passs@cluster0.6f4bv.mongodb.net/AnthonyStoreProject?retryWrites=true&w=majority
+DATABASE_TYPE=firebase
+```
 
 Los endpoints con los que trabaja hasta ahora serian con los objetos:
 <ul>

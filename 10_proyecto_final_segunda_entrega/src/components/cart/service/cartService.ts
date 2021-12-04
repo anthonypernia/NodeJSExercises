@@ -4,7 +4,7 @@ import { Database } from '../../../../config/database'
 import fs from "fs"
 class CartService {
 
-    private static database =  Database.getDB()
+    private static database:any =  Database.getDB()
 
     private static async getProductsCartFromDB(id){
         let products = await this.database.getAllDataInsideDocument('carts', id, 'products');

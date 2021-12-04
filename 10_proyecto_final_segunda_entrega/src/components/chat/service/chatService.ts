@@ -3,7 +3,7 @@ import { Database } from '../../../../config/database'
 
 class ChatService{
 
-    private static database =  Database.getDB();
+    private static database:any =  Database.getDB();
 
     private static async getChatsFromDB(){
         return await this.database.getAllData('chats')

@@ -4,7 +4,7 @@ import { Database } from '../../../../config/database'
 import knex from 'knex';
 
 class ProductsService{
-    private static database =  Database.getDB()
+    private static database: any =  Database.getDB()
 
     private static async getProductsFromDB(){
         const products = await this.database.getAllData('products')
