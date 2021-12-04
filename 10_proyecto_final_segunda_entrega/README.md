@@ -115,15 +115,16 @@ DEL {{ip}}:8080/api/cart/{IDCART}/products/{IDPROD}
 Para borrar un producto de algun CART
 
 <br>
+
 ```
 GET {{ip}}:8080/api/cart/{ID}/products/
 ```
+
 Para traer la lista de productos de un CART colocando su ID
 
 <br>
 ```
 DEL {{ip}}:8080/api/cart/{ID}
-
 ```
 Para borrar in CART por su ID
 
