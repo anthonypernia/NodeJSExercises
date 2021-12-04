@@ -108,6 +108,7 @@ En el body debe ir el ID del producto:
 }
 ```
 <br>
+
 ```
 DEL {{ip}}:8080/api/cart/{IDCART}/products/{IDPROD}
 ```
@@ -122,7 +123,8 @@ Para traer la lista de productos de un CART colocando su ID
 <br>
 ```
 DEL {{ip}}:8080/api/cart/{ID}
-````
+
+```
 Para borrar in CART por su ID
 
 Si desea hacer pruebas con bases de datos con docker.
