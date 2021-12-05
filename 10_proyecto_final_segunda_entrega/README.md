@@ -26,6 +26,9 @@ Este puede tomar valores:
 <li>firebase</li>
 <li>Por defecto, si no colocamos nada, ira a tomar la base Sqlite</li>
 </ul>
+
+Cabe destacar que en el endpoint correspondiente a CART , en bases de datos realcionales, como MariaDB o Sqlite por ahora no esta funcionando, porque habria que modelas relaciones muchos a muchos con tabla intermedia, que aun no esta realizado.
+
 Dejo un ejemplo del archivo .env
 
 ```
