@@ -1,12 +1,17 @@
 
 
 import { Database } from '../../../../config/database'
+import RelationalDatabase from '../../../../config/dbConnections/RelationalDatabase'
 import fs from "fs"
 class CartService {
 
     private static database:any =  Database.getDB()
 
     private static async getProductsCartFromDB(id){
+        
+        if (this.database.prototype instanceof RelationalDatabase){
+            
+        }
         let products = await this.database.getAllDataInsideDocument('carts', id, 'products');
         return products;
     }

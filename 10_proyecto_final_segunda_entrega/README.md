@@ -18,6 +18,14 @@ Esta aplicacion trabaja almacenando en:
 </ul>
 
 Con todas usa el mismo modelado de datos. y el switch de bases depende de un valor en variables de entorno que se llama DATABASE_TYPE.
+Este puede tomar valores:
+
+<ul>
+<li>mongo</li>
+<li>mariadb</li>
+<li>firebase</li>
+<li>Por defecto, si no colocamos nada, ira a tomar la base Sqlite</li>
+</ul>
 Dejo un ejemplo del archivo .env
 
 ```

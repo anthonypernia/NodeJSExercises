@@ -12,7 +12,6 @@ class MongoDB {
         let user = db.user || '';
         let password = db.password || '';
         
-        console.log(uri);
         if (MongoDB.connection === undefined || MongoDB.connection === null) {
             MongoDB.connection = new MongoClient(uri);
             MongoDB.connection.connect()

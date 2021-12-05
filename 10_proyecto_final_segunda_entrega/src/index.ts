@@ -28,7 +28,7 @@ io.on('connection', (socket)=>{
     console.log(`a user connected ${socket.id}`);
 
     socket.on('add_product', async (data)=>{
-        console.log(data);
+        
         await ProductsService.insertProducts(data);
         io.emit('products_all', {"update":"yes"});
     });

@@ -57,11 +57,10 @@ function setDataOnCard(data){
         html += `<tr>
         <td class='white_font' >${product.name}</td>
         <td class='white_font' >${product.price}</td>
-        <td class='white_font' >${product.photo}</td>
+        <td class='white_font' ><img src=${product.photo} ></img></td>
         <td class='white_font' >${product.description}</td>
         <td class='white_font' >${product.code}</td>
         <td class='white_font' >${product.stock}</td>
-        <td class='white_font' ></td>
         </tr>`;
     });
     tbody_products.innerHTML = html;

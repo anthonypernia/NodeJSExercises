@@ -1,23 +1,25 @@
 
 import RelationalDatabase from "./RelationalDatabase";
-
+import { db } from '../index'
+import knex from 'knex';
 
 class MariaDB extends RelationalDatabase {
     static connection;
     static connect() {
-        const firebaseConfig = {
-            apiKey: "AIzaSyDRJVtvi79wHWVwJttoAXEJAJFFse3KJK8",
-            authDomain: "anthonystoreproject.firebaseapp.com",
-            projectId: "anthonystoreproject",
-            storageBucket: "anthonystoreproject.appspot.com",
-            messagingSenderId: "973311422477",
-            appId: "1:973311422477:web:19ce6b6834e0fbf9756544"
-          };
-          
-        
+        if (MariaDB.connection === undefined || MariaDB.connection === null) {
+            MariaDB.connection = knex({
+            client: 'mysql',
+            connection: db
+            ,
+            pool: {
+                min: 0,
+                max: 10
+            }
+        });
+        }
     }
 
 }
 
 
-export default MariaDB;
+export  {MariaDB};

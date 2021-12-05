@@ -19,6 +19,7 @@ class ChatService{
             table.string('timestamp');
             table.string('message');
             table.string('sender');
+            table.string('receiver');
         });
     }
 
