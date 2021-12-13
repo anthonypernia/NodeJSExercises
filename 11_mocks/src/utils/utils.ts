@@ -6,6 +6,7 @@ import { ChatController } from "../components/chat/controller/chatController";
 import { ChatService } from "../components/chat/service/chatService";
 import { ProductsController } from "../components/products/controller/productsController";
 import { ProductsService } from "../components/products/service/productsService";
+import util from 'util';
 
 
     function validateSecurity(req, res, next) {
@@ -25,4 +26,9 @@ import { ProductsService } from "../components/products/service/productsService"
         next();
     }
 
-    export { validateSecurity, createSchemas };
+
+    function print(obj){
+        console.log(util.inspect(obj, false, 12, true));
+    }
+
+    export { validateSecurity, createSchemas, print };

@@ -1,4 +1,6 @@
 import { Database } from '../../../../config/database'
+import { schema, normalize, denormalize } from 'normalizr'
+import { print } from '../../../utils/utils'
 
 
 class ChatService{
@@ -24,7 +26,18 @@ class ChatService{
     }
 
     static async getChats(){
-        return await this.getChatsFromDB()
+        let chats =  await this.getChatsFromDB()
+        console.log("removing objectID")
+        console.log('-----------current------')
+        console.log(chats)
+        console.log('-----------normalized------')
+        const authorSchema = new schema.Entity('author')
+        const messageSchema = new schema.Entity('message', {
+            author: authorSchema
+        }, { idAttribute: '_id' })
+        let normalizedChats = normalize(chats, [messageSchema])
+        return normalizedChats
+
     }
 
     static async createChat(){
@@ -36,7 +49,5 @@ class ChatService{
         data.timestamp = new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' ');
         return await this.insertMessageToDB(data)
     }
-
 }
-
 export { ChatService };

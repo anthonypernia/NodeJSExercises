@@ -37,8 +37,10 @@
     "mongodb": "^4.2.1",
     "mongoose": "^6.0.14",
     "mysql": "^2.18.1",
+    "normalizr": "^3.6.1",
     "package.json": "^2.0.1",
     "socket.io": "^4.3.1",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "util": "^0.12.4"
   }
 }

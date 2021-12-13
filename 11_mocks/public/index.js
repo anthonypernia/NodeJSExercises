@@ -94,6 +94,9 @@ function setDataOnCard_test(data){
 
 function setDataMessage(data){
     console.log(data);
+    let denormalized = denormalize(data);
+    console.log(denormalized);
+    console.log(denormalized);
     let html = '';
     if (data.length > 0) {
         data.forEach(message => {
