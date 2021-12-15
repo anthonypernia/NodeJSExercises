@@ -7,7 +7,7 @@ let code_input = document.getElementById('code_input');
 let stock_input = document.getElementById('stock_input');
 let tbody_products = document.getElementById('tbody_products');
 let tbody_products_test = document.getElementById('tbody_products_test');
-
+let compresion_test = document.getElementById('compresion_test');
 let name_user = document.getElementById('name_user');
 let lastname_user = document.getElementById('lastname_user');
 let age_user = document.getElementById('age_user');
@@ -26,7 +26,7 @@ let socket = io();
 
 
 socket.on('init', (data) => {
-    console.log(data);
+   
 });
 
 
@@ -54,13 +54,13 @@ function delete_product(id){
         method: 'DELETE',
     }).then(res => res.json())
     .then(data => {
-        console.log(data);
+        
     }
     );
 }
 
 function setDataOnCard(data){
-    console.log(data);
+   
     let html = '';
     data.forEach(product => {
         html += `<tr>
@@ -76,7 +76,7 @@ function setDataOnCard(data){
 }
 
 function setDataOnCard_test(data){
-    console.log(data);
+   
     let html = '';
     data.forEach(product => {
         html += `<tr>
@@ -94,12 +94,20 @@ function setDataOnCard_test(data){
 
 function setDataMessage(data){
     console.log(data);
-    let denormalized = denormalize(data);
-    console.log(denormalized);
-    console.log(denormalized);
+    const authorSchema = new normalizr.schema.Entity('author')
+    const messageSchema = new normalizr.schema.Entity('message', {
+        author: authorSchema
+    }, { idAttribute: '_id' })
+    let denormalizedData = normalizr.denormalize(data.result, [messageSchema], data.entities);
+    console.log(denormalizedData);
+    let normalizeLenData = JSON.stringify(data).length
+    let denormalizeLenData = JSON.stringify(denormalizedData).length
+    let percentage_normalized = (denormalizeLenData * 100) / normalizeLenData;
+    console.log(normalizeLenData, denormalizeLenData, percentage_normalized);
+    compresion_test.innerHTML = ` El porcentaje de compresion es =  ${percentage_normalized.toFixed(2) } %`; 
     let html = '';
-    if (data.length > 0) {
-        data.forEach(message => {
+    if (denormalizedData.length > 0) {
+        denormalizedData.forEach(message => {
             html += `<div class="row">
             <div class="col-md-12">
             <div class="container">
@@ -141,7 +149,7 @@ function getData_test(){
 
 function getMessages(){
     fetch(URLBASECHATS).then(response => response.json()).then(data => {
-        setDataMessage(data);
+         setDataMessage(data);
     })
 }
 
@@ -167,7 +175,7 @@ form_msg.addEventListener('submit', (e) => {
         },
         text : msg
         }
-    console.log(message);
+    
     socket.emit('send_msg', message);
 
 });

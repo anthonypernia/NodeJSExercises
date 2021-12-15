@@ -27,10 +27,6 @@ class ChatService{
 
     static async getChats(){
         let chats =  await this.getChatsFromDB()
-        console.log("removing objectID")
-        console.log('-----------current------')
-        console.log(chats)
-        console.log('-----------normalized------')
         const authorSchema = new schema.Entity('author')
         const messageSchema = new schema.Entity('message', {
             author: authorSchema
