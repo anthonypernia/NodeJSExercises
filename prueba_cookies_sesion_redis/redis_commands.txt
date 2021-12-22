@@ -1,0 +1,12 @@
+enter to the cli
+ - redis-cli
+show keys
+- keys *
+- keys prod*    # to get all keys starting with prod, its a regex
+add key
+- set keyName "value"
+get key
+- get keyName
+
+set key with expiration
+- set keyName "value" ex 10  # will expire in 10 seconds
