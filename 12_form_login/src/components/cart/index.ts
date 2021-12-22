@@ -4,7 +4,7 @@ let router = Router();
 
 
 export default ( app ) => {
-    app.use( '/cart', router );
+    app.use( '/api/cart', router );
 
     router.post( '/', ( req, res, next) => {
         CartController.createCart( req, res, next );

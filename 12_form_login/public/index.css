@@ -37,7 +37,7 @@
     color: #fff;
 }
 
-#btn_input, #btn_msg{
+.btn_input, #btn_msg{
     width: 30%;
     height: 30%;
     display: flex;

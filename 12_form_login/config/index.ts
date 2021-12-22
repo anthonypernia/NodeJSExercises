@@ -14,6 +14,8 @@ let db = {
     database: process.env.DB_NAME,
     mongo_db_uri: process.env.MONGO_DB_URI,
     database_type: process.env.DATABASE_TYPE,
+    redis_host: process.env.REDIS_HOST,
+    redis_port: process.env.REDIS_PORT,
 }
 
 

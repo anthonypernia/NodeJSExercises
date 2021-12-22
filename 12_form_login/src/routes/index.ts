@@ -1,6 +1,7 @@
 import productComponent from '../components/products'
 import cartComponent from '../components/cart'
 import chatComponent from '../components/chat'
+import authComponent from '../components/authentication'
 import { Router } from 'express';
 import { validateSecurity, createSchemas } from '../utils/utils';
 let router = Router();
@@ -9,8 +10,10 @@ let router = Router();
 
 
 function serverRouter(app) {
-    app.use('/api', router);
+    
+    app.use('/', router);
     router.use( validateSecurity );
+    authComponent(router);
     productComponent(router);
     cartComponent(router);
     chatComponent(router);

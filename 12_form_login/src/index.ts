@@ -79,4 +79,6 @@ app.get('/products-test', (req, res, next) => {
     res.json(products);
 });
 
+
+
 serverRouter(app);

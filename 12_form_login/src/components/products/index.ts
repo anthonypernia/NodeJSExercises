@@ -6,7 +6,7 @@ let router:Router = Router();
 
 export default ( app ) => {
 
-    app.use( '/products', router );
+    app.use( '/api/products', router );
 
     router.get( '/:id?', ( req, res, next ) => {
 

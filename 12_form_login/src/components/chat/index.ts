@@ -4,7 +4,7 @@ import { ChatController } from "../chat/controller/chatController"
 
 
 export default ( app ) => {
-    app.use( '/chat', router );
+    app.use( '/api/chat', router );
 
     router.post( '/create', ( req, res, next) => {
         ChatController.createChat( req, res, next );
