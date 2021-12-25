@@ -17,10 +17,10 @@ class Redis {
             port: db.redis_port
         });
         this.client.on('connect', () => {
-            console.log('Redis connected');
+            // console.log('Redis connected');
         });
         this.client.on('error', err => {
-            console.log('Redis error: ' + err);
+            // console.log('Redis error: ' + err);
         });
     }
 
@@ -29,13 +29,12 @@ class Redis {
     }
 
     async set(key, value) {
-        return await this.client.set(key, value, 'EX', 5);
+        return await this.client.set(key, value);
     }
 
-    async setexp(key, value, expire) {
-        console.log('setex');
-        let result = this.client.set(key, value);
-        this.client.expire(key, expire);
+    async setexp(key, expire, value ) {
+        let result = await this.client.set(key, value)
+        await this.client.expire(key, expire);
         return result;
 
     }

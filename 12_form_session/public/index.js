@@ -127,6 +127,7 @@ function setDataMessage(data){
 // });
 
 function getData(){
+    
     fetch(URLBASEPRODUCTS).then(response => response.json()).then(data => {
         setDataOnCard(data);
     }
@@ -166,10 +167,13 @@ form_msg.addEventListener('submit', (e) => {
 });
 
 function setDataUser(){
-    fetch(URLBASEUSERNAME+"/username").then(response => response.json()).then(data => {
-        wellcome_message.innerHTML = `Bienvenido ${data.username}`;
-    })
+    let URL  =URLBASEUSERNAME+"/username"
+    fetch(URL).then(response => response.json()).then(data => {
+        wellcome_message.innerHTML = `Bienvenido ${data}`
+    }
+    );
 }
+
 
 log_out_button.addEventListener('click', (e) => {
     e.preventDefault();
