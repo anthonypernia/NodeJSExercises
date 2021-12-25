@@ -40,7 +40,6 @@ io.on('connection', (socket)=>{
         await ChatService.insertMessage(message);
         io.emit('msg_all', {"update":"yes"});
     });
-
 })
 
 

@@ -13,7 +13,10 @@
 
 <body>
   <div class="container m-4 p-4">
-
+    <div>
+      <h2 id="wellcome_message"></h2>
+      <button id="log_out">Logout</button>
+    </div>
     <div>
       <form id="form_products">
         <div class="container-form">
@@ -83,7 +86,6 @@
 
         <input type="text" name="avatar" id="avatar_user" placeholder="url avatar">
         <hr>
-        <h2 id="compresion_test">Compresion TEST</h2>
         <div class="container" id="chat_container">
         </div>
         <hr>
@@ -95,35 +97,13 @@
     </div>
   </div>
 
-
-  <div class="container m-4 p-4">
-    <div class="container_table">
-      <h2>Products view</h2>
-      <table class="table table_products">
-        <thead>
-          <tr>
-            <th class="white_font" scope="col">Name</th>
-            <th class="white_font" scope="col">Price</th>
-            <th class="white_font" scope="col">Img</th>
-            <th class="white_font" scope="col">Description</th>
-            <th class="white_font" scope="col">Code</th>
-            <th class="white_font" scope="col">Stock</th>
-          </tr>
-        </thead>
-        <tbody id="tbody_products_test">
-        </tbody>
-      </table>
-  </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
-  
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
-  <script src="socket.io/socket.io.js"></script>
+  <!-- <script src="socket.io/socket.io.js"></script> -->
   <script src="/index.js"></script>
 
 

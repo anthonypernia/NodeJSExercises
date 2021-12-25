@@ -1,5 +1,5 @@
 {
-  "name": "redis_pruebas",
+  "name": "process_prueba",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,9 +14,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "connect-redis": "^6.0.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "redis": "^4.0.1"
+    "minimist": "^1.2.5",
+    "yargs": "^17.3.1"
   }
 }

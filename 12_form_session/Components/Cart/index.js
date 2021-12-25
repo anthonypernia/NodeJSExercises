@@ -1,28 +1,29 @@
 const { Router } = require('express');
+const cartController = require('./Controller/');
 const router = Router();
 
-module.exports = ( app ) => {
 
+module.exports = ( app ) => {
     app.use( '/api/cart', router );
 
-    router.get( '/:id?', ( req, res, next ) => {
-        console.log( 'GET the CART' );
-        res.json( {"message": "Hello from CART"} );
-        
-    });
-    router.post( '/', ( req, res, next ) => {
-
+    router.post( '/', ( req, res, next) => {
+        cartController.createCart( req, res, next );
     });
 
-    router.put( '/:id', ( req, res, next ) => {        
-        
+    router.delete( '/:id', ( req, res, next) => {
+        cartController.deleteCart( req, res, next );
     });
 
-    router.delete( '/:id', ( req, res, next ) => {
-   
+    router.get( '/:id/products', ( req, res, next) => {
+        cartController.getCartProducts( req, res, next );
     });
 
-    router.post('/create', (req, res, next) => {
+    router.post( '/:id/products', ( req, res, next) => {
+        cartController.addProductToCart( req, res, next );
+    })
 
+    router.delete( '/:id/products/:id_prod', ( req, res, next) => {
+        cartController.removeProductFromCart( req, res, next );
     });
+
 };

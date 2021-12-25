@@ -6,8 +6,6 @@ let description_input = document.getElementById('description_input');
 let code_input = document.getElementById('code_input');
 let stock_input = document.getElementById('stock_input');
 let tbody_products = document.getElementById('tbody_products');
-let tbody_products_test = document.getElementById('tbody_products_test');
-let compresion_test = document.getElementById('compresion_test');
 let name_user = document.getElementById('name_user');
 let lastname_user = document.getElementById('lastname_user');
 let age_user = document.getElementById('age_user');
@@ -15,19 +13,18 @@ let alias_user = document.getElementById('alias_user');
 let avatar_user = document.getElementById('avatar_user');
 let msg_user = document.getElementById('msg_user');
 let mail_user = document.getElementById('mail_user');
-
+let wellcome_message = document.getElementById('wellcome_message');
 let form_msg = document.getElementById('form_msg');
 let chat_container = document.getElementById('chat_container');
-
-let URLBASEPRODUCTS = 'http://192.168.0.16:8080/api/products';
-let URLBASEPRODUCTS_test = 'http://192.168.0.16:8080/products-test';
-let URLBASECHATS = 'http://192.168.0.16:8080/api/chat';
-let socket = io();
-
-
-socket.on('init', (data) => {
-   
-});
+let log_out_button = document.getElementById('log_out');
+let IP = 'http://192.168.0.16';
+let PORT = '8080';
+let URLBASEPRODUCTS = `${IP}:${PORT}/api/products`;
+let URLBASECHATS = `${IP}:${PORT}/api/chat`;
+let URLBASEUSERNAME = `${IP}:${PORT}/user`;
+// let socket = io();
+// socket.on('init', (data) => {
+// });
 
 
 form_products.addEventListener('submit', (e) => {
@@ -38,16 +35,40 @@ form_products.addEventListener('submit', (e) => {
     let description = description_input.value;
     let code = code_input.value;
     let stock = stock_input.value;
-    socket.emit('add_product', {
+    // socket.emit('add_product', {
+    //     name: title,
+    //     price: price,
+    //     photo: link,
+    //     description: description,
+    //     code: code,
+    //     stock: stock
+    // });
+    let obj = {
         name: title,
         price: price,
         photo: link,
         description: description,
         code: code,
         stock: stock
-    });
-
+        }
+    send_data(JSON.stringify(obj), URLBASEPRODUCTS);
+    getData();
+    
 });
+
+async function send_data(data, URL){
+    await fetch(URL, {
+        method: 'POST',
+        body: data,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+    .then(data => {
+        
+    }
+    );
+}
 
 function delete_product(id){
     fetch(URLBASEPRODUCTS + '/' + id, {
@@ -60,54 +81,29 @@ function delete_product(id){
 }
 
 function setDataOnCard(data){
-   
-    let html = '';
-    data.forEach(product => {
-        html += `<tr>
-        <td class='white_font' >${product.name}</td>
-        <td class='white_font' >${product.price}</td>
-        <td class='white_font' ><img src=${product.photo} ></img></td>
-        <td class='white_font' >${product.description}</td>
-        <td class='white_font' >${product.code}</td>
-        <td class='white_font' >${product.stock}</td>
-        </tr>`;
-    });
-    tbody_products.innerHTML = html;
+    try{
+        let html = '';
+        data.forEach(product => {
+            product.photo = product.photo && product.photo.includes('http') ? product.photo : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1200px-Smiley.svg.png'
+            html += `<tr>
+            <td class='white_font' >${product.name}</td>
+            <td class='white_font' >${product.price}</td>
+            <td class='white_font' ><img src=${product.photo} ></img></td>
+            <td class='white_font' >${product.description}</td>
+            <td class='white_font' >${product.code}</td>
+            <td class='white_font' >${product.stock}</td>
+            </tr>`;
+        });
+        tbody_products.innerHTML = html;
+    }catch(err){
+        console.log(err);
+    }
 }
-
-function setDataOnCard_test(data){
-   
-    let html = '';
-    data.forEach(product => {
-        html += `<tr>
-        <td class='white_font' >${product.name}</td>
-        <td class='white_font' >${product.price}</td>
-        <td class='white_font' ><img src=${product.photo} ></img></td>
-        <td class='white_font' >${product.description}</td>
-        <td class='white_font' >${product.code}</td>
-        <td class='white_font' >${product.stock}</td>
-        </tr>`;
-    });
-    tbody_products_test.innerHTML = html;
-}
-
 
 function setDataMessage(data){
-    console.log(data);
-    const authorSchema = new normalizr.schema.Entity('author')
-    const messageSchema = new normalizr.schema.Entity('message', {
-        author: authorSchema
-    }, { idAttribute: '_id' })
-    let denormalizedData = normalizr.denormalize(data.result, [messageSchema], data.entities);
-    console.log(denormalizedData);
-    let normalizeLenData = JSON.stringify(data).length
-    let denormalizeLenData = JSON.stringify(denormalizedData).length
-    let percentage_normalized = (denormalizeLenData * 100) / normalizeLenData;
-    console.log(normalizeLenData, denormalizeLenData, percentage_normalized);
-    compresion_test.innerHTML = ` El porcentaje de compresion es =  ${percentage_normalized.toFixed(2) } %`; 
     let html = '';
-    if (denormalizedData.length > 0) {
-        denormalizedData.forEach(message => {
+    if (data.length > 0) {
+        data.forEach(message => {
             html += `<div class="row">
             <div class="col-md-12">
             <div class="container">
@@ -122,27 +118,17 @@ function setDataMessage(data){
     }
 }
 
+// socket.on('products_all', (data) => {
+//     getData();
+// });
 
-
-
-socket.on('products_all', (data) => {
-    getData();
-});
-
-socket.on('msg_all', (data) => {
-    getMessages();
-});
+// socket.on('msg_all', (data) => {
+//     getMessages();
+// });
 
 function getData(){
     fetch(URLBASEPRODUCTS).then(response => response.json()).then(data => {
         setDataOnCard(data);
-    }
-    );
-}
-
-function getData_test(){
-    fetch(URLBASEPRODUCTS_test).then(response => response.json()).then(data => {
-        setDataOnCard_test(data);
     }
     );
 }
@@ -153,7 +139,6 @@ function getMessages(){
     })
 }
 
-
 form_msg.addEventListener('submit', (e) => {
     e.preventDefault();
     let name = name_user.value;
@@ -163,7 +148,6 @@ form_msg.addEventListener('submit', (e) => {
     let avatar = avatar_user.value;
     let msg = msg_user.value;
     let mail = mail_user.value;
-
     let message = {
         author: {
             id: mail,
@@ -175,13 +159,27 @@ form_msg.addEventListener('submit', (e) => {
         },
         text : msg
         }
-    
-    socket.emit('send_msg', message);
+    console.log(message);
+    // socket.emit('send_msg', message);
+    send_data(JSON.stringify(message), URLBASECHATS);
+    getMessages();
+});
 
+function setDataUser(){
+    fetch(URLBASEUSERNAME+"/username").then(response => response.json()).then(data => {
+        wellcome_message.innerHTML = `Bienvenido ${data.username}`;
+    })
+}
+
+log_out_button.addEventListener('click', (e) => {
+    e.preventDefault();
+    fetch(URLBASEUSERNAME+"/logout").then(response => response.json()).then(data => {
+        window.location.href = './index.html';
+    })
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     getData();
-    getData_test();
     getMessages();
+    setDataUser();
 });

@@ -9,6 +9,7 @@ const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 const { config } = require('./config/index');
 const ServerRouter = require('./routes/index');
+const socketConponent = require('./Components/Sockets');
 const PORT = config.port;
 
 app.use(express.json());
@@ -21,8 +22,15 @@ httpServer.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
     });
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + './public/index.html');
+socketConponent(io);
+
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
 });
+
+app.get( '/login', ( req, res, next ) => {
+    res.sendFile(__dirname + '/public/login.html');
+});
+
 
 ServerRouter(app);
