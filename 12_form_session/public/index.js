@@ -96,7 +96,7 @@ function setDataOnCard(data){
         });
         tbody_products.innerHTML = html;
     }catch(err){
-        console.log(err);
+        // console.log(err);
     }
 }
 
@@ -160,7 +160,7 @@ form_msg.addEventListener('submit', (e) => {
         },
         text : msg
         }
-    console.log(message);
+    
     // socket.emit('send_msg', message);
     send_data(JSON.stringify(message), URLBASECHATS);
     getMessages();
@@ -168,8 +168,14 @@ form_msg.addEventListener('submit', (e) => {
 
 function setDataUser(){
     let URL  =URLBASEUSERNAME+"/username"
-    fetch(URL).then(response => response.json()).then(data => {
-        wellcome_message.innerHTML = `Bienvenido ${data}`
+    fetch(URL).then(response => {
+        if (response.status === 200) {
+            response.json().then(data => {
+                wellcome_message.innerHTML = `Bienvenido ${data}`
+            })
+        }else{
+            window.location.href = './login.html';
+        }
     }
     );
 }

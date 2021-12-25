@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 let cookieParser = require('cookie-parser');
 const express_session = require('express-session');
-const PORT = 3000;
+const PORT = 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -67,7 +67,7 @@ app.use(express.urlencoded({ extended: true }));
 const mongoStore = require('connect-mongo')
 app.use(express_session({
     store: mongoStore.create({
-        mongoUrl: 'mongodb://root:cualquiera@192.168.0.16:27017',
+        mongoUrl: 'mongodb+srv://root:cualquiera@cluster0.6f4bv.mongodb.net/AnthonyStoreProject?retryWrites=true&w=majority',
         dbName: 'sessions',
         collection: 'sessions'
     }),

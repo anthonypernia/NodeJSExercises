@@ -21,7 +21,6 @@ async function send_data(data, URL){
             'Content-Type': 'application/json'
         }
     }).then(res => {
-        console.log(res);
         if(res.status === 200){
             window.location.href = `${URLBASE}/home`;
         }
