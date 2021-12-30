@@ -9,20 +9,25 @@ let default_session_expire = 10;
 module.exports = ( app ) => {
     app.use( '/user', router );
 
-    router.post( '/', ( req, res, next ) => {
+    router.post( '/login', ( req, res, next ) => {
+        userController.loginUser( req, res, next );
+    });
+
+    router.post( '/register', ( req, res, next ) => {
         userController.addUser( req, res, next );
     });
 
-    router.get( '/username', ( req, res, next ) => {
+    router.get( '/get', ( req, res, next ) => {
         userController.getUser( req, res, next );
     });
 
-    router.get( '/logout', ( req, res, next ) => {
-        redis.del( keyUsername ).then( ( result ) => {
-            res.json( {
-                error: 0,
-                description: 'Logout successful'
-            } );
-        });
+    router.post( '/update', ( req, res, next ) => {
+        userController.updateUser( req, res, next );
     });
+    
+    router.get( '/logout', ( req, res, next ) => {
+        console.log('logout');
+        userController.logoutUser( req, res, next );
+    }
+    );
 };

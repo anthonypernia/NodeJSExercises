@@ -28,6 +28,12 @@ class MongoDB {
         const result = await collection.findOne({ _id: ObjectId(id) });
         return result;
     }
+    
+    async getByField(collectionName, field, value) {
+        const collection = this.db.collection(collectionName);
+        const result = await collection.findOne({ [field]: value });
+        return result;
+    }
 
     async getByIdList(collectionName, idList) {
         const collection = this.db.collection(collectionName);
@@ -68,6 +74,20 @@ class MongoDB {
         const collection = this.db.collection(collectionName);
         const result = await collection.insertOne(data);
         return result;
+    }
+    async insertWithId(collectionName, id, data) {
+        const collection = this.db.collection(collectionName);
+        const result = await collection.insertOne({ _id: ObjectId(id), ...data });
+        return result;
+    }
+    async insertAndValidateDuplicate(collectionName, data, field) {
+        const collection = this.db.collection(collectionName);
+        const result = await collection.findOne({ [field]: data[field] });
+        if (result) {
+            return false;
+        }
+        const result2 = await collection.insertOne(data);
+        return result2;
     }
 
     async update(collectionName, id, data) {

@@ -35,14 +35,6 @@ form_products.addEventListener('submit', (e) => {
     let description = description_input.value;
     let code = code_input.value;
     let stock = stock_input.value;
-    // socket.emit('add_product', {
-    //     name: title,
-    //     price: price,
-    //     photo: link,
-    //     description: description,
-    //     code: code,
-    //     stock: stock
-    // });
     let obj = {
         name: title,
         price: price,
@@ -167,11 +159,12 @@ form_msg.addEventListener('submit', (e) => {
 });
 
 function setDataUser(){
-    let URL  =URLBASEUSERNAME+"/username"
+    let URL  =URLBASEUSERNAME+"/get"
     fetch(URL).then(response => {
         if (response.status === 200) {
             response.json().then(data => {
-                wellcome_message.innerHTML = `Bienvenido ${data}`
+                console.log(data);
+                wellcome_message.innerHTML = `Bienvenido ${data.user.username}`
             })
         }else{
             window.location.href = './login.html';
@@ -183,8 +176,10 @@ function setDataUser(){
 
 log_out_button.addEventListener('click', (e) => {
     e.preventDefault();
-    fetch(URLBASEUSERNAME+"/logout").then(response => response.json()).then(data => {
-        window.location.href = './index.html';
+    let URL = URLBASEUSERNAME+"/logout"
+    console.log(URL);
+    fetch(URL).then(response => {
+        window.location.href = './login';
     })
 });
 

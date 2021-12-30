@@ -1,13 +1,16 @@
-let form_auth = document.getElementById('form_auth');
-let name_input_start = document.getElementById('name_input_start');
+let form_auth_login = document.getElementById('form_auth_login');
+let mail_input_login = document.getElementById('mail_input_login');
+let password_input_login = document.getElementById('password_input_login');
 let URLBASE = 'http://192.168.0.16:8080';
-let URLBASEUSER = `${URLBASE}/user`;
+let URLBASEUSER = `${URLBASE}/user/login`;
 
 
-form_auth.addEventListener('submit', (e) => {
+
+form_auth_login.addEventListener('submit', (e) => {
     e.preventDefault();
     let data = JSON.stringify({
-        username: name_input_start.value,
+        email: mail_input_login.value,
+        password: password_input_login.value,
         exp: true
     });
     send_data(data, URLBASEUSER);

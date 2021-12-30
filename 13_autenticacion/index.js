@@ -41,7 +41,7 @@ app.use(express_session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 1000 * 60 ,
+        maxAge: 20000 * 60 ,
         httpOnly: true,
         secure: false,
     },
@@ -53,6 +53,9 @@ app.get('/home', (req, res) => {
 
 app.get( '/login', ( req, res, next ) => {
     res.sendFile(__dirname + '/public/login.html');
+});
+app.get( '/register', ( req, res, next ) => {
+    res.sendFile(__dirname + '/public/register.html');
 });
 
 
