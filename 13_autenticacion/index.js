@@ -41,7 +41,7 @@ app.use(express_session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 20000 * 60 ,
+        maxAge: 10000 * 60 ,
         httpOnly: true,
         secure: false,
     },

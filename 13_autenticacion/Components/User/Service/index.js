@@ -74,7 +74,7 @@ class UserService {
             user, 
             date: new Date()
             }, PRIVATE_KEY, {
-                expiresIn: '30m'
+                expiresIn: '10m'
                 });
         return token;
     }
