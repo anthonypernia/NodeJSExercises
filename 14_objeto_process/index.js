@@ -11,7 +11,6 @@ const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 const { config, db } = require('./config/index');
 const ServerRouter = require('./routes/index');
-const ServerRouter2 = require('./routes/index2');
 const socketConponent = require('./Components/Sockets');
 const yargs = require('yargs')(process.argv.slice(2));
 const argv = yargs
@@ -85,4 +84,3 @@ app.get( '/info', ( req, res, next ) => {
 });
 
 ServerRouter(app);
-ServerRouter2(app);
