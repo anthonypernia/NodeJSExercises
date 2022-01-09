@@ -10,7 +10,7 @@
 const yargs = require('yargs')(process.argv.slice(2));
 const argv = yargs
 .default({
-    
+    port: 3000,
 })
 .alias({
     p: 'port',
