@@ -23,8 +23,9 @@ const argv = yargs
     d: 'debug',
 })
 .argv;
-
 const PORT= argv.port;
+const {fork} = require('child_process');
+let child = fork('child.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -82,5 +83,15 @@ app.get( '/info', ( req, res, next ) => {
         folderProcess: process.cwd(),
     });
 });
+
+app.get( '/randoms/:number', ( req, res, next ) => {
+    const {number} = req.params;
+    child.send({"number":number});
+    child.on('message', (data) => {
+        res.json(data);
+    }
+    );
+});
+
 
 ServerRouter(app);

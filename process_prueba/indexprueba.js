@@ -1,0 +1,1 @@
+console.log("esto esta ejecutando desde otro archivo")

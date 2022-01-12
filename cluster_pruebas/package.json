@@ -1,21 +1,17 @@
 {
-  "name": "process_prueba",
+  "name": "cluster_pruebas",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
     "express": "^4.17.2",
-    "minimist": "^1.2.5",
-    "yargs": "^17.3.1"
+    "forever": "^4.0.2"
   }
 }
