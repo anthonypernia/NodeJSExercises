@@ -84,14 +84,16 @@ app.get( '/info', ( req, res, next ) => {
     });
 });
 
-app.get( '/randoms/:number', ( req, res, next ) => {
-    const {number} = req.params;
+app.get( '/randoms/:number?', ( req, res, next ) => {
+    let {number} = req.params;
+    if (!number) {
+       number = 100000000;
+    }
     child.send({"number":number});
     child.on('message', (data) => {
         res.json(data);
     }
     );
 });
-
 
 ServerRouter(app);
