@@ -15,5 +15,6 @@ process.on('message', (data) => {
     for (let i = 0; i < numbers.length; i++) {
         count[numbers[i]] = (count[numbers[i]] || 0) + 1;
     }
+    
     process.send(count);
 });
