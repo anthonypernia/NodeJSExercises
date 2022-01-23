@@ -94,3 +94,6 @@ pm2 start index.js --name="server_anthony_cluster_others" --watch --  -p 8080
 Y posteriormente solo queda hacer las pruebas al endpoint:
 `{IP}/random/:number?/`
 Y en la respuesta nos dice desde que puerto nos esta respondiendo, asi sabremos la instancia.
+Para verificar las otras rutas, se agrego un endpoint de prueba
+`{IP}/prueba/`
+Asi verificamos que las rutas que no sean random , esten funcionando y vayan a un puerto distinto

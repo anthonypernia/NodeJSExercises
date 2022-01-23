@@ -126,7 +126,7 @@ app.get("/randoms/:number?", (req, res, next) => {
 
 app.get("/prueba", (req, res, next) => {
   res.json({
-    hola: "hola",
+    hola: "aca puedes verificar que el servidor esta funcionando en otras rutas que no son random y el puerto",
     port: PORT,
   });
 });
