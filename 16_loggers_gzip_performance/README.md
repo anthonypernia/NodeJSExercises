@@ -115,3 +115,24 @@ node --inspect index.js
 Y nos vamos a : chrome://inspect
 
 Posteriormente, hacemos la prueba de estres con artillery y obtendemos una respuesta como esta:
+![dev tools](https://raw.githubusercontent.com/anthonyperniah/NodeJSExercises/master/16_loggers_gzip_performance/images/dev_tools.PNG "dev tools")
+
+Luego , para probar con 0x y Autocannon, es necesario modificar el scrip en package.json
+(bechmark, es el script de pruebas)
+```
+  "scripts": {
+    "test": "node benchmark.js",
+    "start": "0x index.js",
+    "dev": "nodemon index.js"
+  },
+```
+Se usa (en distintas terminales): 
+```
+npm start
+npm test
+```
+y obtendremos un resultado como este:
+
+![autocannon](https://raw.githubusercontent.com/anthonyperniah/NodeJSExercises/master/16_loggers_gzip_performance/images/test_node.PNG "ox y autocannon")
+
+Para generar un html con los graficos, en mac y linux es necesario tener permisos de superusuario.
