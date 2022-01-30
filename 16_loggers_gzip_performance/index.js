@@ -13,9 +13,10 @@ const { config, db } = require("./config/index");
 const ServerRouter = require("./routes/index");
 const socketConponent = require("./Components/Sockets");
 const yargs = require("yargs")(process.argv.slice(2));
+const compression = require("compression");
 const argv = yargs
   .default({
-    port: 3000
+    port: 8080
   })
   .alias({
     p: "port",
@@ -24,11 +25,10 @@ const argv = yargs
   }).argv;
 const PORT = argv.port;
 // const PORT = parseInt(process.argv[2]);
-
 const { fork } = require("child_process");
-let child = fork("child.js");
-let cluster = require("cluster");
-let numCPUs = require("os").cpus().length;
+const child = fork("child.js");
+const cluster = require("cluster");
+const numCPUs = require("os").cpus().length;
 let cluster_mode = process.argv[2] == "CLUSTER";
 
 
@@ -98,7 +98,8 @@ app.get("/login", (req, res, next) => {
 app.get("/register", (req, res, next) => {
   res.sendFile(__dirname + "/public/register.html");
 });
-
+///uso la compresion aca porque eso dice el entregable
+app.use(compression());
 app.get("/info", (req, res, next) => {
   res.json({
     argIn: yargs.argv,
