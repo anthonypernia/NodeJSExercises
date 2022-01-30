@@ -1,4 +1,5 @@
 const chatService = require('../Service/');
+const { loggerErr} = require('../../../utils/logger');
 
 class ChatController{
 
@@ -7,9 +8,9 @@ class ChatController{
             let result = await chatService.getChats();
             res.status(200).json(result);
         }catch(err){
+            loggerErr.error(err);
             res.status(500).json({error: err});
-        }
-        
+        }  
     }
 
     async deleteById(req, res, next){
@@ -17,6 +18,7 @@ class ChatController{
             let result = await chatService.deleteById(req.params.id);
             res.status(200).json(result);
         }catch(err){
+            loggerErr.error(err);
             res.status(500).json({error: err, controller:1});
         }
     }
@@ -27,6 +29,7 @@ class ChatController{
             let result = await chatService.insertMessage(data);
             res.status(200).json(result);
         }catch(err){
+            loggerErr.error(err);
             res.status(500).json({error: err});
         }
     }

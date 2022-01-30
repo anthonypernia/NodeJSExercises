@@ -14,6 +14,7 @@ const ServerRouter = require("./routes/index");
 const socketConponent = require("./Components/Sockets");
 const yargs = require("yargs")(process.argv.slice(2));
 const compression = require("compression");
+
 const argv = yargs
   .default({
     port: 8080
@@ -25,8 +26,8 @@ const argv = yargs
   }).argv;
 const PORT = argv.port;
 // const PORT = parseInt(process.argv[2]);
-const { fork } = require("child_process");
-const child = fork("child.js");
+//const { fork } = require("child_process");
+//const child = fork("child.js");
 const cluster = require("cluster");
 const numCPUs = require("os").cpus().length;
 let cluster_mode = process.argv[2] == "CLUSTER";
@@ -62,6 +63,8 @@ if (cluster_mode) {
     console.log(`Server listening on port ${PORT}`);
   });
 }
+
+
 
 socketConponent(io);
 const advancedOption = {
@@ -99,9 +102,9 @@ app.get("/register", (req, res, next) => {
   res.sendFile(__dirname + "/public/register.html");
 });
 ///uso la compresion aca porque eso dice el entregable
-app.use(compression());
+//app.use(compression());
 app.get("/info", (req, res, next) => {
-  res.json({
+  let result = {
     argIn: yargs.argv,
     env: process.env,
     nodeVersion: process.version,
@@ -111,7 +114,9 @@ app.get("/info", (req, res, next) => {
     processId: process.pid,
     folderProcess: process.cwd(),
     numCPUsUsage : numCPUs
-  });
+  }
+  console.log(result);
+  res.json(result);
 });
 
 app.get("/randoms/:number?", (req, res, next) => {
@@ -119,9 +124,18 @@ app.get("/randoms/:number?", (req, res, next) => {
   if (!number) {
     number = 100000000;
   }
-  child.send({ number: number });
-  child.on("message", (data) => {
-    res.json({data, port: PORT});
+  //child.send({ number: number });
+  //child.on("message", (data) => {
+  //  res.json({data, port: PORT});
+  //});
+  const count = {};
+  for (let i = 0; i < number; i++) {
+      const random = Math.floor(Math.random() * 100);
+      count[random] = (count[random] || 0) + 1;
+  }
+  res.json({
+    count,
+    port: PORT
   });
 });
 
@@ -133,4 +147,4 @@ app.get("/prueba", (req, res, next) => {
 });
 
 
-ServerRouter(app);
+//ServerRouter(app);

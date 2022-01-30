@@ -1,0 +1,1366 @@
+Statistical profiling result from info_fork1.log, (24201 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+  19728   81.5%          /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+    590    2.4%          /usr/lib/aarch64-linux-gnu/libc.so.6
+     30    0.1%          /usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.29
+     12    0.0%          [vdso]
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     56    0.2%    1.5%  LazyCompile: *deserializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:65:27
+     52    0.2%    1.4%  LazyCompile: *serializeInto /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:550:23
+     49    0.2%    1.3%  RegExp: (?<=\n)
+     31    0.1%    0.8%  LazyCompile: *resolve node:path:1091:10
+     31    0.1%    0.8%  LazyCompile: *nextTick node:internal/process/task_queues:104:18
+     26    0.1%    0.7%  LazyCompile: *next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:176:16
+     26    0.1%    0.7%  LazyCompile: *_write node:internal/streams/writable:284:16
+     23    0.1%    0.6%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+     20    0.1%    0.5%  LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+     20    0.1%    0.5%  LazyCompile: *emit node:events:340:44
+     18    0.1%    0.5%  RegExp: [\x00-\x1f\x27\x5c\x7f-\x9f]
+     17    0.1%    0.4%  RegExp: ^[a-zA-Z_][a-zA-Z_0-9]*$
+     15    0.1%    0.4%  LazyCompile: *getEncodingOps node:buffer:678:24
+     14    0.1%    0.4%  LazyCompile: *readableAddChunk node:internal/streams/readable:242:26
+     14    0.1%    0.4%  LazyCompile: *normalizeString node:path:66:25
+     14    0.1%    0.4%  LazyCompile: *formatPrimitive node:internal/util/inspect:1382:25
+     14    0.1%    0.4%  LazyCompile: *Readable.read node:internal/streams/readable:402:35
+     13    0.1%    0.3%  LazyCompile: *v /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:2852
+     13    0.1%    0.3%  LazyCompile: *onwrite node:internal/streams/writable:426:17
+     12    0.0%    0.3%  LazyCompile: *processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+     12    0.0%    0.3%  LazyCompile: *_unrefTimer node:net:417:52
+     12    0.0%    0.3%  LazyCompile: *Long /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:58:18
+     12    0.0%    0.3%  Function: ^deserializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:65:27
+     10    0.0%    0.3%  LazyCompile: *formatRaw node:internal/util/inspect:796:19
+     10    0.0%    0.3%  Function: ^messageHandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:421:35
+      9    0.0%    0.2%  LazyCompile: *serializeBinary /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:459:25
+      9    0.0%    0.2%  LazyCompile: *concat node:buffer:535:32
+      9    0.0%    0.2%  LazyCompile: *FastBuffer node:internal/buffer:958:14
+      9    0.0%    0.2%  Function: ^session /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:179:26
+      8    0.0%    0.2%  RegExp: ^[\^_`a-zA-Z\-0-9!#$%&'*+.|~]+$
+      8    0.0%    0.2%  LazyCompile: *stylizeWithColor node:internal/util/inspect:521:26
+      8    0.0%    0.2%  LazyCompile: *command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      8    0.0%    0.2%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:629:37
+      8    0.0%    0.2%  Function: ^processIncomingData /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      8    0.0%    0.2%  Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:108:10
+      8    0.0%    0.2%  Function: ^clearBuffer node:internal/streams/writable:530:21
+      8    0.0%    0.2%  Function: ^CommandOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/command.js:15:16
+      7    0.0%    0.2%  LazyCompile: *write node:buffer:592:12
+      7    0.0%    0.2%  LazyCompile: *processIncomingData /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      7    0.0%    0.2%  Function: ^toString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:1053:13
+      7    0.0%    0.2%  Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      7    0.0%    0.2%  Function: ^onStreamRead node:internal/stream_base_commons:171:22
+      7    0.0%    0.2%  Function: ^get serverSession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:93:22
+      7    0.0%    0.2%  Function: ^Long.fromNumber /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:130:32
+      6    0.0%    0.2%  RegExp: \u001b\[\d\d?m
+      6    0.0%    0.2%  LazyCompile: *serializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:258:25
+      6    0.0%    0.2%  LazyCompile: *h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+      6    0.0%    0.2%  LazyCompile: *adjustOffset node:buffer:1098:22
+      6    0.0%    0.2%  Function: ^write /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:488:15
+      6    0.0%    0.2%  Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+      6    0.0%    0.2%  Function: ^ondata node:internal/streams/readable:775:18
+      6    0.0%    0.2%  Function: ^makeFindCommand /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/find.js:73:25
+      6    0.0%    0.2%  Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+      6    0.0%    0.2%  Function: ^formatRaw node:internal/util/inspect:796:19
+      6    0.0%    0.2%  Function: ^combineAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:957:24
+      6    0.0%    0.2%  Function: ^_copy node:buffer:200:15
+      6    0.0%    0.2%  Function: ^Long.compare /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:291:39
+      5    0.0%    0.1%  RegExp: ^[!#$%&'*+.^_`|~0-9A-Za-z-]+\/[!#$%&'*+.^_`|~0-9A-Za-z-]+$
+      5    0.0%    0.1%  RegExp: [^\t\x20-\x7e\x80-\xff]
+      5    0.0%    0.1%  LazyCompile: *write node:buffer:1050:40
+      5    0.0%    0.1%  LazyCompile: *realpathSync node:fs:2408:22
+      5    0.0%    0.1%  LazyCompile: *processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:636:26
+      5    0.0%    0.1%  Function: ^serialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:111:19
+      5    0.0%    0.1%  Function: ^removeListener node:events:557:28
+      5    0.0%    0.1%  Function: ^readableAddChunk node:internal/streams/readable:242:26
+      5    0.0%    0.1%  Function: ^processPromiseRejections node:internal/process/promises:203:34
+      5    0.0%    0.1%  Function: ^maybeReadMore_ node:internal/streams/readable:632:24
+      5    0.0%    0.1%  Function: ^getHeader node:_http_outgoing:590:57
+      5    0.0%    0.1%  Function: ^get readPreference /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/collection.js:114:23
+      5    0.0%    0.1%  Function: ^formatPrimitive node:internal/util/inspect:1382:25
+      5    0.0%    0.1%  Function: ^command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:133:12
+      5    0.0%    0.1%  Function: ^checkListener node:events:127:23
+      5    0.0%    0.1%  Function: ^afterWriteDispatched node:internal/stream_base_commons:159:30
+      5    0.0%    0.1%  Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      5    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:724:52
+      4    0.0%    0.1%  RegExp: \.*[\][<>]
+      4    0.0%    0.1%  RegExp: ; *([!#$%&'*+.^_`|~0-9A-Za-z-]+) *= *("(?:[\u000b\u0020\u0021\u0023-\u005b\u005d-\u007e\u0080-\u00ff]|\\[\u000b\u0020-\u00ff])*"|[!#$%&'*+.^_`|~0-9A-Za-z-]+) *
+      4    0.0%    0.1%  LazyCompile: *size /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/denque/index.js:94:38
+      4    0.0%    0.1%  LazyCompile: *hasTimedOut /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:535:16
+      4    0.0%    0.1%  LazyCompile: *get node:internal/streams/duplex:100:8
+      4    0.0%    0.1%  LazyCompile: *dirname node:path:1275:10
+      4    0.0%    0.1%  LazyCompile: *addListener node:events:486:58
+      4    0.0%    0.1%  LazyCompile: *Long.add /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:252:35
+      4    0.0%    0.1%  LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+      4    0.0%    0.1%  LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:46440
+      4    0.0%    0.1%  Function: ^write_ node:_http_outgoing:730:16
+      4    0.0%    0.1%  Function: ^updateOne /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/collection.js:167:14
+      4    0.0%    0.1%  Function: ^setTimeout node:timers:140:20
+      4    0.0%    0.1%  Function: ^send /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:107:25
+      4    0.0%    0.1%  Function: ^processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:636:26
+      4    0.0%    0.1%  Function: ^processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      4    0.0%    0.1%  Function: ^onceWrapper node:events:504:21
+      4    0.0%    0.1%  Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/abstract_cursor.js:431:14
+      4    0.0%    0.1%  Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:176:16
+      4    0.0%    0.1%  Function: ^jsonParser /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/body-parser/lib/types/json.js:98:30
+      4    0.0%    0.1%  Function: ^getDefaultTriggerAsyncId node:internal/async_hooks:433:34
+      4    0.0%    0.1%  Function: ^get node:internal/bootstrap/pre_execution:314:8
+      4    0.0%    0.1%  Function: ^fromOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/write_concern.js:40:23
+      4    0.0%    0.1%  Function: ^digest node:internal/crypto/hash:115:40
+      4    0.0%    0.1%  Function: ^command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      4    0.0%    0.1%  Function: ^clearTimeout node:timers:184:22
+      4    0.0%    0.1%  Function: ^afterWrite node:internal/streams/writable:488:20
+      4    0.0%    0.1%  Function: ^UpdateOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:10:16
+      4    0.0%    0.1%  Function: ^O /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:3149
+      4    0.0%    0.1%  Function: ^Msg /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:468:16
+      4    0.0%    0.1%  Function: ^FindCursor /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/find_cursor.js:29:16
+      4    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:810:57
+      4    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/execute_operation.js:17:48
+      4    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/find_cursor.js:54:81
+      3    0.0%    0.1%  RegExp: ^\/home\/?$
+      3    0.0%    0.1%  RegExp: ^((?:@[^/\\%]+\/)?[^./\\%][^/\\%]*)(\/.*)?$
+      3    0.0%    0.1%  RegExp: \s+(?![^[]*]|[^<]*>)
+      3    0.0%    0.1%  RegExp: ;\s*charset\s*=
+      3    0.0%    0.1%  RegExp: (?:^|[\\/])\.\.(?:[\\/]|$)
+      3    0.0%    0.1%  LazyCompile: *normalizeEncoding node:internal/util:160:27
+      3    0.0%    0.1%  LazyCompile: *command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:133:12
+      3    0.0%    0.1%  LazyCompile: *Writable.write node:internal/streams/writable:334:36
+      3    0.0%    0.1%  LazyCompile: *O /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:3149
+      3    0.0%    0.1%  Function: ^writeInt32LE node:internal/buffer:860:22
+      3    0.0%    0.1%  Function: ^v /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:2852
+      3    0.0%    0.1%  Function: ^update node:internal/crypto/hash:95:40
+      3    0.0%    0.1%  Function: ^stat node:internal/modules/cjs/loader:151:14
+      3    0.0%    0.1%  Function: ^slice node:buffer:1115:40
+      3    0.0%    0.1%  Function: ^selectServer /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:286:17
+      3    0.0%    0.1%  Function: ^resolve node:path:1091:10
+      3    0.0%    0.1%  Function: ^remove node:internal/linkedlist:15:16
+      3    0.0%    0.1%  Function: ^reduceToSingleString node:internal/util/inspect:1764:30
+      3    0.0%    0.1%  Function: ^realpathSync node:fs:2408:22
+      3    0.0%    0.1%  Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      3    0.0%    0.1%  Function: ^readDoubleForwards node:internal/buffer:559:28
+      3    0.0%    0.1%  Function: ^onWriteComplete node:internal/stream_base_commons:80:25
+      3    0.0%    0.1%  Function: ^normalizeParseOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/qs/lib/parse.js:203:59
+      3    0.0%    0.1%  Function: ^noop node:internal/util/debuglog:47:14
+      3    0.0%    0.1%  Function: ^nextTick node:internal/process/task_queues:104:18
+      3    0.0%    0.1%  Function: ^maybeClearPinnedConnection /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:303:36
+      3    0.0%    0.1%  Function: ^makeDocumentSegment /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:522:24
+      3    0.0%    0.1%  Function: ^inspect node:internal/util/inspect:286:17
+      3    0.0%    0.1%  Function: ^header /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:759:29
+      3    0.0%    0.1%  Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:136:31
+      3    0.0%    0.1%  Function: ^get waitQueueSize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:97:22
+      3    0.0%    0.1%  Function: ^get session /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/operation.js:46:16
+      3    0.0%    0.1%  Function: ^get isActive /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/transactions.js:98:17
+      3    0.0%    0.1%  Function: ^fromString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:454:22
+      3    0.0%    0.1%  Function: ^from node:buffer:295:28
+      3    0.0%    0.1%  Function: ^formatNumber node:internal/util/inspect:1373:22
+      3    0.0%    0.1%  Function: ^endSession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:129:15
+      3    0.0%    0.1%  Function: ^emitReadable_ node:internal/streams/readable:597:23
+      3    0.0%    0.1%  Function: ^emit node:events:340:44
+      3    0.0%    0.1%  Function: ^createHash node:crypto:129:20
+      3    0.0%    0.1%  Function: ^basename node:path:1306:11
+      3    0.0%    0.1%  Function: ^applySession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:643:22
+      3    0.0%    0.1%  Function: ^alloc node:buffer:359:30
+      3    0.0%    0.1%  Function: ^alignPool node:buffer:158:19
+      3    0.0%    0.1%  Function: ^_writeRaw node:_http_outgoing:344:19
+      3    0.0%    0.1%  Function: ^TypedEventEmitter /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/mongo_types.js:34:1
+      3    0.0%    0.1%  Function: ^Timeout node:internal/timers:167:17
+      3    0.0%    0.1%  Function: ^Socket.read node:net:639:33
+      3    0.0%    0.1%  Function: ^Socket._writeGeneric node:net:769:42
+      3    0.0%    0.1%  Function: ^Module._resolveLookupPaths node:internal/modules/cjs/loader:667:38
+      3    0.0%    0.1%  Function: ^ConnectionPoolMonitoringEvent /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool_events.js:11:16
+      3    0.0%    0.1%  Function: ^ClientSession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:54:16
+      3    0.0%    0.1%  Function: ^AbstractCursor /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/abstract_cursor.js:48:16
+      3    0.0%    0.1%  Function: ^<anonymous> node:internal/validators:84:3
+      3    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:46440
+      3    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/execute_operation.js:148:61
+      3    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/abstract_cursor.js:445:46
+      3    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:296:10
+      3    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:203:10
+      3    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+      2    0.0%    0.1%  RegExp: ^\/socket\.io/socket\.io(\.msgpack|\.esm)?(\.min)?\.js(\.map)?(?:\?|$)
+      2    0.0%    0.1%  RegExp: ^\/login\/?$
+      2    0.0%    0.1%  RegExp: ^\$ref$|^\$id$|^\$db$
+      2    0.0%    0.1%  RegExp: (?:^|\/)\.?\.$
+      2    0.0%    0.1%  LazyCompile: *writeU_Int32LE node:internal/buffer:690:24
+      2    0.0%    0.1%  LazyCompile: *strEscape node:internal/util/inspect:465:19
+      2    0.0%    0.1%  LazyCompile: *serializeString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:20:25
+      2    0.0%    0.1%  LazyCompile: *serializeDate /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:108:23
+      2    0.0%    0.1%  LazyCompile: *reduceToSingleString node:internal/util/inspect:1764:30
+      2    0.0%    0.1%  LazyCompile: *readPackageScope node:internal/modules/cjs/loader:321:26
+      2    0.0%    0.1%  LazyCompile: *read /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:953:9
+      2    0.0%    0.1%  LazyCompile: *pushAsyncContext node:internal/async_hooks:531:26
+      2    0.0%    0.1%  LazyCompile: *parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+      2    0.0%    0.1%  LazyCompile: *join node:internal/util:378:14
+      2    0.0%    0.1%  LazyCompile: *handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+      2    0.0%    0.1%  LazyCompile: *getInternalMethods /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:47399
+      2    0.0%    0.1%  LazyCompile: *Long.isLong /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:236:28
+      2    0.0%    0.1%  LazyCompile: *ClientSession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:54:16
+      2    0.0%    0.1%  LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:44006
+      2    0.0%    0.1%  LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:296:10
+      2    0.0%    0.1%  Function: ^writevGeneric node:internal/stream_base_commons:126:23
+      2    0.0%    0.1%  Function: ^writeHead node:_http_server:267:19
+      2    0.0%    0.1%  Function: ^value node:internal/console/constructor:299:20
+      2    0.0%    0.1%  Function: ^value node:internal/console/constructor:257:20
+      2    0.0%    0.1%  Function: ^validateString node:internal/validators:118:24
+      2    0.0%    0.1%  Function: ^toBin /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:496:10
+      2    0.0%    0.1%  Function: ^supportsOpMsg /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:413:23
+      2    0.0%    0.1%  Function: ^stringify /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:1123:20
+      2    0.0%    0.1%  Function: ^storeHeader node:_http_outgoing:517:21
+      2    0.0%    0.1%  Function: ^startSession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:354:17
+      2    0.0%    0.1%  Function: ^slowCases node:internal/util:165:19
+      2    0.0%    0.1%  Function: ^shift node:internal/fixed_queue:108:8
+      2    0.0%    0.1%  Function: ^setKey /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:750:24
+      2    0.0%    0.1%  Function: ^setHeader node:_http_outgoing:574:57
+      2    0.0%    0.1%  Function: ^setCharset /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/utils.js:246:41
+      2    0.0%    0.1%  Function: ^set maxAge /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/session/cookie.js:83:13
+      2    0.0%    0.1%  Function: ^serveStatic /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/serve-static/index.js:72:31
+      2    0.0%    0.1%  Function: ^serializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:258:25
+      2    0.0%    0.1%  Function: ^serializeNumber /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:43:25
+      2    0.0%    0.1%  Function: ^serializeInto /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:550:23
+      2    0.0%    0.1%  Function: ^sendFile /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:716:51
+      2    0.0%    0.1%  Function: ^restore /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:626:17
+      2    0.0%    0.1%  Function: ^release /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:594:12
+      2    0.0%    0.1%  Function: ^readPreferenceServerSelector /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server_selection.js:188:38
+      2    0.0%    0.1%  Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      2    0.0%    0.1%  Function: ^readFileSync node:fs:450:22
+      2    0.0%    0.1%  Function: ^read /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:953:9
+      2    0.0%    0.1%  Function: ^r.freeze /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54362
+      2    0.0%    0.1%  Function: ^push /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/denque/index.js:134:38
+      2    0.0%    0.1%  Function: ^prepareSecretKey node:internal/crypto/keys:555:26
+      2    0.0%    0.1%  Function: ^parserOnIncoming node:_http_server:852:26
+      2    0.0%    0.1%  Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie/index.js:49:15
+      2    0.0%    0.1%  Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/content-type/index.js:106:16
+      2    0.0%    0.1%  Function: ^onwrite node:internal/streams/writable:426:17
+      2    0.0%    0.1%  Function: ^once node:events:528:44
+      2    0.0%    0.1%  Function: ^onStatError /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:416:57
+      2    0.0%    0.1%  Function: ^o /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:912
+      2    0.0%    0.1%  Function: ^normalize node:path:1127:12
+      2    0.0%    0.1%  Function: ^nonOptionCount /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:49373
+      2    0.0%    0.1%  Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:732:17
+      2    0.0%    0.1%  Function: ^needFinish node:internal/streams/writable:651:20
+      2    0.0%    0.1%  Function: ^module.exports /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/qs/lib/parse.js:237:27
+      2    0.0%    0.1%  Function: ^maybePromise /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:482:22
+      2    0.0%    0.1%  Function: ^isstats /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/etag/index.js:104:18
+      2    0.0%    0.1%  Function: ^isUint8Array node:internal/util/types:13:22
+      2    0.0%    0.1%  Function: ^insert node:internal/timers:350:16
+      2    0.0%    0.1%  Function: ^insert node:internal/priority_queue:34:9
+      2    0.0%    0.1%  Function: ^initHooksExist node:internal/async_hooks:470:24
+      2    0.0%    0.1%  Function: ^initAsyncResource node:internal/timers:157:27
+      2    0.0%    0.1%  Function: ^incrementTransactionNumber /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:211:31
+      2    0.0%    0.1%  Function: ^hash /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:596:14
+      2    0.0%    0.1%  Function: ^hasHooks node:internal/async_hooks:462:18
+      2    0.0%    0.1%  Function: ^hasAspect /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/operation.js:39:14
+      2    0.0%    0.1%  Function: ^handleOperationResult /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:322:42
+      2    0.0%    0.1%  Function: ^h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+      2    0.0%    0.1%  Function: ^getInternalMethods /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:47399
+      2    0.0%    0.1%  Function: ^get node:internal/bootstrap/pre_execution:326:8
+      2    0.0%    0.1%  Function: ^get node:_http_incoming:108:16
+      2    0.0%    0.1%  Function: ^fromOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/read_concern.js:36:23
+      2    0.0%    0.1%  Function: ^fromArrayBuffer node:buffer:448:25
+      2    0.0%    0.1%  Function: ^formatWithOptionsInternal node:internal/util/inspect:1891:35
+      2    0.0%    0.1%  Function: ^formatWithOptions node:internal/util/inspect:1883:27
+      2    0.0%    0.1%  Function: ^finishMaybe node:internal/streams/writable:728:21
+      2    0.0%    0.1%  Function: ^finalhandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/finalhandler/index.js:77:23
+      2    0.0%    0.1%  Function: ^executeCommand /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/command.js:49:19
+      2    0.0%    0.1%  Function: ^execute /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:22:12
+      2    0.0%    0.1%  Function: ^etag /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/etag/index.js:70:15
+      2    0.0%    0.1%  Function: ^end node:_http_outgoing:833:45
+      2    0.0%    0.1%  Function: ^dirname node:path:1275:10
+      2    0.0%    0.1%  Function: ^destroyHooksExist node:internal/async_hooks:478:27
+      2    0.0%    0.1%  Function: ^destroy node:internal/streams/destroy:39:17
+      2    0.0%    0.1%  Function: ^createHmac node:crypto:161:20
+      2    0.0%    0.1%  Function: ^createError /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/http-errors/index.js:49:22
+      2    0.0%    0.1%  Function: ^copy node:buffer:774:16
+      2    0.0%    0.1%  Function: ^concat node:buffer:535:32
+      2    0.0%    0.1%  Function: ^compileFunction node:vm:308:25
+      2    0.0%    0.1%  Function: ^closeSync node:fs:526:19
+      2    0.0%    0.1%  Function: ^cleanupCursor /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/abstract_cursor.js:512:23
+      2    0.0%    0.1%  Function: ^checkInvalidHeaderChar node:_http_common:232:32
+      2    0.0%    0.1%  Function: ^applyDefaultsAndAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:723:41
+      2    0.0%    0.1%  Function: ^addChunk node:internal/streams/readable:312:18
+      2    0.0%    0.1%  Function: ^_storeHeader node:_http_outgoing:374:22
+      2    0.0%    0.1%  Function: ^_finish node:_http_outgoing:908:53
+      2    0.0%    0.1%  Function: ^_destroy node:internal/streams/destroy:77:18
+      2    0.0%    0.1%  Function: ^_addListener node:events:418:22
+      2    0.0%    0.1%  Function: ^_addHeaderLines node:_http_incoming:202:25
+      2    0.0%    0.1%  Function: ^_addHeaderLine node:_http_incoming:340:24
+      2    0.0%    0.1%  Function: ^Writable.uncork node:internal/streams/writable:342:37
+      2    0.0%    0.1%  Function: ^Readable.read node:internal/streams/readable:402:35
+      2    0.0%    0.1%  Function: ^Readable.push node:internal/streams/readable:233:35
+      2    0.0%    0.1%  Function: ^OutgoingMessage node:_http_outgoing:97:25
+      2    0.0%    0.1%  Function: ^ObjectId /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/objectid.js:23:22
+      2    0.0%    0.1%  Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      2    0.0%    0.1%  Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      2    0.0%    0.1%  Function: ^Long.negate /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:612:38
+      2    0.0%    0.1%  Function: ^Long /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:58:18
+      2    0.0%    0.1%  Function: ^Hmac node:internal/crypto/hash:127:14
+      2    0.0%    0.1%  Function: ^Hash node:internal/crypto/hash:58:14
+      2    0.0%    0.1%  Function: ^EventEmitter node:events:84:22
+      2    0.0%    0.1%  Function: ^Cookie /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/session/cookie.js:25:46
+      2    0.0%    0.1%  Function: ^ConnectionCheckOutStartedEvent /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool_events.js:90:16
+      2    0.0%    0.1%  Function: ^<anonymous> node:internal/validators:236:42
+      2    0.0%    0.1%  Function: ^<anonymous> node:internal/validators:168:39
+      2    0.0%    0.1%  Function: ^<anonymous> node:internal/util/inspect:1397:14
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:980:34
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:961:43
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:832:57
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:696:48
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/socket.io/dist/index.js:262:27
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:558:26
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:20:38
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/abstract_cursor.js:173:52
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/engine.io/build/server.js:475:30
+      2    0.0%    0.1%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:93:80
+      1    0.0%    0.0%  RegExp: ^((?:(?:[0-9a-fA-F]{1,4}):){7}(?:(?:[0-9a-fA-F]{1,4})|:)|(?:(?:[0-9a-fA-F]{1,4}):){6}(?:((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|:(?:[0-9a-fA-F]{1,4})|:)|(?:(?:[0-9a-fA-F]{1,4}):){5}(?::((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(:(?:[0-9a-fA-F]{1,4})){1,2}|:)|(?:(?:[0-9a-fA-F]{1,4}):){4}(?:(:(?:[0-9a-fA-F]{1,4})){0,1}:((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(:(?:[0-9a-fA-F]{1,4})){1,3}|:)|(?:(?:[0-9a-fA-F]{1,4}):){3}(?:(:(?:[0-9a-fA-F]{1,4})){0,2}:((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(:(?:[0-9a-fA-F]{1,4})){1,4}|:)|(?:(?:[0-9a-fA-F]{1,4}):){2}(?:(:(?:[0-9a-fA-F]{1,4})){0,3}:((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(:(?:[0-9a-fA-F]{1,4})){1,5}|:)|(?:(?:[0-9a-fA-F]{1,4}):){1}(?:(:(?:[0-9a-fA-F]{1,4})){0,4}:((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(:(?:[0-9a-fA-F]{1,4})){1,6}|:)|(?::((?::(?:[0-9a-fA-F]{1,4})){0,5}:((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]){3}(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])|(?::(?:[0-9a-fA-F]{1,4})){1,7}|:)))(%[0-9a-zA-Z-.:]{1,})?$
+      1    0.0%    0.0%  RegExp: \s
+      1    0.0%    0.0%  RegExp: \=+$
+      1    0.0%    0.0%  RegExp: \.+[\]>]
+      1    0.0%    0.0%  RegExp: ; *
+      1    0.0%    0.0%  LazyCompile: *slowCases node:internal/util:165:19
+      1    0.0%    0.0%  LazyCompile: *slice node:buffer:593:12
+      1    0.0%    0.0%  LazyCompile: *shift node:internal/fixed_queue:108:8
+      1    0.0%    0.0%  LazyCompile: *setKey /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:750:24
+      1    0.0%    0.0%  LazyCompile: *serializeLong /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:300:23
+      1    0.0%    0.0%  LazyCompile: *resolveBSONOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/bson.js:52:28
+      1    0.0%    0.0%  LazyCompile: *readInt32LE node:internal/buffer:385:21
+      1    0.0%    0.0%  LazyCompile: *now /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:708:13
+      1    0.0%    0.0%  LazyCompile: *matchKnownFields node:_http_incoming:234:26
+      1    0.0%    0.0%  LazyCompile: *getValidatedString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:641:28
+      1    0.0%    0.0%  LazyCompile: *get loadBalanced /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:79:21
+      1    0.0%    0.0%  LazyCompile: *fastparse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/parseurl/index.js:95:20
+      1    0.0%    0.0%  LazyCompile: *checkAllAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:840:33
+      1    0.0%    0.0%  LazyCompile: *_storeHeader node:_http_outgoing:374:22
+      1    0.0%    0.0%  LazyCompile: *CommandOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/command.js:15:16
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:810:57
+      1    0.0%    0.0%  Function: ^writetop /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:270:24
+      1    0.0%    0.0%  Function: ^writeend /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:260:24
+      1    0.0%    0.0%  Function: ^writeUInt32LE node:internal/buffer:704:23
+      1    0.0%    0.0%  Function: ^writeOrBuffer node:internal/streams/writable:366:23
+      1    0.0%    0.0%  Function: ^writeGeneric node:internal/stream_base_commons:151:22
+      1    0.0%    0.0%  Function: ^write node:_http_outgoing:701:49
+      1    0.0%    0.0%  Function: ^wrappedCwd node:internal/bootstrap/switches/does_own_process_state:124:20
+      1    0.0%    0.0%  Function: ^validateNumber node:internal/validators:123:24
+      1    0.0%    0.0%  Function: ^utcDate node:internal/http:21:17
+      1    0.0%    0.0%  Function: ^updateSessionFromResponse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:705:35
+      1    0.0%    0.0%  Function: ^updateOutgoingData node:_http_server:551:28
+      1    0.0%    0.0%  Function: ^unenroll node:timers:78:18
+      1    0.0%    0.0%  Function: ^tryReadSync node:fs:429:21
+      1    0.0%    0.0%  Function: ^tryDecode /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie/index.js:196:19
+      1    0.0%    0.0%  Function: ^trim_prefix /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:288:23
+      1    0.0%    0.0%  Function: ^translatePeerCertificate node:_tls_common:124:34
+      1    0.0%    0.0%  Function: ^toString node:buffer:782:46
+      1    0.0%    0.0%  Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1    0.0%    0.0%  Function: ^toPathIfFileURL node:internal/url:1548:25
+      1    0.0%    0.0%  Function: ^toInteger node:buffer:190:19
+      1    0.0%    0.0%  Function: ^supportsRetryableWrites /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:1119:33
+      1    0.0%    0.0%  Function: ^socketOnDrain node:_http_server:556:23
+      1    0.0%    0.0%  Function: ^slice node:buffer:593:12
+      1    0.0%    0.0%  Function: ^shouldTouch /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:453:25
+      1    0.0%    0.0%  Function: ^shouldSave /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:440:24
+      1    0.0%    0.0%  Function: ^shift /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/denque/index.js:120:40
+      1    0.0%    0.0%  Function: ^setWriteHeadHeaders /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/on-headers/index.js:105:30
+      1    0.0%    0.0%  Function: ^setPosition node:internal/timers:411:21
+      1    0.0%    0.0%  Function: ^setConfig /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:617:27
+      1    0.0%    0.0%  Function: ^set value /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:46636
+      1    0.0%    0.0%  Function: ^set expires /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/session/cookie.js:60:14
+      1    0.0%    0.0%  Function: ^set /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:266:8
+      1    0.0%    0.0%  Function: ^serializeDate /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:108:23
+      1    0.0%    0.0%  Function: ^serializeBinary /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:459:25
+      1    0.0%    0.0%  Function: ^resolveOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:824:24
+      1    0.0%    0.0%  Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      1    0.0%    0.0%  Function: ^resolveBSONOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/bson.js:52:28
+      1    0.0%    0.0%  Function: ^resetSocketTimeout node:_http_server:957:28
+      1    0.0%    0.0%  Function: ^resetMaxAge /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/session/session.js:58:68
+      1    0.0%    0.0%  Function: ^resetBuffer node:internal/streams/writable:202:21
+      1    0.0%    0.0%  Function: ^resOnFinish node:_http_server:786:21
+      1    0.0%    0.0%  Function: ^requiredArguments /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:50317
+      1    0.0%    0.0%  Function: ^require node:internal/modules/cjs/helpers:101:31
+      1    0.0%    0.0%  Function: ^removeColors node:internal/util:76:22
+      1    0.0%    0.0%  Function: ^removeAllListeners node:events:617:32
+      1    0.0%    0.0%  Function: ^readUInt32LE node:internal/buffer:215:22
+      1    0.0%    0.0%  Function: ^readSync node:fs:684:18
+      1    0.0%    0.0%  Function: ^readInt32LE node:internal/buffer:385:21
+      1    0.0%    0.0%  Function: ^randomBytes node:internal/crypto/random:90:21
+      1    0.0%    0.0%  Function: ^r.implications /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:53118
+      1    0.0%    0.0%  Function: ^r.conflicting /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:53658
+      1    0.0%    0.0%  Function: ^pushAsyncContext node:internal/async_hooks:531:26
+      1    0.0%    0.0%  Function: ^push node:internal/fixed_queue:99:7
+      1    0.0%    0.0%  Function: ^process_params /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:333:47
+      1    0.0%    0.0%  Function: ^pluckBSONSerializeOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/bson.js:32:35
+      1    0.0%    0.0%  Function: ^pipe /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:510:43
+      1    0.0%    0.0%  Function: ^percolateUp node:internal/priority_queue:73:14
+      1    0.0%    0.0%  Function: ^parserOnMessageComplete node:_http_common:147:33
+      1    0.0%    0.0%  Function: ^parseExtendedQueryString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/utils.js:287:34
+      1    0.0%    0.0%  Function: ^openSync node:fs:576:18
+      1    0.0%    0.0%  Function: ^onParserExecuteCommon node:_http_server:688:31
+      1    0.0%    0.0%  Function: ^onParserExecute node:_http_server:631:25
+      1    0.0%    0.0%  Function: ^ns /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:432:12
+      1    0.0%    0.0%  Function: ^now /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:708:13
+      1    0.0%    0.0%  Function: ^normalizeString node:path:66:25
+      1    0.0%    0.0%  Function: ^normalizeEncoding node:internal/util:160:27
+      1    0.0%    0.0%  Function: ^newAsyncId node:internal/async_hooks:417:20
+      1    0.0%    0.0%  Function: ^memoryUsage node:internal/process/per_thread:165:23
+      1    0.0%    0.0%  Function: ^measureRoundTripTime /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:280:30
+      1    0.0%    0.0%  Function: ^maxWireVersion /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:533:24
+      1    0.0%    0.0%  Function: ^matchKnownFields node:_http_incoming:234:26
+      1    0.0%    0.0%  Function: ^markAvailable /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:103:18
+      1    0.0%    0.0%  Function: ^makeUpdateStatement /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:152:29
+      1    0.0%    0.0%  Function: ^makeOperationHandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:320:30
+      1    0.0%    0.0%  Function: ^makeConnection /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:227:24
+      1    0.0%    0.0%  Function: ^limit /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/find_cursor.js:347:10
+      1    0.0%    0.0%  Function: ^length /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/denque/index.js:85:23
+      1    0.0%    0.0%  Function: ^json /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:239:25
+      1    0.0%    0.0%  Function: ^join node:path:1166:7
+      1    0.0%    0.0%  Function: ^isValid /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/read_preference.js:149:12
+      1    0.0%    0.0%  Function: ^isValid /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/read_preference.js:133:19
+      1    0.0%    0.0%  Function: ^isUint8Array /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/utils.js:56:22
+      1    0.0%    0.0%  Function: ^isUint32 node:internal/validators:40:18
+      1    0.0%    0.0%  Function: ^isSaved /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:430:21
+      1    0.0%    0.0%  Function: ^isKeyObject node:internal/crypto/keys:613:21
+      1    0.0%    0.0%  Function: ^isInstanceof node:internal/util/inspect:540:22
+      1    0.0%    0.0%  Function: ^isBuffer node:buffer:509:36
+      1    0.0%    0.0%  Function: ^isBelowBreakLength node:internal/util/inspect:1740:28
+      1    0.0%    0.0%  Function: ^internalBinding node:internal/bootstrap/loaders:164:45
+      1    0.0%    0.0%  Function: ^incRefCount node:internal/timers:299:21
+      1    0.0%    0.0%  Function: ^hrtime node:internal/process/per_thread:67:18
+      1    0.0%    0.0%  Function: ^highWaterMarkFrom node:internal/streams/state:10:27
+      1    0.0%    0.0%  Function: ^hasTimedOut /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:535:16
+      1    0.0%    0.0%  Function: ^hasKey /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:737:24
+      1    0.0%    0.0%  Function: ^handleErrorFromBinding node:internal/fs/utils:340:32
+      1    0.0%    0.0%  Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+      1    0.0%    0.0%  Function: ^getRequestId /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:537:24
+      1    0.0%    0.0%  Function: ^getOptions node:internal/fs/utils:314:20
+      1    0.0%    0.0%  Function: ^getEncodingOps node:buffer:678:24
+      1    0.0%    0.0%  Function: ^get node:net:1706:6
+      1    0.0%    0.0%  Function: ^get node:internal/streams/writable:784:8
+      1    0.0%    0.0%  Function: ^get maxAge /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/session/cookie.js:104:13
+      1    0.0%    0.0%  Function: ^get loadBalanced /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:85:21
+      1    0.0%    0.0%  Function: ^get ismaster /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:71:17
+      1    0.0%    0.0%  Function: ^get generation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:88:19
+      1    0.0%    0.0%  Function: ^get description /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:68:20
+      1    0.0%    0.0%  Function: ^get description /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:68:20
+      1    0.0%    0.0%  Function: ^get data /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/session/cookie.js:117:11
+      1    0.0%    0.0%  Function: ^get canRetryRead /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/operation.js:49:21
+      1    0.0%    0.0%  Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/promise_provider.js:30:15
+      1    0.0%    0.0%  Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/node_modules/debug/src/common.js:125:9
+      1    0.0%    0.0%  Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:7:76
+      1    0.0%    0.0%  Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:21:74
+      1    0.0%    0.0%  Function: ^fromStringFast node:buffer:412:24
+      1    0.0%    0.0%  Function: ^fromString node:buffer:431:20
+      1    0.0%    0.0%  Function: ^fresh /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/parseurl/index.js:153:16
+      1    0.0%    0.0%  Function: ^findOne /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/collection.js:219:12
+      1    0.0%    0.0%  Function: ^f /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:2346
+      1    0.0%    0.0%  Function: ^extname node:path:1385:10
+      1    0.0%    0.0%  Function: ^expressInit /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/middleware/init.js:29:30
+      1    0.0%    0.0%  Function: ^exports.sign /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie-signature/index.js:16:24
+      1    0.0%    0.0%  Function: ^executeWithServerSelection /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/execute_operation.js:66:36
+      1    0.0%    0.0%  Function: ^executeOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/execute_operation.js:12:26
+      1    0.0%    0.0%  Function: ^execute /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:70:12
+      1    0.0%    0.0%  Function: ^error /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:267:45
+      1    0.0%    0.0%  Function: ^equals /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server_description.js:118:11
+      1    0.0%    0.0%  Function: ^entitytag /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/etag/index.js:39:20
+      1    0.0%    0.0%  Function: ^ensureBuffer /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/ensure_buffer.js:15:22
+      1    0.0%    0.0%  Function: ^endReadableNT node:internal/streams/readable:1333:23
+      1    0.0%    0.0%  Function: ^end /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:250:27
+      1    0.0%    0.0%  Function: ^enabledHooksExist node:internal/async_hooks:466:27
+      1    0.0%    0.0%  Function: ^emitReadable node:internal/streams/readable:586:22
+      1    0.0%    0.0%  Function: ^emitBeforeScript node:internal/async_hooks:501:26
+      1    0.0%    0.0%  Function: ^doWrite node:internal/streams/writable:399:17
+      1    0.0%    0.0%  Function: ^deserialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:36:21
+      1    0.0%    0.0%  Function: ^decode /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:987:17
+      1    0.0%    0.0%  Function: ^decRefCount node:internal/timers:304:21
+      1    0.0%    0.0%  Function: ^debug /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/node_modules/debug/src/debug.js:65:17
+      1    0.0%    0.0%  Function: ^debug /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/node_modules/debug/src/debug.js:65:17
+      1    0.0%    0.0%  Function: ^debug /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/node_modules/debug/src/common.js:66:17
+      1    0.0%    0.0%  Function: ^createWriteWrap node:internal/stream_base_commons:113:25
+      1    0.0%    0.0%  Function: ^createWriteHead /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/on-headers/index.js:24:26
+      1    0.0%    0.0%  Function: ^createSecureContext node:_tls_common:98:29
+      1    0.0%    0.0%  Function: ^construct node:internal/streams/destroy:232:19
+      1    0.0%    0.0%  Function: ^completeEndSession /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:138:40
+      1    0.0%    0.0%  Function: ^clearIncoming node:_http_server:747:23
+      1    0.0%    0.0%  Function: ^checkOut /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:120:13
+      1    0.0%    0.0%  Function: ^checkIsHttpToken node:_http_common:221:26
+      1    0.0%    0.0%  Function: ^checkBounds node:internal/buffer:52:21
+      1    0.0%    0.0%  Function: ^checkAllAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:840:33
+      1    0.0%    0.0%  Function: ^check /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/engine.io/build/server.js:466:23
+      1    0.0%    0.0%  Function: ^canBeRequiredByUsers node:internal/bootstrap/loaders:240:30
+      1    0.0%    0.0%  Function: ^callback node:internal/streams/writable:551:44
+      1    0.0%    0.0%  Function: ^callback /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:487:24
+      1    0.0%    0.0%  Function: ^calculateDurationInMs /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:714:31
+      1    0.0%    0.0%  Function: ^assignSocket node:_http_server:237:62
+      1    0.0%    0.0%  Function: ^assembleStyles /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/ansi-styles/index.js:61:24
+      1    0.0%    0.0%  Function: ^applyEnvVars /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:674:30
+      1    0.0%    0.0%  Function: ^applyCoercions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:693:32
+      1    0.0%    0.0%  Function: ^append node:internal/linkedlist:29:16
+      1    0.0%    0.0%  Function: ^app /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/express.js:38:21
+      1    0.0%    0.0%  Function: ^allocate node:buffer:397:18
+      1    0.0%    0.0%  Function: ^adjustOffset node:buffer:1098:22
+      1    0.0%    0.0%  Function: ^addQuotes node:internal/util/inspect:451:19
+      1    0.0%    0.0%  Function: ^acquire /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:577:12
+      1    0.0%    0.0%  Function: ^_write node:internal/streams/writable:284:16
+      1    0.0%    0.0%  Function: ^_write /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:26:11
+      1    0.0%    0.0%  Function: ^_unrefTimer node:net:417:52
+      1    0.0%    0.0%  Function: ^_send node:_http_outgoing:319:49
+      1    0.0%    0.0%  Function: ^_initialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/find_cursor.js:48:16
+      1    0.0%    0.0%  Function: ^_getMaxListeners node:events:271:26
+      1    0.0%    0.0%  Function: ^_flushOutput node:_http_outgoing:950:63
+      1    0.0%    0.0%  Function: ^_finish node:_http_server:203:52
+      1    0.0%    0.0%  Function: ^_destroy node:_http_incoming:176:55
+      1    0.0%    0.0%  Function: ^_copyActual node:buffer:242:21
+      1    0.0%    0.0%  Function: ^Writable.write node:internal/streams/writable:334:36
+      1    0.0%    0.0%  Function: ^UpdateOneOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:64:16
+      1    0.0%    0.0%  Function: ^Transaction /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/transactions.js:57:16
+      1    0.0%    0.0%  Function: ^Socket._write node:net:806:35
+      1    0.0%    0.0%  Function: ^Socket.<computed> node:net:765:46
+      1    0.0%    0.0%  Function: ^ServerResponse node:_http_server:178:24
+      1    0.0%    0.0%  Function: ^S.n.unfreeze /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:20145
+      1    0.0%    0.0%  Function: ^ReadableState node:internal/streams/readable:83:23
+      1    0.0%    0.0%  Function: ^Readable.resume node:internal/streams/readable:987:37
+      1    0.0%    0.0%  Function: ^Readable.removeListener node:internal/streams/readable:928:45
+      1    0.0%    0.0%  Function: ^Readable.removeAllListeners node:internal/streams/readable:946:49
+      1    0.0%    0.0%  Function: ^Readable.on node:internal/streams/readable:898:33
+      1    0.0%    0.0%  Function: ^Readable node:internal/streams/readable:186:18
+      1    0.0%    0.0%  Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      1    0.0%    0.0%  Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    0.0%    0.0%  Function: ^Module node:internal/modules/cjs/loader:172:16
+      1    0.0%    0.0%  Function: ^Long.fromBits /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:88:30
+      1    0.0%    0.0%  Function: ^Long.add /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/long.js:252:35
+      1    0.0%    0.0%  Function: ^IncomingMessage node:_http_incoming:51:25
+      1    0.0%    0.0%  Function: ^FastBuffer node:internal/buffer:958:14
+      1    0.0%    0.0%  Function: ^ConnectionCheckedOutEvent /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool_events.js:115:16
+      1    0.0%    0.0%  Function: ^C /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:4532
+      1    0.0%    0.0%  Function: ^Binary /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/binary.js:18:20
+      1    0.0%    0.0%  Function: ^BinMsg /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:545:16
+      1    0.0%    0.0%  Function: ^<anonymous> node:vm:313:27
+      1    0.0%    0.0%  Function: ^<anonymous> node:internal/validators:73:3
+      1    0.0%    0.0%  Function: ^<anonymous> node:internal/fs/utils:686:40
+      1    0.0%    0.0%  Function: ^<anonymous> node:internal/fs/utils:668:38
+      1    0.0%    0.0%  Function: ^<anonymous> node:internal/fs/utils:636:3
+      1    0.0%    0.0%  Function: ^<anonymous> node:internal/fs/utils:357:35
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:57389
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:53686
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:47956
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:45050
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1130
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:823:69
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:729:59
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:189:72
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:494:13
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sessions.js:133:52
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server_selection.js:192:12
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/execute_operation.js:47:70
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/connect.js:61:28
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:379:34
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:266:27
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/request.js:467:36
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:598:43
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:485:38
+      1    0.0%    0.0%  Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:220:28
+
+ [C++]:
+   ticks  total  nonlib   name
+   1136    4.7%   29.6%  epoll_pwait@@GLIBC_2.17
+    432    1.8%   11.2%  __write@@GLIBC_2.17
+    157    0.6%    4.1%  __read@@GLIBC_2.17
+     51    0.2%    1.3%  __libc_malloc@@GLIBC_2.17
+     49    0.2%    1.3%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+     42    0.2%    1.1%  _IO_fwrite@@GLIBC_2.17
+     38    0.2%    1.0%  syscall@@GLIBC_2.17
+     38    0.2%    1.0%  __mprotect@@GLIBC_PRIVATE
+     18    0.1%    0.5%  __libc_free@@GLIBC_2.17
+     17    0.1%    0.4%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+     15    0.1%    0.4%  pthread_cond_signal@@GLIBC_2.17
+     14    0.1%    0.4%  _IO_file_xsputn@@GLIBC_2.17
+     11    0.0%    0.3%  strcmp@@GLIBC_2.17
+      9    0.0%    0.2%  operator delete(void*)@@GLIBCXX_3.4
+      9    0.0%    0.2%  __pthread_rwlock_unlock@GLIBC_2.17
+      7    0.0%    0.2%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      7    0.0%    0.2%  epoll_ctl@@GLIBC_2.17
+      7    0.0%    0.2%  __pthread_mutex_lock@GLIBC_2.17
+      7    0.0%    0.2%  __munmap@@GLIBC_PRIVATE
+      6    0.0%    0.2%  getrusage@@GLIBC_2.17
+      6    0.0%    0.2%  __pthread_rwlock_rdlock@GLIBC_2.17
+      5    0.0%    0.1%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      5    0.0%    0.1%  bcmp@@GLIBC_2.17
+      5    0.0%    0.1%  __pthread_getspecific@GLIBC_2.17
+      4    0.0%    0.1%  shutdown@@GLIBC_2.17
+      4    0.0%    0.1%  __pthread_rwlock_wrlock@GLIBC_2.17
+      4    0.0%    0.1%  __libc_calloc@@GLIBC_2.17
+      3    0.0%    0.1%  std::ostream::put(char)@@GLIBCXX_3.4
+      3    0.0%    0.1%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      3    0.0%    0.1%  operator new(unsigned long)@@GLIBCXX_3.4
+      3    0.0%    0.1%  accept4@@GLIBC_2.17
+      3    0.0%    0.1%  __clock_gettime@@GLIBC_PRIVATE
+      2    0.0%    0.1%  std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      2    0.0%    0.1%  std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const@@GLIBCXX_3.4.18
+      2    0.0%    0.1%  fputc@@GLIBC_2.17
+      2    0.0%    0.1%  fmod@@GLIBC_2.17
+      2    0.0%    0.1%  __strcasecmp@@GLIBC_2.17
+      2    0.0%    0.1%  __mmap@@GLIBC_PRIVATE
+      2    0.0%    0.1%  __lll_lock_wake_private@@GLIBC_PRIVATE
+      2    0.0%    0.1%  _IO_setb@@GLIBC_2.17
+      2    0.0%    0.1%  _IO_do_write@@GLIBC_2.17
+      2    0.0%    0.1%  _IO_default_xsputn@@GLIBC_2.17
+      1    0.0%    0.0%  strchrnul@@GLIBC_2.17
+      1    0.0%    0.0%  std::ostream::flush()@@GLIBCXX_3.4
+      1    0.0%    0.0%  std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long)@@GLIBCXX_3.4.9
+      1    0.0%    0.0%  std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const@@GLIBCXX_3.4
+      1    0.0%    0.0%  std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const@@GLIBCXX_3.4.18
+      1    0.0%    0.0%  std::_Rb_tree_rebalance_for_erase(std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      1    0.0%    0.0%  std::_Rb_tree_decrement(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+      1    0.0%    0.0%  sigaddset@@GLIBC_2.17
+      1    0.0%    0.0%  recvfrom@@GLIBC_2.17
+      1    0.0%    0.0%  readlink@@GLIBC_2.17
+      1    0.0%    0.0%  qsort_r@@GLIBC_2.17
+      1    0.0%    0.0%  operator new[](unsigned long, std::nothrow_t const&)@@GLIBCXX_3.4
+      1    0.0%    0.0%  operator new[](unsigned long)@@GLIBCXX_3.4
+      1    0.0%    0.0%  index@@GLIBC_2.17
+      1    0.0%    0.0%  __vsnprintf@@GLIBC_2.17
+      1    0.0%    0.0%  __madvise@@GLIBC_PRIVATE
+      1    0.0%    0.0%  __libc_realloc@@GLIBC_2.17
+      1    0.0%    0.0%  __fmod_finite@GLIBC_2.17
+      1    0.0%    0.0%  __errno_location@@GLIBC_2.17
+      1    0.0%    0.0%  _IO_file_sync@@GLIBC_2.17
+
+ [Summary]:
+   ticks  total  nonlib   name
+   1683    7.0%   43.8%  JavaScript
+   2158    8.9%   56.2%  C++
+   1107    4.6%   28.8%  GC
+  20360   84.1%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    332   53.1%    1.4%  __write@@GLIBC_2.17
+     43    6.9%    0.2%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+     38    6.1%    0.2%  syscall@@GLIBC_2.17
+     38    6.1%    0.2%  __libc_malloc@@GLIBC_2.17
+     38    6.1%    0.2%  _IO_fwrite@@GLIBC_2.17
+     23    3.7%    0.1%  __mprotect@@GLIBC_PRIVATE
+     16    2.6%    0.1%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+     12    1.9%    0.0%  _IO_file_xsputn@@GLIBC_2.17
+     11    1.8%    0.0%  __libc_free@@GLIBC_2.17
+      6    1.0%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      6    1.0%    0.0%  operator delete(void*)@@GLIBCXX_3.4
+      5    0.8%    0.0%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      5    0.8%    0.0%  bcmp@@GLIBC_2.17
+      5    0.8%    0.0%  __pthread_mutex_lock@GLIBC_2.17
+      4    0.6%    0.0%  __libc_calloc@@GLIBC_2.17
+      3    0.5%    0.0%  strcmp@@GLIBC_2.17
+      3    0.5%    0.0%  std::ostream::put(char)@@GLIBCXX_3.4
+      3    0.5%    0.0%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      3    0.5%    0.0%  operator new(unsigned long)@@GLIBCXX_3.4
+      3    0.5%    0.0%  __pthread_rwlock_unlock@GLIBC_2.17
+      2    0.3%    0.0%  pthread_cond_signal@@GLIBC_2.17
+      2    0.3%    0.0%  fputc@@GLIBC_2.17
+      2    0.3%    0.0%  fmod@@GLIBC_2.17
+      2    0.3%    0.0%  __clock_gettime@@GLIBC_PRIVATE
+      2    0.3%    0.0%  _IO_setb@@GLIBC_2.17
+      2    0.3%    0.0%  _IO_default_xsputn@@GLIBC_2.17
+      1    0.2%    0.0%  strchrnul@@GLIBC_2.17
+      1    0.2%    0.0%  std::ostream::flush()@@GLIBCXX_3.4
+      1    0.2%    0.0%  std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long)@@GLIBCXX_3.4.9
+      1    0.2%    0.0%  std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const@@GLIBCXX_3.4
+      1    0.2%    0.0%  std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      1    0.2%    0.0%  std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const@@GLIBCXX_3.4.18
+      1    0.2%    0.0%  std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const@@GLIBCXX_3.4.18
+      1    0.2%    0.0%  std::_Rb_tree_rebalance_for_erase(std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      1    0.2%    0.0%  std::_Rb_tree_decrement(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+      1    0.2%    0.0%  operator new[](unsigned long, std::nothrow_t const&)@@GLIBCXX_3.4
+      1    0.2%    0.0%  operator new[](unsigned long)@@GLIBCXX_3.4
+      1    0.2%    0.0%  __vsnprintf@@GLIBC_2.17
+      1    0.2%    0.0%  __pthread_rwlock_wrlock@GLIBC_2.17
+      1    0.2%    0.0%  __pthread_getspecific@GLIBC_2.17
+      1    0.2%    0.0%  __fmod_finite@GLIBC_2.17
+      1    0.2%    0.0%  _IO_do_write@@GLIBC_2.17
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+  19728   81.5%  /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+   1712    8.7%    /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+    369   21.6%      LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+    323   87.5%        LazyCompile: *formatRaw node:internal/util/inspect:796:19
+    322   99.7%          LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+    322  100.0%            LazyCompile: *formatRaw node:internal/util/inspect:796:19
+     46   12.5%        Function: ^formatRaw node:internal/util/inspect:796:19
+     46  100.0%          LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+     46  100.0%            Function: ^formatRaw node:internal/util/inspect:796:19
+    122    7.1%      Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:108:10
+     65   53.3%        Function: ^yargsParser.detailed /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:1041:33
+     65  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+     65  100.0%            Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+     57   46.7%        LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+     57  100.0%          Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+     57  100.0%            Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+    100    5.8%      LazyCompile: *formatRaw node:internal/util/inspect:796:19
+     98   98.0%        LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+     98  100.0%          LazyCompile: *formatRaw node:internal/util/inspect:796:19
+     98  100.0%            Function: ^formatValue node:internal/util/inspect:726:21
+      2    2.0%        Function: ^formatValue node:internal/util/inspect:726:21
+      2  100.0%          Function: ^inspect node:internal/util/inspect:286:17
+      2  100.0%            Function: ^formatWithOptionsInternal node:internal/util/inspect:1891:35
+     67    3.9%      LazyCompile: *deserializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:65:27
+     31   46.3%        Function: ^deserialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:36:21
+     31  100.0%          Function: ^deserialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:162:21
+     31  100.0%            Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+     27   40.3%        LazyCompile: *deserializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:65:27
+     14   51.9%          LazyCompile: *deserializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:65:27
+     10   71.4%            LazyCompile: *deserializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:65:27
+      3   21.4%            Function: ^deserialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:36:21
+      1    7.1%            LazyCompile: *parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+     10   37.0%          Function: ^deserialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/deserializer.js:36:21
+     10  100.0%            Function: ^deserialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:162:21
+      3   11.1%          LazyCompile: *parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+      3  100.0%            Function: ^messageHandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:421:35
+      9   13.4%        LazyCompile: *parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+      9  100.0%          Function: ^messageHandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:421:35
+      9  100.0%            LazyCompile: *processIncomingData /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+     56    3.3%      Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+     56  100.0%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+     56  100.0%          Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+     56  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+     55    3.2%      LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+     55  100.0%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+     55  100.0%          Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+     55  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+     51    3.0%      /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      7   13.7%        LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      7   13.7%        LazyCompile: *formatPrimitive node:internal/util/inspect:1382:25
+      7  100.0%          LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+      7  100.0%            LazyCompile: *formatRaw node:internal/util/inspect:796:19
+      7   13.7%        Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      7  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      3   42.9%            Function: ^trySelf node:internal/modules/cjs/loader:441:17
+      3   42.9%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1   14.3%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      6   11.8%        Function: ^stat node:internal/modules/cjs/loader:151:14
+      3   50.0%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      3  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      3   50.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      3  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      5    9.8%        Function: ^isValid /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/read_preference.js:133:19
+      5  100.0%          Function: ^isValid /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/read_preference.js:149:12
+      5  100.0%            Function: ^readPreferenceServerSelector /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server_selection.js:188:38
+      3    5.9%        Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      3  100.0%          Function: ^trySelf node:internal/modules/cjs/loader:441:17
+      3  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      3    5.9%        Function: ^Module node:internal/modules/cjs/loader:172:16
+      3  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      3  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      2    3.9%        Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      2    3.9%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/content-type/index.js:106:16
+      2  100.0%          Function: ^setCharset /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/utils.js:246:41
+      2  100.0%            Function: ^send /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:107:25
+      1    2.0%        LazyCompile: *strEscape node:internal/util/inspect:465:19
+      1  100.0%          Function: ^<anonymous> node:internal/util/inspect:1397:14
+      1  100.0%            LazyCompile: *formatPrimitive node:internal/util/inspect:1382:25
+      1    2.0%        LazyCompile: *realpathSync node:fs:2408:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      1    2.0%        LazyCompile: *h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+      1  100.0%          Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      1  100.0%            Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+      1    2.0%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie/index.js:49:15
+      1  100.0%          Function: ^getcookie /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:529:19
+      1  100.0%            Function: ^session /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:179:26
+      1    2.0%        Function: ^clearBuffer node:internal/streams/writable:530:21
+      1  100.0%          Function: ^Writable.uncork node:internal/streams/writable:342:37
+      1  100.0%            Function: ^end node:_http_outgoing:833:45
+      1    2.0%        Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      1    2.0%        Function: ^<anonymous> node:internal/fs/utils:357:35
+      1  100.0%          Function: ^<anonymous> node:internal/fs/utils:668:38
+      1  100.0%            Function: ^<anonymous> node:internal/fs/utils:680:42
+      1    2.0%        Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:814:69
+      1  100.0%          /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:810:57
+      1    2.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%          LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+     33    1.9%      LazyCompile: *reduceToSingleString node:internal/util/inspect:1764:30
+     33  100.0%        LazyCompile: *formatRaw node:internal/util/inspect:796:19
+     27   81.8%          LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+     27  100.0%            LazyCompile: *formatRaw node:internal/util/inspect:796:19
+      6   18.2%          Function: ^formatValue node:internal/util/inspect:726:21
+      6  100.0%            Function: ^inspect node:internal/util/inspect:286:17
+     33    1.9%      Function: ^databaseNamespace /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:514:27
+     33  100.0%        Function: ^Msg /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:468:16
+     23   69.7%          Function: ^command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+     23  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+     10   30.3%          LazyCompile: *command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      9   90.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      1   10.0%            Function: ^measureRoundTripTime /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:280:30
+     31    1.8%      Function: ^command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+     25   80.6%        Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+     19   76.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:264:23
+     18   94.7%            Function: ^processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      1    5.3%            LazyCompile: ~processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      6   24.0%          LazyCompile: *processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      6  100.0%            LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      2    6.5%        LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      1   50.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:264:23
+      1  100.0%            LazyCompile: ~processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      1   50.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:264:23
+      1  100.0%            LazyCompile: ~processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      2    6.5%        Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:63:43
+      1   50.0%          LazyCompile: ~prepareHandshakeDocument /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:128:34
+      1  100.0%            LazyCompile: ~performInitialHandshake /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:47:33
+      1   50.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:25:32
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/crypto/random:104:43
+      1    3.2%        LazyCompile: ~executeScram /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:74:22
+      1  100.0%          LazyCompile: ~auth /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:39:9
+      1  100.0%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:73:85
+      1    3.2%        Function: ^measureRoundTripTime /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:280:30
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:296:44
+      1  100.0%            Function: ^listOnTimeout node:internal/timers:505:25
+     26    1.5%      LazyCompile: *h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+     26  100.0%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+     26  100.0%          Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+     26  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+     24    1.4%      Function: ^resolveOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:824:24
+     12   50.0%        Function: ^updateOne /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/collection.js:167:14
+      7   58.3%          LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:296:10
+      7  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      4   33.3%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:296:10
+      4  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    8.3%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:296:10
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+     12   50.0%        Function: ^find /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/collection.js:236:9
+     12  100.0%          Function: ^findOne /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/collection.js:219:12
+      7   58.3%            LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:203:10
+      4   33.3%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:203:10
+      1    8.3%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:203:10
+     21    1.2%      Function: ^removeColors node:internal/util:76:22
+     21  100.0%        Function: ^isBelowBreakLength node:internal/util/inspect:1740:28
+     21  100.0%          Function: ^reduceToSingleString node:internal/util/inspect:1764:30
+     12   57.1%            LazyCompile: *formatRaw node:internal/util/inspect:796:19
+      9   42.9%            Function: ^formatRaw node:internal/util/inspect:796:19
+     20    1.2%      Function: ^header /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:759:29
+     10   50.0%        Function: ^send /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:107:25
+     10  100.0%          Function: ^json /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:239:25
+     10  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+      9   45.0%        Function: ^json /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:239:25
+      9  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+      6   66.7%            Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+      3   33.3%            LazyCompile: *handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+      1    5.0%        LazyCompile: ~send /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:107:25
+      1  100.0%          LazyCompile: ~json /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:239:25
+      1  100.0%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+     19    1.1%      Function: ^Module._load node:internal/modules/cjs/loader:757:24
+     19  100.0%        Function: ^Module.require node:internal/modules/cjs/loader:991:36
+     19  100.0%          Function: ^require node:internal/modules/cjs/helpers:101:31
+      2   10.5%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/node_modules/semver/index.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/ws/lib/websocket-server.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/winston/node_modules/async/series.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/winston/lib/winston/container.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/socket.io/dist/namespace.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/socket.io/dist/broadcast-operator.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/qs/lib/index.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/create_collection.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/deps.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/mongocr.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/gauge/plumbing.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/utils.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/engine.io/build/transports/polling.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/compression/index.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:1:1
+      1    5.3%            Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@node-redis/client/dist/lib/client/commands.js:1:1
+     18    1.1%      Function: ^pipe /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:510:43
+     18  100.0%        Function: ^serveStatic /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/serve-static/index.js:72:31
+     17   94.4%          Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+     17  100.0%            Function: ^trim_prefix /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:288:23
+      1    5.6%          LazyCompile: *handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            Function: ^trim_prefix /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:288:23
+     18    1.1%      Function: ^fromString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:454:22
+     18  100.0%        Function: ^ns /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:432:12
+     16   88.9%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/abstract_cursor.js:445:46
+     16  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cursor/find_cursor.js:54:81
+      1    5.6%          Function: ^measureRoundTripTime /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:280:30
+      1  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:296:44
+      1    5.6%          Function: ^executeScram /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:74:22
+      1  100.0%            Function: ^auth /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:39:9
+     18    1.1%      Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:809:35
+     18  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+     18  100.0%          Function: ^extendAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:808:31
+     18  100.0%            Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:108:10
+   1483    7.5%    Function: ^compileFunction node:vm:308:25
+   1452   97.9%      Function: ^wrapSafe node:internal/modules/cjs/loader:1011:18
+   1447   99.7%        Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+   1399   96.7%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+   1351   96.6%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+     48    3.4%            LazyCompile: *Module._load node:internal/modules/cjs/loader:757:24
+     48    3.3%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1106:37
+     48  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+     31    2.1%      LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1011:18
+     31  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+     31  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1106:37
+     20   64.5%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+     11   35.5%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+    926    4.7%    Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+    562   60.7%      LazyCompile: *_write node:internal/streams/writable:284:16
+    378   67.3%        LazyCompile: *Writable.write node:internal/streams/writable:334:36
+    211   55.8%          Function: ^ondata node:internal/streams/readable:775:18
+    211  100.0%            LazyCompile: *readableAddChunk node:internal/streams/readable:242:26
+    167   44.2%          Function: ^value node:internal/console/constructor:257:20
+    167  100.0%            Function: ^log node:internal/console/constructor:358:6
+    184   32.7%        Function: ^Writable.write node:internal/streams/writable:334:36
+    103   56.0%          Function: ^ondata node:internal/streams/readable:775:18
+     88   85.4%            LazyCompile: *emit node:events:340:44
+     15   14.6%            LazyCompile: *readableAddChunk node:internal/streams/readable:242:26
+     81   44.0%          Function: ^value node:internal/console/constructor:257:20
+     81  100.0%            Function: ^log node:internal/console/constructor:358:6
+    364   39.3%      Function: ^writeGeneric node:internal/stream_base_commons:151:22
+    364  100.0%        Function: ^Socket._writeGeneric node:net:769:42
+    364  100.0%          Function: ^Socket._write node:net:806:35
+    364  100.0%            Function: ^writeOrBuffer node:internal/streams/writable:366:23
+    548    2.8%    Function: ^writevGeneric node:internal/stream_base_commons:126:23
+    548  100.0%      Function: ^Socket._writeGeneric node:net:769:42
+    548  100.0%        Function: ^Socket._writev node:net:801:36
+    544   99.3%          Function: ^doWrite node:internal/streams/writable:399:17
+    544  100.0%            Function: ^clearBuffer node:internal/streams/writable:530:21
+    424    2.1%    Function: ^stringify /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:1123:20
+    424  100.0%      Function: ^json /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/response.js:239:25
+    424  100.0%        Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+    368   86.8%          Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+    368  100.0%            Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/route.js:114:16
+     56   13.2%          LazyCompile: *handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+     56  100.0%            Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/route.js:114:16
+    345    1.7%    Function: ^Hash node:internal/crypto/hash:58:14
+    321   93.0%      Function: ^createHash node:crypto:129:20
+    165   51.4%        Function: ^hash /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:596:14
+     67   40.6%          Function: ^inflate /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:371:22
+     64   95.5%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:485:38
+      3    4.5%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:485:38
+     56   33.9%          Function: ^isSaved /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:430:21
+     56  100.0%            Function: ^shouldSave /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:440:24
+     40   24.2%          Function: ^isModified /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:425:24
+     40  100.0%            Function: ^shouldSetCookie /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:464:29
+     99   30.8%        Function: ^entitytag /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/etag/index.js:39:20
+     99  100.0%          Function: ^etag /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/etag/index.js:70:15
+     99  100.0%            Function: ^generateETag /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/utils.js:271:32
+     49   15.3%        Function: ^sha1 /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie-signature/index.js:49:14
+     49  100.0%          Function: ^exports.unsign /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie-signature/index.js:36:26
+     49  100.0%            Function: ^unsigncookie /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:675:22
+      4    1.2%        LazyCompile: ~passwordDigest /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:182:24
+      3   75.0%          LazyCompile: ~continueScramConversation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      3  100.0%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+      1   25.0%          Function: ^continueScramConversation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+     24    7.0%      LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:203:10
+     24  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+     24  100.0%          /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+     24  100.0%            LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+    333    1.7%    Function: ^memoryUsage node:internal/process/per_thread:165:23
+    333  100.0%      Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+    283   85.0%        Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+    283  100.0%          Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/route.js:114:16
+    283  100.0%            Function: ^dispatch /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/route.js:98:45
+     50   15.0%        LazyCompile: *handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+     50  100.0%          Function: ^next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/route.js:114:16
+     50  100.0%            Function: ^dispatch /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/route.js:98:45
+    280    1.4%    Function: ^TLSSocket.getPeerCertificate node:_tls_wrap:984:50
+    188   67.1%      Function: ^onConnectSecure node:_tls_wrap:1516:25
+    130   69.1%        Function: ^emit node:events:340:44
+    130  100.0%          Function: ^TLSSocket._finishInit node:_tls_wrap:918:43
+    130  100.0%            Function: ^ssl.onhandshakedone node:_tls_wrap:723:27
+     58   30.9%        LazyCompile: *emit node:events:340:44
+     58  100.0%          Function: ^TLSSocket._finishInit node:_tls_wrap:918:43
+     58  100.0%            Function: ^ssl.onhandshakedone node:_tls_wrap:723:27
+     92   32.9%      LazyCompile: ~onConnectSecure node:_tls_wrap:1516:25
+     92  100.0%        Function: ^emit node:events:340:44
+     80   87.0%          Function: ^TLSSocket._finishInit node:_tls_wrap:918:43
+     80  100.0%            Function: ^ssl.onhandshakedone node:_tls_wrap:723:27
+     12   13.0%          LazyCompile: ~TLSSocket._finishInit node:_tls_wrap:918:43
+     12  100.0%            Function: ^ssl.onhandshakedone node:_tls_wrap:723:27
+    251    1.3%    Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+    195   77.7%      Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+     31   15.9%        Function: ~<anonymous> node:crypto:1:1
+     31  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     31  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+     25   12.8%        Function: ~<anonymous> node:http:1:1
+     25  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     25  100.0%            LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+     18    9.2%        Function: ~<anonymous> node:tls:1:1
+     18  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     18  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+     16    8.2%        Function: ~<anonymous> node:tty:1:1
+     16  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     16  100.0%            LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+     12    6.2%        Function: ~<anonymous> node:internal/child_process:1:1
+     12  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     12  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+     12    6.2%        Function: ~<anonymous> node:_http_client:1:1
+     12  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     12  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+     11    5.6%        Function: ~<anonymous> node:child_process:1:1
+     11  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     11  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      7    3.6%        LazyCompile: ~lazyRequire node:internal/crypto/util:67:21
+      7  100.0%          LazyCompile: ~get node:crypto:287:8
+      7  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      7    3.6%        Function: ~<anonymous> node:internal/crypto/hkdf:1:1
+      7  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      7  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      7    3.6%        Function: ~<anonymous> node:assert:1:1
+      7  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      7  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      5    2.6%        Function: ~<anonymous> node:cluster:1:1
+      5  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      5  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      5    2.6%        Function: ~<anonymous> node:_http_common:1:1
+      5  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      5  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      4    2.1%        LazyCompile: ~lazyLoadStreams node:fs:2841:25
+      4  100.0%          LazyCompile: ~get ReadStream node:fs:2984:17
+      4  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      4    2.1%        Function: ~<anonymous> node:internal/cluster/primary:1:1
+      4  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      4    2.1%        Function: ~<anonymous> node:_tls_common:1:1
+      4  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      3    1.5%        LazyCompile: ~setupChannel node:internal/child_process:567:22
+      3  100.0%          LazyCompile: ~ChildProcess.spawn node:internal/child_process:346:40
+      3  100.0%            LazyCompile: ~spawn node:child_process:690:15
+      3    1.5%        LazyCompile: ~get node:dns:349:8
+      3  100.0%          /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      3  100.0%            Function: ^getOwn node:internal/bootstrap/loaders:180:16
+      3    1.5%        Function: ~<anonymous> node:internal/crypto/pbkdf2:1:1
+      3  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      3  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      3    1.5%        Function: ~<anonymous> node:_tls_wrap:1:1
+      3  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      3  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2    1.0%        LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:421:29
+      2  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      2  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    1.0%        Function: ~<anonymous> node:net:1:1
+      2  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2    1.0%        Function: ~<anonymous> node:internal/crypto/util:1:1
+      2  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2    1.0%        Function: ~<anonymous> node:dns:1:1
+      2  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+     52   20.7%      Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+     52  100.0%        Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+     52  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:757:24
+     52  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      4    1.6%      LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      4  100.0%        Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      2   50.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:757:24
+      2  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:991:36
+      2   50.0%          Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      2  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:991:36
+    239    1.2%    LazyCompile: ~configSecureContext node:internal/tls/secure-context:120:29
+    234   97.9%      LazyCompile: ~createSecureContext node:_tls_common:98:29
+    234  100.0%        LazyCompile: ~connect node:_tls_wrap:1597:35
+    234  100.0%          LazyCompile: ~makeConnection /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:227:24
+    234  100.0%            LazyCompile: ~connect /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:15:17
+      5    2.1%      Function: ^createSecureContext node:_tls_common:98:29
+      5  100.0%        Function: ^connect node:_tls_wrap:1597:35
+      5  100.0%          Function: ^makeConnection /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:227:24
+      5  100.0%            Function: ^connect /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connect.js:15:17
+
+   1136    4.7%  epoll_pwait@@GLIBC_2.17
+
+    590    2.4%  /usr/lib/aarch64-linux-gnu/libc.so.6
+     54    9.2%    /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+     12   22.2%      /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      2   16.7%        LazyCompile: *strEscape node:internal/util/inspect:465:19
+      2  100.0%          Function: ^<anonymous> node:internal/util/inspect:1397:14
+      2  100.0%            LazyCompile: *formatPrimitive node:internal/util/inspect:1382:25
+      2   16.7%        Function: ^strEscape node:internal/util/inspect:465:19
+      2  100.0%          Function: ^<anonymous> node:internal/util/inspect:1397:14
+      2  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      2   16.7%        Function: ^hasServer /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology_description.js:239:14
+      2  100.0%          Function: ^serverUpdateHandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:384:24
+      2  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:560:53
+      1    8.3%        LazyCompile: ~replaceCaret /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1029:23
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1024:48
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    8.3%        LazyCompile: *h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+      1  100.0%          Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      1  100.0%            Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+      1    8.3%        LazyCompile: *formatPrimitive node:internal/util/inspect:1382:25
+      1  100.0%          LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+      1  100.0%            LazyCompile: *formatRaw node:internal/util/inspect:796:19
+      1    8.3%        Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      1  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    8.3%        Function: ^o /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:912
+      1  100.0%          Function: ^h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+      1  100.0%            Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      1    8.3%        Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      5    9.3%      LazyCompile: ~callSiteToString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/depd/lib/compat/index.js:21:76
+      5  100.0%        LazyCompile: ~get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/depd/lib/compat/index.js:54:16
+      5  100.0%          Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/depd/index.js:1:1
+      5  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+      2    3.7%      LazyCompile: ~MongoStore /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:75:16
+      2  100.0%        LazyCompile: ~create /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/connect-mongo/build/main/lib/MongoStore.js:135:18
+      2  100.0%          Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:1:1
+      2  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+      2    3.7%      Function: ^realpathSync node:fs:2408:22
+      1   50.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%          LazyCompile: ~tryFile node:internal/modules/cjs/loader:384:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      1   50.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      1  100.0%            Function: ^tryPackage node:internal/modules/cjs/loader:338:20
+      2    3.7%      Function: ^expressInit /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/middleware/init.js:29:30
+      2  100.0%        Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+      2  100.0%          Function: ^trim_prefix /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:288:23
+      2  100.0%            LazyCompile: *next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:176:16
+      2    3.7%      Function: ^databaseNamespace /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:514:27
+      2  100.0%        Function: ^Msg /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:468:16
+      2  100.0%          LazyCompile: *command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      2  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      2    3.7%      Function: ^_addListener node:events:418:22
+      2  100.0%        Function: ^addListener node:events:486:58
+      2  100.0%          Function: ^Readable.on node:internal/streams/readable:898:33
+      1   50.0%            LazyCompile: ~clearIncoming node:_http_server:747:23
+      1   50.0%            Function: ^clearIncoming node:_http_server:747:23
+      2    3.7%      Function: ^WriteConcern /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/write_concern.js:20:16
+      2  100.0%        Function: ^fromOptions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/write_concern.js:40:23
+      2  100.0%          Function: ^CommandOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/command.js:15:16
+      2  100.0%            Function: ^FindOperation /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/find.js:14:16
+      2    3.7%      Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      2  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      2  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      2  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      2    3.7%      Function: ^FastBuffer node:internal/buffer:958:14
+      2  100.0%        Function: ^createUnsafeBuffer node:internal/buffer:1059:28
+      1   50.0%          Function: ^createPool node:buffer:150:20
+      1  100.0%            Function: ^allocate node:buffer:397:18
+      1   50.0%          Function: ^allocate node:buffer:397:18
+      1  100.0%            Function: ^allocUnsafe node:buffer:372:42
+      1    1.9%      LazyCompile: ~match /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:110:39
+      1  100.0%        LazyCompile: ~matchLayer /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:578:20
+      1  100.0%          LazyCompile: ~next /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/index.js:176:16
+      1  100.0%            LazyCompile: ~session /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:179:26
+      1    1.9%      LazyCompile: ~exports.sign /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/cookie-signature/index.js:16:24
+      1  100.0%        LazyCompile: ~setcookie /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:655:19
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:220:28
+      1  100.0%            LazyCompile: ~writeHead /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/on-headers/index.js:28:29
+      1    1.9%      LazyCompile: ~checkAllAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:840:33
+      1  100.0%        LazyCompile: ~setKey /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:750:24
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:724:52
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    1.9%      LazyCompile: ~SemVer /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:291:17
+      1  100.0%        LazyCompile: ~Comparator.parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:749:39
+      1  100.0%          LazyCompile: ~Comparator /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:714:21
+      1  100.0%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:924:26
+      1    1.9%      LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/finalhandler/node_modules/debug/src/node.js:34:64
+      1  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%          Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/finalhandler/node_modules/debug/src/node.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+      1    1.9%      LazyCompile: *setKey /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:750:24
+      1  100.0%        Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:724:52
+      1  100.0%          /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%            Function: ^applyDefaultsAndAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:723:41
+      1    1.9%      LazyCompile: *h /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:1423
+      1  100.0%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      1  100.0%          Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+      1  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+      1    1.9%      LazyCompile: *concat node:buffer:535:32
+      1  100.0%        Function: ^read /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:953:9
+      1  100.0%          Function: ^processIncomingData /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      1  100.0%            Function: ^_write /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:26:11
+      1    1.9%      LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+      1  100.0%        Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      1  100.0%          Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+      1  100.0%            Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+      1    1.9%      LazyCompile: *<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:810:57
+      1  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:809:35
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    1.9%      Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/color/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      1    1.9%      Function: ^splitRoot node:fs:2362:33
+      1  100.0%        Function: ^realpathSync node:fs:2408:22
+      1  100.0%          Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+      1  100.0%            Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      1    1.9%      Function: ^slaveOk /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/read_preference.js:157:12
+      1  100.0%        Function: ^command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      1  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      1  100.0%            LazyCompile: *processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      1    1.9%      Function: ^removeColors node:internal/util:76:22
+      1  100.0%        Function: ^isBelowBreakLength node:internal/util/inspect:1740:28
+      1  100.0%          Function: ^reduceToSingleString node:internal/util/inspect:1764:30
+      1  100.0%            LazyCompile: *formatRaw node:internal/util/inspect:796:19
+      1    1.9%      Function: ^normalize node:path:1127:12
+      1  100.0%        Function: ^join node:path:1166:7
+      1  100.0%          Function: ^pipe /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/send/index.js:510:43
+      1  100.0%            Function: ^serveStatic /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/serve-static/index.js:72:31
+      1    1.9%      Function: ^nextTick node:internal/process/task_queues:104:18
+      1  100.0%        Function: ^onwrite node:internal/streams/writable:426:17
+      1  100.0%          Function: ^afterWriteDispatched node:internal/stream_base_commons:159:30
+      1  100.0%            Function: ^writeGeneric node:internal/stream_base_commons:151:22
+      1    1.9%      Function: ^getOwn node:internal/bootstrap/loaders:180:16
+      1  100.0%        Function: ^syncExports node:internal/bootstrap/loaders:287:14
+      1  100.0%          Function: ^<anonymous> node:internal/bootstrap/loaders:273:15
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    1.9%      Function: ^checkAllAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:840:33
+      1  100.0%        Function: ^setKey /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:750:24
+      1  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:724:52
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    1.9%      Function: ^_writeRaw node:_http_outgoing:344:19
+      1  100.0%        Function: ^_send node:_http_outgoing:319:49
+      1  100.0%          Function: ^write_ node:_http_outgoing:730:16
+      1  100.0%            Function: ^end node:_http_outgoing:833:45
+      1    1.9%      Function: ^_copyActual node:buffer:242:21
+      1  100.0%        Function: ^concat node:buffer:535:32
+      1  100.0%          Function: ^read /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/utils.js:953:9
+      1  100.0%            Function: ^processIncomingData /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      1    1.9%      Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:809:35
+      1  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%          Function: ^extendAliases /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:808:31
+      1  100.0%            Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:108:10
+      8    1.4%    LazyCompile: *FastBuffer node:internal/buffer:958:14
+      8  100.0%      Function: ^alloc node:buffer:359:30
+      8  100.0%        Function: ^serialize /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/bson.js:111:19
+      8  100.0%          Function: ^serializeBson /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:530:18
+      8  100.0%            Function: ^makeDocumentSegment /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:522:24
+
+    432    1.8%  __write@@GLIBC_2.17
+     29    6.7%    /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    3.4%      LazyCompile: ~validate_config /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:195:25
+      1  100.0%        LazyCompile: ~exports.find /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%          Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1    3.4%      LazyCompile: ~set pathname node:internal/url:922:15
+      1  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%          LazyCompile: ~pathToFileURL node:internal/url:1507:23
+      1  100.0%            Function: ^resolveExports node:internal/modules/cjs/loader:472:24
+      1    3.4%      LazyCompile: ~serializeObjectId /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:208:27
+      1  100.0%        LazyCompile: ~serializeInto /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:550:23
+      1  100.0%          Function: ^serializeObject /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:258:25
+      1  100.0%            LazyCompile: ~serializeInto /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/bson/lib/parser/serializer.js:550:23
+      1    3.4%      LazyCompile: ~replaceCaret /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1029:23
+      1  100.0%        LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1024:48
+      1  100.0%          /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%            LazyCompile: ~replaceCarets /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1023:24
+      1    3.4%      LazyCompile: ~r.conflicting /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:53658
+      1  100.0%        LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:57389
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:47367
+      1  100.0%            LazyCompile: ~j /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:4839
+      1    3.4%      LazyCompile: ~module.exports.get_napi_build_versions /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/util/napi.js:115:50
+      1  100.0%        LazyCompile: ~module.exports.expand_commands /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/util/napi.js:94:42
+      1  100.0%          LazyCompile: ~parseOpts /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:144:37
+      1  100.0%            LazyCompile: ~Run /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:78:13
+      1    3.4%      LazyCompile: ~module.exports /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/winston/lib/winston/create-logger.js:25:27
+      1  100.0%        Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/winston/lib/winston.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    3.4%      LazyCompile: ~module.exports /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/set-blocking/index.js:1:27
+      1  100.0%        Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/npmlog/log.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    3.4%      LazyCompile: ~isIPv4 node:internal/net:31:16
+      1  100.0%        LazyCompile: ~isIP node:internal/net:39:14
+      1  100.0%          LazyCompile: ~lookup node:dns:98:16
+      1  100.0%            LazyCompile: ~<anonymous> node:net:1051:61
+      1    3.4%      LazyCompile: ~formatPrimitive node:internal/util/inspect:1382:25
+      1  100.0%        LazyCompile: ~formatValue node:internal/util/inspect:726:21
+      1  100.0%          LazyCompile: ~formatProperty node:internal/util/inspect:1672:24
+      1  100.0%            LazyCompile: ~formatRaw node:internal/util/inspect:796:19
+      1    3.4%      LazyCompile: ~exports.install /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/whatwg-url/lib/URLSearchParams.js:96:19
+      1  100.0%        Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/whatwg-url/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    3.4%      LazyCompile: ~execute /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:22:12
+      1  100.0%        LazyCompile: ~execute /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/update.js:70:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/operations/execute_operation.js:148:61
+      1  100.0%            LazyCompile: ~processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/topology.js:636:26
+      1    3.4%      LazyCompile: ~callSiteToString /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/depd/lib/compat/index.js:21:76
+      1  100.0%        LazyCompile: ~get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/depd/lib/compat/index.js:54:16
+      1  100.0%          Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/depd/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+      1    3.4%      LazyCompile: ~attach /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/engine.io/build/server.js:461:11
+      1  100.0%        LazyCompile: ~attach /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/engine.io/build/engine.io.js:51:16
+      1  100.0%          LazyCompile: ~initEngine /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/socket.io/dist/index.js:240:15
+      1  100.0%            LazyCompile: ~attach /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/socket.io/dist/index.js:159:11
+      1    3.4%      LazyCompile: ~ServerDescription /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server_description.js:34:16
+      1  100.0%        LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:58:62
+      1  100.0%          Function: ^emit node:events:340:44
+      1  100.0%            LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/monitor.js:200:52
+      1    3.4%      LazyCompile: ~CaseInsensitiveMap /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/connection_string.js:192:16
+      1  100.0%        Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/connection_string.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    3.4%      LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:48390
+      1  100.0%        LazyCompile: ~Jt /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:26935
+      1  100.0%          LazyCompile: ~le.Yargs /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59382
+      1  100.0%            LazyCompile: ~Argv /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/index.cjs:11:14
+      1    3.4%      LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:810:57
+      1  100.0%        /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs-parser/build/index.cjs:809:35
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1    3.4%      LazyCompile: *formatPrimitive node:internal/util/inspect:1382:25
+      1  100.0%        LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+      1  100.0%          LazyCompile: *formatRaw node:internal/util/inspect:796:19
+      1  100.0%            LazyCompile: *formatProperty node:internal/util/inspect:1672:24
+      1    3.4%      Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/ws/lib/websocket.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      1    3.4%      Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/express.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+      1    3.4%      Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/engine.io/node_modules/debug/src/node.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      1    3.4%      Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      1    3.4%      Function: ^writeHead node:_http_server:267:19
+      1  100.0%        Function: ^writeHead /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/on-headers/index.js:28:29
+      1  100.0%          Function: ^_implicitHeader node:_http_server:262:68
+      1  100.0%            Function: ^writetop /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express-session/index.js:270:24
+      1    3.4%      Function: ^write /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:488:15
+      1  100.0%        LazyCompile: *command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      1  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      1  100.0%            LazyCompile: *processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      1    3.4%      Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/commands.js:577:10
+      1  100.0%        Function: ^messageHandler /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:421:35
+      1  100.0%          LazyCompile: *processIncomingData /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/message_stream.js:79:29
+      1  100.0%            LazyCompile: *_write node:internal/streams/writable:284:16
+      1    3.4%      Function: ^normalizeString node:path:66:25
+      1  100.0%        Function: ^resolve node:path:1091:10
+      1  100.0%          Function: ^readPackage node:internal/modules/cjs/loader:290:21
+      1  100.0%            Function: ^readPackageScope node:internal/modules/cjs/loader:321:26
+      1    3.4%      Function: ^command /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection.js:161:12
+      1  100.0%        Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/sdam/server.js:178:42
+      1  100.0%          LazyCompile: *processWaitQueue /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/mongodb/lib/cmap/connection_pool.js:417:26
+      1  100.0%            LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    3.4%      /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      1  100.0%        LazyCompile: ~replaceXRange /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1088:24
+      1  100.0%          LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/semver/semver.js:1083:41
+      1  100.0%            /home/anthony/.nvm/versions/node/v17.1.0/bin/node
+      5    1.2%    LazyCompile: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:54967
+      3   60.0%      LazyCompile: ~parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      3  100.0%        LazyCompile: ~get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+      3  100.0%          Function: ~<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:1:1
+      3  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1051:37
+      2   40.0%      Function: ^parse /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:37960
+      2  100.0%        Function: ^get /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/yargs/build/index.cjs:1:59480
+      2  100.0%          Function: ^<anonymous> /home/anthony/node_projects/16_loggers_gzip_performance/index.js:106:18
+      2  100.0%            Function: ^handle /home/anthony/node_projects/16_loggers_gzip_performance/node_modules/express/lib/router/layer.js:86:49
+
