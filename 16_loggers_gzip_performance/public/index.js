@@ -184,7 +184,8 @@ log_out_button.addEventListener('click', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    setDataUser();
     getData();
     getMessages();
-    setDataUser();
+    
 });
