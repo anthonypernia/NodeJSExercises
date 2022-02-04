@@ -15,16 +15,8 @@ const socketConponent = require("./Components/Sockets");
 const yargs = require("yargs")(process.argv.slice(2));
 const compression = require("compression");
 
-const argv = yargs
-  .default({
-    port: 8080
-  })
-  .alias({
-    p: "port",
-    m: "mode",
-    d: "debug",
-  }).argv;
-const PORT = argv.port;
+
+const PORT = process.env.PORT || 8080;
 // const PORT = parseInt(process.argv[2]);
 //const { fork } = require("child_process");
 //const child = fork("child.js");
